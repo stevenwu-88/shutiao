@@ -6,7 +6,7 @@
 <title>薯條の育兒基地</title>
 <meta name="description" content="前幼師小羊的育兒工具箱：蒙氏活動庫發展里程碑精選團購"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=fgwF31RECuNFYm0QC0x2FCtufdvq9hk3UfoGOUI6ILiy7oFQzFWmtS1_OfbfyAXer_Oogwx47YED17iRN6Am9BTZOJeVmaQsh82oJ4nNXSFMlg1SbpyhHU-C57yQVXsRVAZr5oxTKt3HlxAmaArM_QX3nbopf-ouZw_DYO4ZfKROgQ9561p2zR2LavYq7NmAubrW9MjuRLYNHJujZoGsZDuBxkItZ03OiP0EaSBF4H71eVOfqunVGuHCsDJJWNilf7ZGHtC1SbJUnww3MNKi6jmSWo1HKPKdsja2KXR5Zp3youyLerc4gjNgCsyJ9CaE6oQoiiaPctQzOzbM8eaMtDzBp5l4BGobqh1eBIyjU8Sga9oJG_wNe7NwsLB6xGEGE6KoGCAI8g8CV3Tveg-lwHyz4zC6P_qekqqCN5Uv936Pe9f5iYK2Yd3_SO3zUL987TGWpXgx8RwQbBeRVas_9DvW1C-3kBiGzebLqS7GVjN7VW4qXx1CTfVbmle05AUbvBaSq_iUogOreE6l7BSKzYIfo3JPxm72uH64lZuRCVci_-OkV0e-1tt-upUg3dXpEqldw-bYbKufan8eWphnt9gxn9aUmoZmxJLBSZnLF0CraLjH5ESUD5Zol5qJ-H6OS25g32tHSTmOsilqCYJHpDlzpciYur4JZUcZXtS88Aw" charset="UTF-8"></script><script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=qaPi7Wqd3OfqI2Ve9waxwCBd4nvmjOwApkl0jE1EVrkp_1GmQ7ol7TWn5CnDvpEGuKjK38pugz-6qve85UoUBTxi5qcUCWofH53HJa6GOfAQqxx1y49jr3mCtfn4Cf-Thiv0v24Yy5672wneKWNNcYqV4Mkx7aJSSsQCA05EJSMAmmawWWXHY22V69R9fGLwwA-QE-7IABrDLVcslnSk8X3cIEL7uoPa-F3W17KHaSyvlsgxzfKrsD5abjwG2ZkbwytoyApWHiGjlUwpkpGHg2aQ08JCLgxfzwIXnD5l70ZOd1iukOVju8RFn5k0aqKb0sR5kL7mRR1KPwK9_YHcx4QzSD74dW2q0IHdvXVNZLvWrkG90JtcsqHgycO_hJw5ImRm7WvlRcurKDe0vSVY56uioMHggSXKzok0tKhmbwl0LLjXovtAo-aMa4jnD0akCX64q94iMwoe0-SYLhkAeAClgEsh0e7iOf6Fc1nBbcAmfD09a49A1ai_k27NeYDsqqK5q99N2k5M7J3SpmrJHcp4WCQc_qSrwTzKDjqwAy1q9Nt6EJLmgi2BWYc7GLa3LcvsuLyuS5HUJ0g9SU2Ese-d9a6fhStUEgCJbPypFIbcdT_ggAv-13K4Vlh-cnjOFbdyJ5ahXga_hO5uqYsPeE4gwtAl70LAnHeeHJPoYGc" charset="UTF-8"></script><script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -179,7 +179,9 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;font-weight:500;color:var(--g);
  cursor:pointer;transition:all .18s;white-space:nowrap;
 }
-.fpill:hover,.fpill.on{background:var(--dark);border-color:var(--dark);color:#fff}
+.fpill:hover{background:var(--dark);border-color:var(--dark);color:#fff}
+.fpill.on{background:var(--dark);border-color:var(--dark);color:#fff}
+.fpill[data-age="all"].on,.fpill[data-type="all"].on{background:#fff;border-color:var(--g);color:var(--g)}
 
 /* ── ACTIVITY CARDS ── */
 .act-grid{display:flex;flex-direction:column;gap:10px}
@@ -538,9 +540,8 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 </style>
 </head>
 <body>
+<div id="flashOverlay" style="position:fixed;inset:0;background:#fff;z-index:500;pointer-events:none;opacity:0;display:none"></div>
 
- <button class="lb-close" onclick="document.getElementById('lineBanner').classList.add('hide')" aria-label="關閉"></button>
-</div>
 
 <!-- ── HEADER ── -->
 <div class="hdr">
@@ -751,7 +752,6 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
    <div class="uc-body"><div class="uc-name">舒爾特・顯微鏡</div><div class="uc-range">6/22 – 6/30</div></div>
    <div class="uc-countdown"><div class="uc-days-num" id="uc-22b">--</div><div class="uc-days-lab">天後開團</div></div>
    <button class="uc-bell-btn" onclick="toggleBell(this,'舒爾特・顯微鏡','2026-06-22')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
-  </div>
   </div>
  </div>
 
@@ -1478,36 +1478,43 @@ function closeOv(e, force) {
  }
 }
 function drawFortune() {
- if (drawn) return;
- drawn = true;
- var c = document.getElementById('crystal');
- c.classList.add('spin');
- document.getElementById('cicon').textContent = '';
- setTimeout(function() {
-  var f = FORT[Math.floor(Math.random() * FORT.length)];
-  var r = document.getElementById('result');
-  var sw = document.getElementById('r-swatch');
-  sw.style.background = f.color;
-  sw.style.border = '3px solid ' + (f.border || 'rgba(255,255,255,.8)');
-  document.getElementById('r-msg').textContent = f.msg;
-  document.getElementById('r-child-text').textContent = f.child;
-  document.getElementById('r-mom-text').textContent = f.mom;
-  var bgAlpha = f.rare ? f.color + '33' : f.color + '18';
-  r.style.background = bgAlpha;
-  r.style.border = '2px solid ' + (f.border || f.color);
-  r.classList.add('show');
-  r.classList.remove('rare-gold','rare-silver');
-  r.style.boxShadow = '';
-  if(f.rareType === 'gold' || f.rareType === 'silver'){
-   var fl=document.getElementById('flashOverlay');
-   fl.classList.remove('go'); void fl.offsetWidth; fl.classList.add('go');
-   if(f.rareType==='gold') r.classList.add('rare-gold');
-   else r.classList.add('rare-silver');
-   setTimeout(launchConfetti,350);setTimeout(launchConfetti,900);
-  }
-  c.style.opacity = '.4';
-  c.style.pointerEvents = 'none';
- }, 650);
+  if (drawn) return;
+  drawn = true;
+  var c = document.getElementById('crystal');
+  c.classList.add('spin');
+  document.getElementById('cicon').innerHTML = '<i class="ph-bold ph-sparkle"></i>';
+  setTimeout(function() {
+    var f = FORT[Math.floor(Math.random() * FORT.length)];
+    var r = document.getElementById('result');
+    r.classList.remove('show','rare-gold','rare-silver');
+    r.style.boxShadow = '';
+    document.getElementById('r-swatch').style.background = f.color;
+    document.getElementById('r-swatch').style.border = '3px solid ' + (f.border || 'rgba(255,255,255,.8)');
+    document.getElementById('r-msg').textContent = f.msg;
+    document.getElementById('r-child-text').textContent = f.child;
+    document.getElementById('r-mom-text').textContent = f.mom;
+    r.style.background = f.rare ? f.color + '33' : f.color + '18';
+    r.style.border = '2px solid ' + (f.border || f.color);
+    r.classList.add('show');
+    if (f.rareType === 'gold' || f.rareType === 'silver') {
+      var fl = document.getElementById('flashOverlay');
+      if (fl) {
+        fl.style.display = 'block';
+        fl.style.opacity = '0.9';
+        fl.style.transition = 'opacity 0.7s ease';
+        setTimeout(function() {
+          fl.style.opacity = '0';
+          setTimeout(function() { fl.style.display = 'none'; }, 700);
+        }, 50);
+      }
+      if (f.rareType === 'gold') r.classList.add('rare-gold');
+      else r.classList.add('rare-silver');
+      setTimeout(function() { launchConfetti(); }, 300);
+      setTimeout(function() { launchConfetti(); }, 850);
+    }
+    c.style.opacity = '.4';
+    c.style.pointerEvents = 'none';
+  }, 650);
 }
 function resetFortune() {
  drawn = false;
