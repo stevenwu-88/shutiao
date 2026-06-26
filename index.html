@@ -735,6 +735,45 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
    <div class="uc-countdown"><div class="uc-days-num" id="uc-06b">--</div><div class="uc-days-lab">天後開團</div></div>
    <button class="uc-bell-btn" onclick="toggleBell(this,'奈米水霧冰峰機','2026-07-06')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
   </div>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. 自動抓取畫面上所有的團購卡片（支援多檔活動同時存在）
+    const cards = document.querySelectorAll('.uc-card');
+
+    cards.forEach(card => {
+        // 2. 獲取該卡片的開始時間與要填入的數字元素
+        const startDateStr = card.getAttribute('data-start');
+        const numElement = card.querySelector('.uc-days-num');
+        const labElement = card.querySelector('.uc-days-lab');
+
+        // 安全檢查：若缺少欄位或沒有設定日期，跳過不處理
+        if (!startDateStr || !numElement) return;
+
+        // 3. 設定目標時間與目前時間（統一設定在開團當日凌晨 00:00:00）
+        const startDate = new Date(startDateStr + "T00:00:00").getTime();
+        const now = new Date().getTime();
+
+        // 4. 計算時間差（毫秒換算成天數，並無條件進位確保倒數合理）
+        const timeDiff = startDate - now;
+        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+        // 5. 根據剩餘天數判定顯示邏輯
+        if (daysLeft > 0) {
+            numElement.innerText = daysLeft; // 顯示正確的「X」天後開團
+        } else if (daysLeft === 0) {
+            numElement.innerText = "0";
+            if (labElement) labElement.innerText = "今天開團！";
+        } else {
+            // 已過開團時間，改為進行中或隱藏
+            numElement.innerText = "";
+            if (labElement) {
+                labElement.innerText = "已開團";
+                labElement.style.color = "#888888"; // 字體變灰
+            }
+        }
+    });
+});
+</script>
  </div>
 
  <!-- 長期優惠 -->
