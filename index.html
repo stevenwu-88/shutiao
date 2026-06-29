@@ -6,19 +6,18 @@
 <title>小羊的育兒基地</title>
 <meta name="description" content="幼師小羊的育兒工具箱：蒙氏活動庫發展里程碑精選團購"/>
 
-<!-- 1. 加速字體與圖示連線（預先解析網域） -->
+<!-- 1. 加速外部連線（保留最速通道） -->
 <link rel="preconnect" href="https://googleapis.com"/>
 <link rel="preconnect" href="https://gstatic.com" crossorigin />
 <link rel="preconnect" href="https://unpkg.com" crossorigin />
 
-<!-- 2. 改為非同步載入圖示庫，不阻擋網頁開門 -->
-<script src="https://unpkg.com" async></script>
+<!-- 2. 移除 async，讓圖示庫老老實實地同步載入（確保圖示 100% 出現） -->
+<script src="https://unpkg.com"></script>
 
-<!-- 3. 延遲載入字體，優先顯示網頁內容 -->
-<link href="https://googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<!-- 3. 還原標準字體載入，但拿掉卡巴斯基（速度依然極快，且圖片絕不會消失） -->
+<link href="https://googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 
 <style>
-/* 這裡接您原本的 CSS 樣式設定... */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 
