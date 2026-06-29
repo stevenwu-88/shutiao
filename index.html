@@ -605,7 +605,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
     <button class="fpill" data-type="大小肌肉"><i class="ph-bold ph-person-simple-run"></i> 大小肌肉</button>
   </div>
  <div class="act-grid" id="act-grid"></div>
- <div class="footer" style="margin-top:12px">持續新增中 · 歡迎分享給需要的媽媽朋友 </div>
+ <div class="footer" style="margin-top:12px">持續新增中 · 歡迎分享給需要的朋友 </div>
 </div>
 
 <!-- ══ PAGE: 里程碑 ══ -->
@@ -639,43 +639,6 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <span class="ssl-sub">截止就沒了</span>
  </div>
  <div class="gb-cards">
-
-  <!-- Card 1: Quut -->
-  <div class="gb-card" data-deal-end="2026-05-31">
-   <div class="gb-card-top">
-    <div class="gb-card-icon" style="background:#FFF0E6"><i class="ph-bold ph-umbrella-simple"></i></div>
-    <div class="gb-card-info">
-     <div class="gb-brand">Quut</div>
-     <div class="gb-name">高貴不貴挖沙玩水好朋友</div>
-     <div class="gb-desc">夏天必備！沙灘沙坑家裡通通能玩，CP 值超高</div>
-    </div>
-   </div>
-   <div class="gb-timer-wrap">
-    <span class="gb-timer-label"><i class="ph-bold ph-timer"></i> 倒數</span>
-    <div class="gb-countdown" id="cd-quut">
-     <div class="gb-unit"><div class="gb-num" id="cd-quut-d">--</div><div class="gb-ulab">天</div></div>
-     <span class="gb-sep">:</span>
-     <div class="gb-unit"><div class="gb-num" id="cd-quut-h">--</div><div class="gb-ulab">時</div></div>
-     <span class="gb-sep">:</span>
-     <div class="gb-unit"><div class="gb-num" id="cd-quut-m">--</div><div class="gb-ulab">分</div></div>
-     <span class="gb-sep">:</span>
-     <div class="gb-unit"><div class="gb-num" id="cd-quut-s">--</div><div class="gb-ulab">秒</div></div>
-    </div>
-   </div>
-   <div class="gb-card-bottom">
-    <div class="gb-end-date">截止 <span>5/31</span></div>
-    <a class="gb-btn" href="https://pse.is/94syr6" target="_blank">立刻搶購 →</a>
-   </div>
-  </div>
-
-  <!-- Card 2: 睡墊 -->
-  <div class="gb-card" data-deal-end="2026-06-07">
-   <div class="gb-card-top">
-    <div class="gb-card-icon" style="background:#FFF0E6"><i class="ph-bold ph-moon"></i></div>
-    <div class="gb-card-info">
-     <div class="gb-brand">兒童寢具</div>
-     <div class="gb-name">兒童睡墊 ＋ 冰冰被</div>
-     <div class="gb-desc">夏日涼感必備，透氣好眠，孩子睡得好媽媽才能休息</div>
     </div>
    </div>
    <div class="gb-timer-wrap">
@@ -811,7 +774,7 @@ document.addEventListener("DOMContentLoaded", function() {
  <div class="link-list">
   <a class="lc lc-s" href="https://shpe.site/shu_tiao0409" target="_blank">
    <div class="ci ci-s"><i class="ph-bold ph-shopping-bag"></i></div>
-   <div class="lct"><div class="lct-name">更多小羊推薦的蝦皮好物</div><div class="lct-sub">用過真心喜歡才推</div></div>
+   <div class="lct"><div class="lct-name">更多小羊推薦的蝦皮好物</div><div class="lct-sub">家裡自用真心喜歡才推</div></div>
    <span class="arr">›</span>
   </a>
   <a class="lc lc-s" href="https://line.me/ti/g2/64mkpVAvibHi1Ya-jQI7-lsA2s4Co7du4wMyTQ" target="_blank">
@@ -850,7 +813,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 <!-- ── FORTUNE FAB ── -->
-<button class="fab" onclick="openFortune()"><span class="fi"></span><span class="fl">幸運色</span></button>
+<button class="fab" onclick="openFortune()"><span class="fi"></span><span class="fl">育兒小幸運</span></button>
 
 <!-- ── FORTUNE MODAL ── -->
 <div class="ov" id="ov" onclick="closeOv(event)">
@@ -858,10 +821,10 @@ document.addEventListener("DOMContentLoaded", function() {
   <button class="m-close" onclick="closeOv(null,true)"></button>
   <div class="m-handle"></div>
   <div class="m-title"> 今日育兒幸運色</div>
-  <div class="m-sub">轉動色輪，抽出今天的幸運色補充育兒能量 </div>
+  <div class="m-sub">抽出今天的幸運色補充育兒能量 </div>
   <div class="crystal-wrap">
    <button class="crystal" id="crystal" onclick="drawFortune()">
-    <span id="cicon" style="font-size:2rem"><i class="ph-bold ph-palette"></i></span><span class="cl">點我抽幸運色</span>
+    <span id="cicon" style="font-size:2rem"><i class="ph-bold ph-palette"></i></span><span class="cl">補充育兒小幸運</span>
    </button>
   </div>
   <div class="result" id="result">
@@ -904,7 +867,7 @@ document.getElementById('avatarBtn').addEventListener('click', function() {
   _hc++;
   var h = document.getElementById('heartPop');
   h.classList.remove('go'); void h.offsetWidth; h.classList.add('go');
-  if (_hc >= 10) {
+  if (_hc >= 3) {
     _hc = 0;
     document.getElementById('avatarBtn').classList.add('heart-dance');
     launchConfetti();
@@ -1428,59 +1391,59 @@ function hideExpiredDeals() {
 hideExpiredDeals();
 setInterval(hideExpiredDeals, 60000);
 
-// ── FORTUNE: 今日育兒幸運物 ──
+// ── FORTUNE: 今日育兒小幸運 ──
 // Normal items (weight 3 each), Gold/Silver (weight 1 each)
 // 8 normal × 4 = 32, gold × 3, silver × 3 = 38 → each rare ~8%, combined ~16%
 var FORT_BASE = [
  {color:"#DC383F", rareType:"",
   msg:"今天是充滿熱情的一天，把愛大聲說出口吧！",
-  child:"跟孩子來一個火熱的抱抱，抱緊了說我好愛你，感受那個小身體回抱你的力道",
-  mom:"別忘了擦上口紅，你值得美美的媽媽有好氣色，孩子眼中的你最閃亮 ",
+  child:"跟孩子來一個火熱抱抱，抱緊了說我好愛你，感受那個小身體回抱你的力道",
+  mom:"別忘了擦上口紅，你值得美美的，孩子眼中的你最閃亮 ",
   rare:false,border:""},
  {color:"#FE7D2F", rareType:"",
-  msg:"活力滿滿！今天的你，能量比任何人都充足",
-  child:"帶孩子去戶外跑跳，跑累了一起躺在草地上看天空，什麼都不說也很好",
-  mom:"去清一清購物車裡收藏已久的東西，挑一樣買下來花在自己身上，不需要理由 ",
+  msg:"活力滿滿的一天！今天的你，能量充足",
+  child:"帶孩子去戶外跑跳，跑累了一起躺在草地上看看天空",
+  mom:"舞動身體吧邊洗碗邊唱歌，快樂是自己給的 ",
   rare:false,border:""},
  {color:"#FBC02C", rareType:"",
   msg:"今天的你像陽光一樣溫暖，照亮身邊的每一個人",
-  child:"找一個陽光角落，和孩子一起唱一首歌或唸一首兒歌，聲音本身就是最好的安撫",
-  mom:"今天打個電話給久沒聯絡的好友，不聊育兒也沒關係，聊聊你自己就好 ",
+  child:"找一個陽光灑進來的角落，和孩子一起唱一首兒歌",
+  mom:"今天打個電話給久沒聯絡的好友，回到青春的少女時代 ",
   rare:false,border:""},
  {color:"#A1B191", rareType:"",
-  msg:"慢下來也沒關係，今天跟著孩子的節奏走就好",
-  child:"帶孩子去撿一片葉子摸摸土聞聞花香，讓大自然治癒你們兩個人",
-  mom:"就躺著發呆吧！休息放空就是對自己最好的犒賞，媽媽也有權利什麼都不做 ",
+  msg:"慢下來跟著孩子的節奏走就好",
+  child:"帶孩子去撿一片葉子摸摸土聞聞花香，讓大自然治癒你們",
+  mom:"躺著發呆吧！休息放空就是對自己最好的犒賞 ",
   rare:false,border:""},
  {color:"#73A5C0", rareType:"",
-  msg:"今天適合靜靜地陪，用眼神和孩子說話就夠了",
-  child:"睡前唸一本孩子喜歡的繪本，讓故事帶你們一起去旅行，讀到他睡著也沒關係",
-  mom:"今晚孩子睡著後窩進沙發追一集一直想看的劇，不需要生產力，你就是可以放空 ",
+  msg:"今天適合靜靜的，用眼神和孩子說話就夠了",
+  child:"睡前唸一本孩子喜歡的繪本，讓故事帶你們一起去旅行",
+  mom:"窩進沙發追一集一直想看的劇，讓自己休息一下 ",
   rare:false,border:""},
  {color:"#9B59B6", rareType:"",
-  msg:"今天有點魔法氣息，孩子會讓你看見世界有多美妙",
-  child:"和孩子一起做一個小點心，廚房就是最好的感統教室，結果好不好吃都不重要",
-  mom:"拍一張自己的照片，不需要化妝，不需要濾鏡努力的你最美 ",
+  msg:"孩子的魔法會讓你看見世界有多美妙",
+  child:"和孩子一起做小點心，廚房就是最好的感統教室，結果好不好吃不重要",
+  mom:"拍一張自己的照片，努力的你就是最美的 ",
   rare:false,border:""},
  {color:"#2C2C2C", rareType:"",
-  msg:"沉穩的你，今天就是孩子最安全的港灣",
-  child:"陪孩子玩一個他主導的遊戲，今天讓他當主角，你只要在旁邊笑著看就好",
-  mom:"靜靜地讀一本書，哪怕只有十分鐘忙裡偷閒一下，大腦需要不同頻道的滋養 ",
+  msg:"沉穩的你，就是孩子最安全的港灣",
+  child:"讓孩子當主角，陪著他辦家家酒真可愛",
+  mom:"靜靜地讀一本書，大腦需要不同頻道的滋養 ",
   rare:false,border:""},
  {color:"#F0EDE8", rareType:"",
-  msg:"清爽的一天，把不需要的都放下，輕盈地前進",
-  child:"和孩子一起整理家裡一個小角落，讓空間清爽，心情也跟著乾淨起來",
-  mom:"今天穿上讓你感覺自信的那件衣服，好看的不只是外表，是你整個人的狀態 ",
+  msg:"清爽的一天，輕盈的前進",
+  child:"和孩子一起整理家裡一個小角落，讓空間和心情都保持清爽",
+  mom:"穿上讓你感覺自信的那件衣服，好看的是你整個人的狀態 ",
   rare:false,border:"#d0ccc8"},
  {color:"#D4AF37", rareType:"gold",
-  msg:" 恭喜！你抽到了隱藏金色款，今天特別幸運！",
-  child:"帶孩子做一件平常不太做的事，去一個新地方嘗一個新食物，創造獨一無二的回憶",
-  mom:"你就是最閃亮的媽媽今天把最美的自己帶出門，世界因為你更耀眼 ",
+  msg:" 恭喜！金色隱藏，你今天特別幸運！",
+  child:"帶孩子做一件平常不太做的事，創造獨一無二的回憶",
+  mom:"購物車挑一件你看好久的商品結帳，你值得 ",
   rare:true,border:"#c9a227"},
  {color:"#C0C0C0", rareType:"silver",
-  msg:" 銀色幸運降臨！意想不到的驚喜正在路上",
-  child:"和孩子一起抬頭看看天空，找找雲的形狀，說不定今天有意想不到的發現",
-  mom:"有什麼一直想做但沒做的小事嗎？今天就去做吧，好事正在等著你",
+  msg:" 銀色幸運降臨！驚喜正在路上",
+  child:"和孩子一起抬頭看看天空，陪著他天馬行空",
+  mom:"有什麼一直想做但沒做的事嗎？今天就去做吧!",
   rare:true,border:"#a0aab0"}
 ];
 var FORT = [];
