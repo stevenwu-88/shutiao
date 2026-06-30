@@ -1488,95 +1488,101 @@ function resetFortune() {
 </script>
 </body>
 </html>
+<!-- 完全替換網頁最底部的 script 區塊 -->
 <script>
-  const avatarBtn = document.querySelector('.avatar-btn');
-  let clickCount = 0;
+  (function() {
+    let clickCount = 0;
 
-  if (avatarBtn) {
-    avatarBtn.addEventListener('click', (e) => {
-      clickCount++;
+    // 安全啟動：確保網頁元素都準備好，且絕不因報錯中斷網頁
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const avatarBtn = document.querySelector('.avatar-btn');
+        if (!avatarBtn) return;
 
-      // 1. 每點一次，就噴出一顆跟隨滑鼠位置的普通小愛心
-      createSingleHeart(e);
+        avatarBtn.addEventListener('click', (e) => {
+          // 阻止事件影響其他元件
+          e.stopPropagation(); 
+          clickCount++;
 
-      // 2. 當累積點滿 3 下，觸發頭像搖擺 + 愛心大噴發！
-      if (clickCount === 3) {
-        // 觸發頭像搖擺
-        avatarBtn.classList.add('heart-dance');
-        setTimeout(() => {
-          avatarBtn.classList.remove('heart-dance');
-        }, 2400); // 搖擺 2.4 秒後恢復
+          // 1. 普通小愛心（點擊位置）
+          createHeart(e.clientX, e.clientY);
 
-        // 觸發愛心大噴發（一口氣噴 15 顆！）
-        for (let i = 0; i < 15; i++) {
-          setTimeout(() => {
-            createBurstHeart();
-          }, i * 30); // 帶有一點點微小的時間差，噴發更有層次感
-        }
+          // 2. 累積滿 3 下，觸發大噴發與搖擺
+          if (clickCount === 3) {
+            // 觸發頭像搖擺
+            avatarBtn.classList.add('heart-dance');
+            setTimeout(() => {
+              avatarBtn.classList.remove('heart-dance');
+            }, 2400);
 
-        // 歸零計數，下次再點 3 下可以再噴一次
-        clickCount = 0;
+            // 取得頭像中心點絕對位置，精準定位大噴發
+            const rect = avatarBtn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // 噴發 15 顆愛心
+            for (let i = 0; i < 15; i++) {
+              setTimeout(() => {
+                createHeart(centerX, centerY, true);
+              }, i * 30);
+            }
+
+            clickCount = 0;
+          }
+        });
+      } catch (err) {
+        console.error("愛心特效暫時無法執行，但不影響網頁功能:", err);
       }
     });
-  }
 
-  // 函式 A：滑鼠點擊時產生單顆愛心
-  function createSingleHeart(e) {
-    const heart = document.createElement('div');
-    heart.innerHTML = '❤️';
-    heart.style.position = 'fixed';
-    heart.style.left = `${e.clientX}px`;
-    heart.style.top = `${e.clientY}px`;
-    heart.style.transform = 'translate(-50%, -50%)';
-    heart.style.fontSize = '1.5rem';
-    heart.style.pointerEvents = 'none';
-    heart.style.zIndex = '9999';
-    heart.style.transition = 'all 0.8s ease-out';
-    document.body.appendChild(heart);
+    // 核心噴發函式：改用 fixed 全螢幕絕對穿透定位，絕不卡死其他按鈕
+    function createHeart(x, y, isBurst = false) {
+      try {
+        const heart = document.createElement('div');
+        const hearts = ['❤️', '💖', '💝', '💕', '💗'];
+        
+        heart.innerHTML = isBurst ? hearts[Math.floor(Math.random() * hearts.length)] : '❤️';
+        heart.style.position = 'fixed';
+        heart.style.left = `${x}px`;
+        heart.style.top = `${y}px`;
+        heart.style.transform = 'translate(-50%, -50%) scale(0)';
+        heart.style.pointerEvents = 'none'; // 🔴 幽靈屬性：滑鼠100%直接穿透，絕對不擋按鈕
+        heart.style.zIndex = '99999';       // 確保在最上層，但看得到、點不到
+        heart.style.userSelect = 'none';
+        
+        if (isBurst) {
+          heart.style.fontSize = `${Math.random() * 1.3 + 1.2}rem`;
+          heart.style.transition = 'all 1.2s cubic-bezier(0.1, 0.8, 0.3, 1)';
+        } else {
+          heart.style.fontSize = '1.5rem';
+          heart.style.transition = 'all 0.8s ease-out';
+        }
 
-    // 隨機往上飛散的左右位移
-    const moveX = (Math.random() - 0.5) * 60;
-    const moveY = -(Math.random() * 80 + 40);
+        document.body.appendChild(heart);
 
-    requestAnimationFrame(() => {
-      heart.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(0)`;
-      heart.style.opacity = '0';
-    });
+        // 計算噴發軌跡
+        let moveX, moveY;
+        if (isBurst) {
+          const angle = Math.random() * Math.PI * 2;
+          const distance = Math.random() * 100 + 60;
+          moveX = Math.cos(angle) * distance;
+          moveY = Math.sin(angle) * distance - 20; // 微飄上
+        } else {
+          moveX = (Math.random() - 0.5) * 50;
+          moveY = -(Math.random() * 60 + 30); // 向上飄
+        }
 
-    setTimeout(() => heart.remove(), 800);
-  }
+        // 動畫啟動
+        requestAnimationFrame(() => {
+          heart.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(${isBurst ? 1.3 : 0})`;
+          heart.style.opacity = '0';
+        });
 
-  // 函式 B：第三下時從頭像中心大噴發的愛心群
-  function createBurstHeart() {
-    const wrap = document.querySelector('.avatar-wrap');
-    if (!wrap) return;
-
-    const heart = document.createElement('div');
-    // 隨機換不同的愛心符號，看起來更豐富
-    const hearts = ['❤️', '💖', '💝', '💕', '💗'];
-    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-    
-    heart.style.position = 'absolute';
-    heart.style.left = '50%';
-    heart.style.top = '50%';
-    heart.style.transform = 'translate(-50%, -50%) scale(0)';
-    heart.style.fontSize = `${Math.random() * 1.5 + 1.2}rem`; // 隨機尺寸
-    heart.style.pointerEvents = 'none';
-    heart.style.zIndex = '10';
-    heart.style.transition = 'all 1.2s cubic-bezier(0.1, 0.8, 0.3, 1)'; // 爆發流暢曲線
-    wrap.appendChild(heart);
-
-    // 360度隨機放射狀飛散
-    const angle = Math.random() * Math.PI * 2;
-    const distance = Math.random() * 120 + 80; // 飛散半徑
-    const moveX = Math.cos(angle) * distance;
-    const moveY = Math.sin(angle) * distance - 30; // 稍微往飄
-
-    requestAnimationFrame(() => {
-      heart.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(1.3)`;
-      heart.style.opacity = '0';
-    });
-
-    setTimeout(() => heart.remove(), 1200);
-  }
+        // 完畢後確實從網頁記憶體中移除
+        setTimeout(() => heart.remove(), isBurst ? 1200 : 800);
+      } catch (e) {
+        // 即使單顆愛心產生失敗，也默默跳過，不讓網頁癱瘓
+      }
+    }
+  })();
 </script>
