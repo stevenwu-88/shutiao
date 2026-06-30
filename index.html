@@ -1488,3 +1488,46 @@ function resetFortune() {
 </script>
 </body>
 </html>
+<script>
+  const avatarBtn = document.querySelector('.avatar-btn');
+  const heartPop = document.querySelector('.heart-pop');
+  let clickCount = 0;
+  let clickTimer = null;
+
+  if (avatarBtn) {
+    avatarBtn.addEventListener('click', () => {
+      clickCount++;
+
+      // 每次點擊都噴小愛心（維持原功能）
+      if (heartPop) {
+        // 先移除舊的動畫 class
+        heartPop.classList.remove('go');
+        // 瞬間刷新 DOM 讓動畫可以重複觸發
+        void heartPop.offsetWidth; 
+        // 加上 go 讓愛心飛出來
+        heartPop.classList.add('go');
+      }
+
+      // 當連點滿 3 下，觸發大搖擺！
+      if (clickCount === 3) {
+        avatarBtn.classList.add('heart-dance');
+        
+        // 0.4秒 * 6次 = 2400毫秒，搖完後自動移除特效，下次才能再玩
+        setTimeout(() => {
+          avatarBtn.classList.remove('heart-dance');
+        }, 2400); 
+
+        // 觸發大招後重置計數
+        clickCount = 0;
+        clearTimeout(clickTimer);
+        return;
+      }
+
+      // 如果點擊間隔超過 0.8 秒，次數就會歸零重算
+      clearTimeout(clickTimer);
+      clickTimer = setTimeout(() => {
+        clickCount = 0;
+      }, 800); 
+    });
+  }
+</script>
