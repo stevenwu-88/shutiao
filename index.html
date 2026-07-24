@@ -658,10 +658,10 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
    <div class="uc-countdown"><div class="uc-days-num" id="uc-20260720">--</div><div class="uc-days-lab">天後開團</div></div>
    <button class="uc-bell-btn" onclick="toggleBell(this,'OGAWA 父親節禮物','2026-07-20')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
    </div>
-<div class="uc-card" data-name="Brille Beille防曬帽" data-start="2026-07-24" data-end="2026-07-30" data-icon="ph-baseball-cap" data-desc="防潑水又透氣孩子才帶得住">
+<div class="uc-card" data-name="Brille Beille防曬帽" data-start="2026-07-24" data-end="2026-07-30" data-icon="ph-baseball-cap" data-link="https://reurl.cc/jV8XQ1" data-desc="防潑水又透氣孩子才帶得住">
    <div class="uc-date-box"><div class="uc-month">JUL</div><div class="uc-day">24</div></div>
    <div class="uc-body"><div class="uc-name">Brille Beille防曬帽</div><div class="uc-range">7/24 – 7/30</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-20260724">--</div><div class="uc-days-lab">天後開團</div></div>
+   <div class="uc-countdown"><div class="uc-days-num">--</div><div class="uc-days-lab">天後開團</div></div>
    <button class="uc-bell-btn" onclick="toggleBell(this,'Brille Beille防曬帽','2026-07-24')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
   </div>
   <div class="uc-card" data-name="loveye 墨鏡補貨" data-start="2026-07-27" data-end="2026-08-09" data-icon="ph-sunglasses" data-desc="墨鏡亂買更傷眼，不如不戴">
@@ -685,7 +685,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 <div class="uc-card" data-name="pure yu葉黃素" data-start="2026-08-10" data-end="2026-08-23" data-icon="ph-eye" data-link="https://1shop-app.com" data-desc="複方配方晶亮水潤">
    <div class="uc-date-box"><div class="uc-month">AUG</div><div class="uc-day">10</div></div>
    <div class="uc-body"><div class="uc-name">pure yu葉黃素</div><div class="uc-range">8/10 – 8/23</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-2026081010">--</div><div class="uc-days-lab">天後開團</div></div>
+   <div class="uc-countdown"><div class="uc-days-num">--</div><div class="uc-days-lab">天後開團</div></div>
    <button class="uc-bell-btn" onclick="toggleBell(this,'pure yu葉黃素','2026-08-10')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
 </div>
  <div class="uc-card" data-name="芒狗狗財商新品" data-start="2026-08-17" data-end="2026-08-23" data-icon="ph-book-open" data-link="https://2yxshq.1shop-app.com/6p3krr" data-desc="正確價值觀理財教育不能晚">
@@ -1288,10 +1288,15 @@ setInterval(tickAll, 1000);
 function checkUpcoming() {
   var today = new Date(); today.setHours(0,0,0,0);
   var activeContainer = document.querySelector('.gb-cards');
+  var now   = new Date();
+  
   document.querySelectorAll('.uc-card[data-start]').forEach(function(card) {
-    var start = new Date(card.dataset.start); start.setHours(0,0,0,0);
-    var end   = new Date(card.dataset.end);   end.setHours(23,59,59,0);
-    var now   = new Date();
+    // 統一處理日期格式（相容 - 或 /）
+    var startStr = card.dataset.start.replace(/-/g, '/');
+    var endStr = card.dataset.end.replace(/-/g, '/');
+    var start = new Date(startStr); start.setHours(0,0,0,0);
+    var end   = new Date(endStr);   end.setHours(23,59,59,0);
+    
     if (start <= today && now <= end) {
       var name = card.dataset.name;
       var icon = card.dataset.icon || 'ph-tag';
@@ -1340,6 +1345,19 @@ function checkUpcoming() {
       card.style.display = 'none'; // hide from upcoming
     } else if (now > end) {
       card.style.display = 'none'; // past, hide
+    } else {
+      // 🌟【全新修正：處理未開團卡片的倒數】🌟
+      var numEl = card.querySelector('.uc-days-num');
+      if (numEl) {
+        var diffTime = start.getTime() - today.getTime();
+        var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (diffDays > 0) {
+          numEl.textContent = diffDays;
+        } else {
+          numEl.textContent = '0';
+        }
+      }
+      card.style.display = ''; // 確保未開團卡片正常顯示
     }
   });
 }
@@ -1350,7 +1368,7 @@ function hideExpiredDeals() {
   var now = new Date();
   // Hide cards with data-deal-end attribute
   document.querySelectorAll('.gb-card[data-deal-end]').forEach(function(card) {
-    var end = new Date(card.getAttribute('data-deal-end'));
+    var end = new Date(card.getAttribute('data-deal-end').replace(/-/g, '/'));
     end.setHours(23,59,59,0);
     if (now > end) { card.style.display = 'none'; }
   });
