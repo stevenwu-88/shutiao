@@ -768,11 +768,21 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 <!-- ── TAB BAR ── -->
 <div class="tab-bar" id="tab-bar">
  <div class="tab-ind" id="tab-ind"></div>
- <button class="tab-btn active" data-tab="play"><span class="ti"><i class="ph-bold ph-game-controller"></i></span><span class="tl">玩什麼</span></button>
+ <!-- 1. 已將 active 從「玩什麼」移除 -->
+ <button class="tab-btn" data-tab="play"><span class="ti"><i class="ph-bold ph-game-controller"></i></span><span class="tl">玩什麼</span></button>
  <button class="tab-btn" data-tab="milestone"><span class="ti"><i class="ph-bold ph-chart-bar-horizontal"></i></span><span class="tl">里程碑</span></button>
- <button class="tab-btn" data-tab="shop"><span class="ti"><i class="ph-bold ph-shopping-bag"></i></span><span class="tl">開團中</span></button>
+ <!-- 2. 已將 active 加到「開團中」 -->
+ <button class="tab-btn active" data-tab="shop"><span class="ti"><i class="ph-bold ph-shopping-bag"></i></span><span class="tl">開團中</span></button>
  <button class="tab-btn" data-tab="links"><span class="ti"><i class="ph-bold ph-link-simple"></i></span><span class="tl">育兒資源</span></button>
 </div>
+
+<!-- 3. 新增這段修正檔：網頁一打開，自動模擬點擊「開團中」按鈕，確保內容頁面同步切換 -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var shopBtn = document.querySelector('.tab-btn[data-tab="shop"]');
+    if (shopBtn) { shopBtn.click(); }
+  });
+</script>
 
 <!-- ── FORTUNE FAB ── -->
 <button class="fab" onclick="openFortune()"><span class="fi"></span><span class="fl">幸運色</span></button>
