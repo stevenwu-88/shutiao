@@ -635,14 +635,13 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
  </div>
  <div class="gb-cards" id="current-group-container"></div>
 
-<!-- 即將開團 -->
+ <!-- 即將開團 -->
  <div class="shop-section-label">
   <span class="ssl-badge ssl-badge-b"><i class="ph-bold ph-calendar-dots"></i> 即將開團</span>
   <span class="ssl-title">開啟通知</span>
   <span class="ssl-sub">按鈴自動加行事曆</span>
  </div>
  <div class="gb-cards" id="upcoming-group-container"></div>
-
 </div>
 
 <!-- 📦 統一開團資料庫 (隱藏不顯示) -->
@@ -655,10 +654,12 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 </div>
 <script>
 (function() {
+  // 防止重複載入防護鎖
   if (window.hasGbInitialized) return;
   window.hasGbInitialized = true;
 
   document.addEventListener("DOMContentLoaded", function () {
+    // 1. 初始化容器並清空舊內容（徹底解決重複產生問題）
     const currentContainer = document.getElementById("current-group-container");
     const upcomingContainer = document.getElementById("upcoming-group-container");
     if (!currentContainer || !upcomingContainer) return;
@@ -666,6 +667,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
     currentContainer.innerHTML = "";
     upcomingContainer.innerHTML = "";
 
+    // 2. 獲取本地當前時間並去除時分秒
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -681,6 +683,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
       const link = item.getAttribute("data-link");
       const desc = item.getAttribute("data-desc");
 
+      // 改用更安全的斜線解析方式，避免不同瀏覽器（如 Safari）時區判定產生誤差
       const startDate = new Date(startStr.replace(/-/g, "/") + " 00:00:00");
       const endDate = new Date(endStr.replace(/-/g, "/") + " 23:59:59");
 
@@ -689,7 +692,9 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
       const displayRange = `${(startDate.getMonth()+1)}/${startDate.getDate()} – ${(endDate.getMonth()+1)}/${endDate.getDate()}`;
       const displayEnd = `${(endDate.getMonth()+1)}/${String(endDate.getDate()).padStart(2, '0')}`;
 
+      // 3. 分流渲染（使用 if-else 確保同一個項目只會去到其中一個容器）
       if (today >= startDate && today <= endDate) {
+        // 現正開團
         const activeCard = document.createElement("div");
         activeCard.className = "gb-card";
         activeCard.innerHTML = `
@@ -722,6 +727,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
         startOngoingTimer(name, endDate);
 
       } else if (today < startDate) {
+        // 即將開團
         const upcomingCard = document.createElement("div");
         upcomingCard.className = "uc-card";
         upcomingCard.innerHTML = `
@@ -748,13 +754,14 @@ function startOngoingTimer(name, endDateTime) {
 
     const dEl = document.getElementById(`promo-d-${name}`);
     const hEl = document.getElementById(`promo-h-${name}`);
-    const mEl = document.getElementById(`promo-s-${name}`); // 修正原先抓錯的 ID
+    const mEl = document.getElementById(`promo-m-${name}`);
     const sEl = document.getElementById(`promo-s-${name}`);
 
     if (!dEl || !hEl || !mEl || !sEl) return;
 
     if (remain <= 0) {
       dEl.innerText = "00"; hEl.innerText = "00"; mEl.innerText = "00"; sEl.innerText = "00";
+      // 倒數結束時自動重刷網頁，商品會自動從「現正開團」消失或轉換狀態
       location.reload();
       return;
     }
@@ -774,25 +781,30 @@ function startOngoingTimer(name, endDateTime) {
 }
 </script>
  <!-- 長期優惠 -->
- <div class="shop-section-label" style="margin-top: -10px;"> <!-- 💡 用微調 CSS 負邊距完美吃掉空隙，不破壞排版 -->
+ <div class="shop-section-label">
   <span class="ssl-badge ssl-badge-y"><i class="ph-bold ph-sparkle"></i> 長期優惠</span>
   <span class="ssl-title">隨時能買</span>
  </div>
  <div class="gb-cards">
-  <a class="ev-card" href="https://planet573.com" target="_blank">
+  <a class="ev-card" href="https://sbshutiao0409.planet573.com/" target="_blank">
    <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-magnet"></i></div>
    <div class="ev-body"><div class="ev-name">高CP 百變磁力片</div><div class="ev-sub">常設團，隨時可訂</div></div>
    <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">常設</span>
   </a>
-  <a class="ev-card" href="https://tinyurl.com" target="_blank">
+  <a class="ev-card" href="https://tinyurl.com/27j4ruy4" target="_blank">
    <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-wifi-high"></i></div>
    <div class="ev-body"><div class="ev-name">eSIM 出國網卡</div><div class="ev-sub">24hr 真人客服，出國必備</div></div>
    <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">9折</span>
   </a>
-  <a class="ev-card" href="https://klook.com" target="_blank">
-   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-compass"></i></div>
-   <div class="ev-body"><div class="ev-name">Klook 旅遊體驗</div><div class="ev-sub">國內外門票、行程、飯店優惠</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">優惠</span>
+  <a class="ev-card" href="https://www.klook.com/zh-TW/?aid=108373" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-airplane"></i></div>
+   <div class="ev-body"><div class="ev-name">Klook 全站 95 折</div><div class="ev-sub">優惠碼：shutiao0409</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">95折</span>
+  </a>
+  <a class="ev-card" href="https://app.shopback.com/MhYghkNUOVb" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-coins"></i></div>
+   <div class="ev-body"><div class="ev-name">ShopBack 回饋金</div><div class="ev-sub">邀請碼：wTVyMf，拿兩百</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">回饋</span>
   </a>
  </div>
 
