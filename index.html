@@ -633,7 +633,6 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <span class="ssl-title">搶購中</span>
   <span class="ssl-sub">截止就沒了</span>
  </div>
- <!-- 💡 關鍵：請確保這裡面是空的！把原本寫死的 <div class="gb-card">...</div> 刪除 -->
  <div class="gb-cards" id="current-group-container"></div>
 
  <!-- 即將開團 -->
@@ -642,7 +641,6 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <span class="ssl-title">開啟通知</span>
   <span class="ssl-sub">按鈴自動加行事曆</span>
  </div>
- <!-- 💡 關鍵：這裡面也要是空的！ -->
  <div class="gb-cards" id="upcoming-group-container"></div>
 
 </div>
@@ -655,96 +653,117 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-bg="#FFF9E6" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味"></div>
   <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-paint-brush" data-bg="#F9E6FF" data-link="網址" data-desc="創意手作訂閱盒，每月驚喜！讓孩子動手做，激發無限想像力"></div>
 </div>
- 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+(function() {
+  // 防止重複載入防護鎖
+  if (window.hasGbInitialized) return;
+  window.hasGbInitialized = true;
 
-  const currentContainer = document.getElementById("current-group-container");
-  const upcomingContainer = document.getElementById("upcoming-group-container");
-  const sourceItems = document.querySelectorAll("#all-gb-items .uc-card");
+  document.addEventListener("DOMContentLoaded", function () {
+    // 1. 初始化容器並清空舊內容（徹底解決重複產生問題）
+    const currentContainer = document.getElementById("current-group-container");
+    const upcomingContainer = document.getElementById("upcoming-group-container");
+    if (!currentContainer || !upcomingContainer) return;
+    
+    currentContainer.innerHTML = "";
+    upcomingContainer.innerHTML = "";
 
-  const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    // 2. 獲取本地當前時間並去除時分秒
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-  sourceItems.forEach((item) => {
-    const name = item.getAttribute("data-name");
-    const startStr = item.getAttribute("data-start");
-    const endStr = item.getAttribute("data-end");
-    const icon = item.getAttribute("data-icon") || "ph-star";
-    const bg = item.getAttribute("data-bg") || "#f5f5f5";
-    const link = item.getAttribute("data-link");
-    const desc = item.getAttribute("data-desc");
+    const sourceItems = document.querySelectorAll("#all-gb-items .uc-card");
+    const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
-    const startDate = new Date(startStr + "T00:00:00");
-    const endDate = new Date(endStr + "T23:59:59");
+    sourceItems.forEach((item) => {
+      const name = item.getAttribute("data-name");
+      const startStr = item.getAttribute("data-start");
+      const endStr = item.getAttribute("data-end");
+      const icon = item.getAttribute("data-icon") || "ph-star";
+      const bg = item.getAttribute("data-bg") || "#f5f5f5";
+      const link = item.getAttribute("data-link");
+      const desc = item.getAttribute("data-desc");
 
-    const startMonthText = monthNames[startDate.getMonth()];
-    const startDayText = String(startDate.getDate()).padStart(2, "0");
-    const displayRange = `${(startDate.getMonth()+1)}/${startDate.getDate()} – ${(endDate.getMonth()+1)}/${endDate.getDate()}`;
-    const displayEnd = `${(endDate.getMonth()+1)}/${String(endDate.getDate()).padStart(2, '0')}`;
+      // 改用更安全的斜線解析方式，避免不同瀏覽器（如 Safari）時區判定產生誤差
+      const startDate = new Date(startStr.replace(/-/g, "/") + " 00:00:00");
+      const endDate = new Date(endStr.replace(/-/g, "/") + " 23:59:59");
 
-    if (today >= startDate && today <= endDate) {
-      const activeCard = document.createElement("div");
-      activeCard.className = "gb-card";
-      activeCard.setAttribute("data-deal-end", endStr);
-      activeCard.innerHTML = `
-        <div class="gb-card-top">
-          <div class="gb-card-icon" style="background:${bg}"><i class="ph-bold ${icon}"></i></div>
-          <div class="gb-card-info">
-            <div class="gb-brand">限時開團</div>
-            <div class="gb-name">${name}</div>
-            <div class="gb-desc">${desc}</div>
+      const startMonthText = monthNames[startDate.getMonth()];
+      const startDayText = String(startDate.getDate()).padStart(2, "0");
+      const displayRange = `${(startDate.getMonth()+1)}/${startDate.getDate()} – ${(endDate.getMonth()+1)}/${endDate.getDate()}`;
+      const displayEnd = `${(endDate.getMonth()+1)}/${String(endDate.getDate()).padStart(2, '0')}`;
+
+      // 3. 分流渲染（使用 if-else 確保同一個項目只會去到其中一個容器）
+      if (today >= startDate && today <= endDate) {
+        // 現正開團
+        const activeCard = document.createElement("div");
+        activeCard.className = "gb-card";
+        activeCard.innerHTML = `
+          <div class="gb-card-top">
+            <div class="gb-card-icon" style="background:${bg}"><i class="ph-bold ${icon}"></i></div>
+            <div class="gb-card-info">
+              <div class="gb-brand">限時開團</div>
+              <div class="gb-name">${name}</div>
+              <div class="gb-desc">${desc}</div>
+            </div>
           </div>
-        </div>
-        <div class="gb-timer-wrap">
-          <span class="gb-timer-label"><i class="ph-bold ph-timer"></i> 倒數</span>
-          <div class="gb-countdown">
-            <div class="gb-unit"><div class="gb-num" id="promo-d-${name}">--</div><div class="gb-ulab">天</div></div>
-            <span class="gb-sep">:</span>
-            <div class="gb-unit"><div class="gb-num" id="promo-h-${name}">--</div><div class="gb-ulab">時</div></div>
-            <span class="gb-sep">:</span>
-            <div class="gb-unit"><div class="gb-num" id="promo-m-${name}">--</div><div class="gb-ulab">分</div></div>
-            <span class="gb-sep">:</span>
-            <div class="gb-unit"><div class="gb-num" id="promo-s-${name}">--</div><div class="gb-ulab">秒</div></div>
+          <div class="gb-timer-wrap">
+            <span class="gb-timer-label"><i class="ph-bold ph-timer"></i> 倒數</span>
+            <div class="gb-countdown">
+              <div class="gb-unit"><div class="gb-num" id="promo-d-${name}">--</div><div class="gb-ulab">天</div></div>
+              <span class="gb-sep">:</span>
+              <div class="gb-unit"><div class="gb-num" id="promo-h-${name}">--</div><div class="gb-ulab">時</div></div>
+              <span class="gb-sep">:</span>
+              <div class="gb-unit"><div class="gb-num" id="promo-m-${name}">--</div><div class="gb-ulab">分</div></div>
+              <span class="gb-sep">:</span>
+              <div class="gb-unit"><div class="gb-num" id="promo-s-${name}">--</div><div class="gb-ulab">秒</div></div>
+            </div>
           </div>
-        </div>
-        <div class="gb-card-bottom">
-          <div class="gb-end-date">截止 <span>${displayEnd}</span></div>
-          <a class="gb-btn" href="${link}" target="_blank">立刻搶購 →</a>
-        </div>
-      `;
-      currentContainer.appendChild(activeCard);
-      startOngoingTimer(name, endDate);
+          <div class="gb-card-bottom">
+            <div class="gb-end-date">截止 <span>${displayEnd}</span></div>
+            <a class="gb-btn" href="${link}" target="_blank">立刻搶購 →</a>
+          </div>
+        `;
+        currentContainer.appendChild(activeCard);
+        startOngoingTimer(name, endDate);
 
-    } else if (today < startDate) {
-      const upcomingCard = document.createElement("div");
-      upcomingCard.className = "uc-card";
-      upcomingCard.innerHTML = `
-        <div class="uc-date-box"><div class="uc-month">${startMonthText}</div><div class="uc-day">${startDayText}</div></div>
-        <div class="uc-body"><div class="uc-name">${name}</div><div class="uc-range">${displayRange}</div></div>
-        <div class="uc-countdown"><div class="uc-days-num" id="uc-days-${name}">--</div><div class="uc-days-lab">天後開團</div></div>
-        <button class="uc-bell-btn" onclick="addToCalendar('${name}','${startStr}','${endStr}')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
-      `;
-      upcomingContainer.appendChild(upcomingCard);
+      } else if (today < startDate) {
+        // 即將開團
+        const upcomingCard = document.createElement("div");
+        upcomingCard.className = "uc-card";
+        upcomingCard.innerHTML = `
+          <div class="uc-date-box"><div class="uc-month">${startMonthText}</div><div class="uc-day">${startDayText}</div></div>
+          <div class="uc-body"><div class="uc-name">${name}</div><div class="uc-range">${displayRange}</div></div>
+          <div class="uc-countdown"><div class="uc-days-num" id="uc-days-${name}">--</div><div class="uc-days-lab">天後開團</div></div>
+          <button class="uc-bell-btn" onclick="addToCalendar('${name}','${startStr}','${endStr}')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
+        `;
+        upcomingContainer.appendChild(upcomingCard);
 
-      const diffTime = startDate.getTime() - today.getTime();
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      document.getElementById(`uc-days-${name}`).innerText = diffDays;
-    }
+        const diffTime = startDate.getTime() - today.getTime();
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        const dayElement = document.getElementById(`uc-days-${name}`);
+        if (dayElement) dayElement.innerText = diffDays;
+      }
+    });
   });
-});
+})();
 
 function startOngoingTimer(name, endDateTime) {
   function updateTimer() {
     const now = new Date().getTime();
     const remain = endDateTime.getTime() - now;
 
+    const dEl = document.getElementById(`promo-d-${name}`);
+    const hEl = document.getElementById(`promo-h-${name}`);
+    const mEl = document.getElementById(`promo-m-${name}`);
+    const sEl = document.getElementById(`promo-s-${name}`);
+
+    if (!dEl || !hEl || !mEl || !sEl) return;
+
     if (remain <= 0) {
-      document.getElementById(`promo-d-${name}`).innerText = "00";
-      document.getElementById(`promo-h-${name}`).innerText = "00";
-      document.getElementById(`promo-m-${name}`).innerText = "00";
-      document.getElementById(`promo-s-${name}`).innerText = "00";
+      dEl.innerText = "00"; hEl.innerText = "00"; mEl.innerText = "00"; sEl.innerText = "00";
+      // 倒數結束時自動重刷網頁，商品會自動從「現正開團」消失或轉換狀態
+      location.reload();
       return;
     }
 
@@ -753,16 +772,15 @@ function startOngoingTimer(name, endDateTime) {
     const m = Math.floor((remain % (1000 * 60 * 60)) / (1000 * 60));
     const s = Math.floor((remain % (1000 * 60)) / 1000);
 
-    document.getElementById(`promo-d-${name}`).innerText = String(d).padStart(2, '0');
-    document.getElementById(`promo-h-${name}`).innerText = String(h).padStart(2, '0');
-    document.getElementById(`promo-m-${name}`).innerText = String(m).padStart(2, '0');
-    document.getElementById(`promo-s-${name}`).innerText = String(s).padStart(2, '0');
+    dEl.innerText = String(d).padStart(2, '0');
+    hEl.innerText = String(h).padStart(2, '0');
+    mEl.innerText = String(m).padStart(2, '0');
+    sEl.innerText = String(s).padStart(2, '0');
   }
   updateTimer();
   setInterval(updateTimer, 1000);
 }
 </script>
-
  <!-- 長期優惠 -->
  <div class="shop-section-label">
   <span class="ssl-badge ssl-badge-y"><i class="ph-bold ph-sparkle"></i> 長期優惠</span>
