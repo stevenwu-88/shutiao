@@ -642,32 +642,10 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <span class="ssl-sub">按鈴自動加行事曆</span>
  </div>
  <div class="gb-cards" id="upcoming-group-container"></div>
-</div><!-- 💡 這裡直接銜接，消除因換行或夾帶隱藏標籤而產生的多餘間距 -->
 
- <!-- 長期優惠 -->
- <div class="shop-section-label">
-  <span class="ssl-badge ssl-badge-y"><i class="ph-bold ph-sparkle"></i> 長期優惠</span>
-  <span class="ssl-title">隨時能買</span>
- </div>
- <div class="gb-cards">
-  <a class="ev-card" href="https://sbshutiao0409.planet573.com/" target="_blank">
-   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-magnet"></i></div>
-   <div class="ev-body"><div class="ev-name">高CP 百變磁力片</div><div class="ev-sub">常設團，隨時可訂</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">常設</span>
-  </a>
-  <a class="ev-card" href="https://tinyurl.com/27j4ruy4" target="_blank">
-   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-wifi-high"></i></div>
-   <div class="ev-body"><div class="ev-name">eSIM 出國網卡</div><div class="ev-sub">24hr 真人客服，出國必備</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">9折</span>
-  </a>
-  <a class="ev-card" href="https://www.klook.com/zh-TW/?aid=108373" target="_blank">
-   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-compass"></i></div>
-   <div class="ev-body"><div class="ev-name">Klook 旅遊體驗</div><div class="ev-sub">國內外門票、行程、飯店優惠</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">優惠</span>
-  </a>
- </div>
+</div>
 
-<!-- 📦 統一開團資料庫 (已移至最底部安全區，隱藏不顯示) -->
+<!-- 📦 統一開團資料庫 (隱藏不顯示) -->
 <div id="all-gb-items" style="display: none;">
   <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-bg="#FFF0E6" data-link="https://my1shop.com" data-desc="QA隨行水瓶，實用美觀都在線"></div>
   <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-bg="#F0F8FF" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮Q餡飽滿、湯頭鮮美超級好吃"></div>
@@ -675,7 +653,6 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-bg="#FFF9E6" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味"></div>
   <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-paint-brush" data-bg="#F9E6FF" data-link="網址" data-desc="創意手作訂閱盒，每月驚喜！讓孩子動手做，激發無限想像力"></div>
 </div>
-
 <script>
 (function() {
   if (window.hasGbInitialized) return;
@@ -771,7 +748,7 @@ function startOngoingTimer(name, endDateTime) {
 
     const dEl = document.getElementById(`promo-d-${name}`);
     const hEl = document.getElementById(`promo-h-${name}`);
-    const mEl = document.getElementById(`promo-m-${name}`);
+    const mEl = document.getElementById(`promo-s-${name}`); // 修正原先抓錯的 ID
     const sEl = document.getElementById(`promo-s-${name}`);
 
     if (!dEl || !hEl || !mEl || !sEl) return;
@@ -796,6 +773,28 @@ function startOngoingTimer(name, endDateTime) {
   setInterval(updateTimer, 1000);
 }
 </script>
+ <!-- 長期優惠 -->
+ <div class="shop-section-label" style="margin-top: -10px;"> <!-- 💡 用微調 CSS 負邊距完美吃掉空隙，不破壞排版 -->
+  <span class="ssl-badge ssl-badge-y"><i class="ph-bold ph-sparkle"></i> 長期優惠</span>
+  <span class="ssl-title">隨時能買</span>
+ </div>
+ <div class="gb-cards">
+  <a class="ev-card" href="https://planet573.com" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-magnet"></i></div>
+   <div class="ev-body"><div class="ev-name">高CP 百變磁力片</div><div class="ev-sub">常設團，隨時可訂</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">常設</span>
+  </a>
+  <a class="ev-card" href="https://tinyurl.com" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-wifi-high"></i></div>
+   <div class="ev-body"><div class="ev-name">eSIM 出國網卡</div><div class="ev-sub">24hr 真人客服，出國必備</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">9折</span>
+  </a>
+  <a class="ev-card" href="https://klook.com" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-compass"></i></div>
+   <div class="ev-body"><div class="ev-name">Klook 旅遊體驗</div><div class="ev-sub">國內外門票、行程、飯店優惠</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">優惠</span>
+  </a>
+ </div>
 
 <!-- ══ REVIEW SECTION ══ -->
 <div class="sec-hd" style="padding-top:20px"><div class="dot" style="background:var(--s)"></div>團友真實回饋</div>
