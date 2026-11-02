@@ -633,33 +633,8 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <span class="ssl-title">搶購中</span>
   <span class="ssl-sub">截止就沒了</span>
  </div>
- <div class="gb-cards">
-  <div class="gb-card" data-deal-end="2026-11-08">
-   <div class="gb-card-top">
-    <div class="gb-card-icon" style="background:#FFF0E6"><i class="ph-bold ph-drop"></i></div>
-    <div class="gb-card-info">
-     <div class="gb-brand">限時開團</div>
-     <div class="gb-name">QA水瓶</div>
-     <div class="gb-desc">QA隨行水瓶，實用美觀都在線</div>
-    </div>
-   </div>
-   <div class="gb-timer-wrap">
-    <span class="gb-timer-label"><i class="ph-bold ph-timer"></i> 倒數</span>
-    <div class="gb-countdown">
-     <div class="gb-unit"><div class="gb-num" id="promo-d-QA水瓶">--</div><div class="gb-ulab">天</div></div>
-     <span class="gb-sep">:</span>
-     <div class="gb-unit"><div class="gb-num" id="promo-h-QA水瓶">--</div><div class="gb-ulab">時</div></div>
-     <span class="gb-sep">:</span>
-     <div class="gb-unit"><div class="gb-num" id="promo-m-QA水瓶">--</div><div class="gb-ulab">分</div></div>
-     <span class="gb-sep">:</span>
-     <div class="gb-unit"><div class="gb-num" id="promo-s-QA水瓶">--</div><div class="gb-ulab">秒</div></div>
-    </div>
-   </div>
-   <div class="gb-card-bottom">
-    <div class="gb-end-date">截止 <span>11/08</span></div>
-    <a class="gb-btn" href="https://theliquid.my1shop.com/n1ki5e" target="_blank">立刻搶購 →</a>
-   </div>
-  </div>
+ <div class="gb-cards" id="current-group-container">
+   <!-- 由 JavaScript 自動判斷並渲染當前開團項目 -->
  </div>
 
  <!-- 即將開團 -->
@@ -668,38 +643,127 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <span class="ssl-title">開啟通知</span>
   <span class="ssl-sub">按鈴自動加行事曆</span>
  </div>
- <div class="gb-cards">
-  <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-link="https://theliquid.my1shop.com/n1ki5e" data-desc="QA隨行水瓶，實用美觀都在線">
-   <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">02</div></div>
-   <div class="uc-body"><div class="uc-name">QA水瓶</div><div class="uc-range">11/02 – 11/08</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261102">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="addToCalendar('QA水瓶','2026-11-02','2026-11-08')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
-  </div>
-  <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮Q餡飽滿、湯頭鮮美超級好吃">
-   <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">09</div></div>
-   <div class="uc-body"><div class="uc-name">食光弄堂上海大餛飩</div><div class="uc-range">11/09 – 11/15</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261109">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="addToCalendar('食光弄堂上海大餛飩','2026-11-09','2026-11-15')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
-  </div>
-  <div class="uc-card" data-name="Zip Top保鮮盒" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-package" data-link="https://www.pinyan.com.tw/pages/shu-tiao1116" data-desc="美國Zip Top白金矽膠環保矽膠袋保鮮盒，可站立、好清洗，微波加熱與冰箱收納的好幫手">
-   <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">16</div></div>
-   <div class="uc-body"><div class="uc-name">Zip Top保鮮盒</div><div class="uc-range">11/16 – 11/22</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261116a">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="addToCalendar('Zip Top保鮮盒','2026-11-16','2026-11-22')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
-  </div>
-  <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味">
-   <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">16</div></div>
-   <div class="uc-body"><div class="uc-name">沐甄豆豆漿饅頭</div><div class="uc-range">11/16 – 11/22</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261116b">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="addToCalendar('沐甄豆豆漿饅頭','2026-11-16','2026-11-22')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
-  </div>
-  <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-paint-brush" data-link="網址" data-desc="創意手作訂閱盒，每月驚喜！讓孩子動手做，激發無限想像力">
-   <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">23</div></div>
-   <div class="uc-body"><div class="uc-name">My Creative Box</div><div class="uc-range">11/23 – 11/29</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261123">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="addToCalendar('My Creative Box','2026-11-23','2026-11-29')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
-  </div>
+ <div class="gb-cards" id="upcoming-group-container">
+   <!-- 由 JavaScript 自動判斷並渲染未來開團項目 -->
  </div>
+
+</div>
+
+<!-- 📦 統一開團資料庫 (隱藏不顯示) -->
+<div id="all-gb-items" style="display: none;">
+  <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-bg="#FFF0E6" data-link="https://theliquid.my1shop.com/n1ki5e" data-desc="QA隨行水瓶，實用美觀都在線"></div>
+  <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-bg="#F0F8FF" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮Q餡飽滿、湯頭鮮美超級好吃"></div>
+  <div class="uc-card" data-name="Zip Top保鮮盒" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-package" data-bg="#E6FFE6" data-link="https://www.pinyan.com.tw/pages/shu-tiao1116" data-desc="美國Zip Top白金矽膠環保矽膠袋保鮮盒，可站立、好清洗，微波加熱與冰箱收納的好幫手"></div>
+  <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-bg="#FFF9E6" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味"></div>
+  <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-paint-brush" data-bg="#F9E6FF" data-link="網址" data-desc="創意手作訂閱盒，每月驚喜！讓孩子動手做，激發無限想像力"></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const currentContainer = document.getElementById("current-group-container");
+  const upcomingContainer = document.getElementById("upcoming-group-container");
+  const sourceItems = document.querySelectorAll("#all-gb-items .uc-card");
+
+  const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+  sourceItems.forEach((item) => {
+    const name = item.getAttribute("data-name");
+    const startStr = item.getAttribute("data-start");
+    const endStr = item.getAttribute("data-end");
+    const icon = item.getAttribute("data-icon") || "ph-star";
+    const bg = item.getAttribute("data-bg") || "#f5f5f5";
+    const link = item.getAttribute("data-link");
+    const desc = item.getAttribute("data-desc");
+
+    const startDate = new Date(startStr + "T00:00:00");
+    const endDate = new Date(endStr + "T23:59:59");
+
+    const startMonthText = monthNames[startDate.getMonth()];
+    const startDayText = String(startDate.getDate()).padStart(2, "0");
+    const displayRange = `${(startDate.getMonth()+1)}/${startDate.getDate()} – ${(endDate.getMonth()+1)}/${endDate.getDate()}`;
+    const displayEnd = `${(endDate.getMonth()+1)}/${String(endDate.getDate()).padStart(2, '0')}`;
+
+    if (today >= startDate && today <= endDate) {
+      const activeCard = document.createElement("div");
+      activeCard.className = "gb-card";
+      activeCard.setAttribute("data-deal-end", endStr);
+      activeCard.innerHTML = `
+        <div class="gb-card-top">
+          <div class="gb-card-icon" style="background:${bg}"><i class="ph-bold ${icon}"></i></div>
+          <div class="gb-card-info">
+            <div class="gb-brand">限時開團</div>
+            <div class="gb-name">${name}</div>
+            <div class="gb-desc">${desc}</div>
+          </div>
+        </div>
+        <div class="gb-timer-wrap">
+          <span class="gb-timer-label"><i class="ph-bold ph-timer"></i> 倒數</span>
+          <div class="gb-countdown">
+            <div class="gb-unit"><div class="gb-num" id="promo-d-${name}">--</div><div class="gb-ulab">天</div></div>
+            <span class="gb-sep">:</span>
+            <div class="gb-unit"><div class="gb-num" id="promo-h-${name}">--</div><div class="gb-ulab">時</div></div>
+            <span class="gb-sep">:</span>
+            <div class="gb-unit"><div class="gb-num" id="promo-m-${name}">--</div><div class="gb-ulab">分</div></div>
+            <span class="gb-sep">:</span>
+            <div class="gb-unit"><div class="gb-num" id="promo-s-${name}">--</div><div class="gb-ulab">秒</div></div>
+          </div>
+        </div>
+        <div class="gb-card-bottom">
+          <div class="gb-end-date">截止 <span>${displayEnd}</span></div>
+          <a class="gb-btn" href="${link}" target="_blank">立刻搶購 →</a>
+        </div>
+      `;
+      currentContainer.appendChild(activeCard);
+      startOngoingTimer(name, endDate);
+
+    } else if (today < startDate) {
+      const upcomingCard = document.createElement("div");
+      upcomingCard.className = "uc-card";
+      upcomingCard.innerHTML = `
+        <div class="uc-date-box"><div class="uc-month">${startMonthText}</div><div class="uc-day">${startDayText}</div></div>
+        <div class="uc-body"><div class="uc-name">${name}</div><div class="uc-range">${displayRange}</div></div>
+        <div class="uc-countdown"><div class="uc-days-num" id="uc-days-${name}">--</div><div class="uc-days-lab">天後開團</div></div>
+        <button class="uc-bell-btn" onclick="addToCalendar('${name}','${startStr}','${endStr}')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
+      `;
+      upcomingContainer.appendChild(upcomingCard);
+
+      const diffTime = startDate.getTime() - today.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      document.getElementById(`uc-days-${name}`).innerText = diffDays;
+    }
+  });
+});
+
+function startOngoingTimer(name, endDateTime) {
+  function updateTimer() {
+    const now = new Date().getTime();
+    const remain = endDateTime.getTime() - now;
+
+    if (remain <= 0) {
+      document.getElementById(`promo-d-${name}`).innerText = "00";
+      document.getElementById(`promo-h-${name}`).innerText = "00";
+      document.getElementById(`promo-m-${name}`).innerText = "00";
+      document.getElementById(`promo-s-${name}`).innerText = "00";
+      return;
+    }
+
+    const d = Math.floor(remain / (1000 * 60 * 60 * 24));
+    const h = Math.floor((remain % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((remain % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((remain % (1000 * 60)) / 1000);
+
+    document.getElementById(`promo-d-${name}`).innerText = String(d).padStart(2, '0');
+    document.getElementById(`promo-h-${name}`).innerText = String(h).padStart(2, '0');
+    document.getElementById(`promo-m-${name}`).innerText = String(m).padStart(2, '0');
+    document.getElementById(`promo-s-${name}`).innerText = String(s).padStart(2, '0');
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+}
+</script>
 
  <!-- 長期優惠 -->
  <div class="shop-section-label">
@@ -736,7 +800,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 <div class="rv-cta-card">
   <div class="rv-cta-left">
     <div class="rv-cta-title">跟過團的朋友，留下你的感受吧</div>
-    <div class="rv-cta-sub">照片或純文字都行，小羊感謝每一個真心回饋</div>
+    <div class="rv-cta-sub">小羊感謝每一位朋朋的真心回饋</div>
   </div>
   <button class="rv-cta-btn" onclick="openReviewForm()">
     <i class="ph-bold ph-pencil-line"></i>填寫
