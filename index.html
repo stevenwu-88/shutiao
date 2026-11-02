@@ -504,24 +504,14 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 }
 .rv-pill.on{background:var(--o);border-color:var(--o);color:#fff}
 
-/* ── REVIEW CAROUSEL (vertical pages, auto-rotate) ── */
+/* ── REVIEW CARDS (隨機 5 則，每 5 秒換一批) ── */
 .rv-list{
-  display:flex;flex-direction:row;overflow-x:hidden;
-  scroll-snap-type:x mandatory;scrollbar-width:none;margin-bottom:4px;
-}
-.rv-page{
-  display:flex;flex-direction:column;gap:8px;
-  flex:0 0 100%;width:100%;
-  scroll-snap-align:start;box-sizing:border-box;flex-shrink:0;
+  display:flex;flex-direction:column;gap:8px;margin-bottom:16px;
 }
 .rv-card{
   background:#fff;border-radius:14px;border:1.5px solid #e8e8e4;
   padding:13px 14px;display:flex;flex-direction:column;overflow:hidden;
 }
-.rv-card.hidden{display:none}
-.rv-dots{display:flex;justify-content:center;gap:6px;margin:8px 0 16px}
-.rv-dot{width:6px;height:6px;border-radius:50%;background:#e0e0dc;transition:background .2s,width .2s}
-.rv-dot.on{background:var(--o);width:18px;border-radius:3px}
 .rv-card-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .rv-brand-tag{
   font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:100px;
@@ -643,13 +633,39 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
  </div>
  <div class="gb-cards" id="upcoming-group-container"></div>
 
-</div>
+ <!-- 長期優惠 -->
+ <div class="shop-section-label">
+  <span class="ssl-badge ssl-badge-y"><i class="ph-bold ph-sparkle"></i> 長期優惠</span>
+  <span class="ssl-title">隨時能買</span>
+ </div>
+ <div class="gb-cards">
+  <a class="ev-card" href="https://sbshutiao0409.planet573.com/" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-magnet"></i></div>
+   <div class="ev-body"><div class="ev-name">高CP 百變磁力片</div><div class="ev-sub">常設團，隨時可訂</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">常設</span>
+  </a>
+  <a class="ev-card" href="https://tinyurl.com/27j4ruy4" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-wifi-high"></i></div>
+   <div class="ev-body"><div class="ev-name">eSIM 出國網卡</div><div class="ev-sub">24hr 真人客服，出國必備</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">9折</span>
+  </a>
+  <a class="ev-card" href="https://www.klook.com/zh-TW/?aid=108373" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-airplane"></i></div>
+   <div class="ev-body"><div class="ev-name">Klook 全站 95 折</div><div class="ev-sub">優惠碼：shutiao0409</div></div>
+   <button class="ev-tag ev-copy-btn" data-code="shutiao0409" onclick="evCopyCode(event,this)" style="background:#FBC02C;color:#2e2e2e;border:none;font-family:inherit;cursor:pointer">95折</button>
+  </a>
+  <a class="ev-card" href="https://app.shopback.com/MhYghkNUOVb" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-coins"></i></div>
+   <div class="ev-body"><div class="ev-name">ShopBack 回饋金</div><div class="ev-sub">邀請碼：wTVyMf，拿兩百</div></div>
+   <button class="ev-tag ev-copy-btn" data-code="wTVyMf" onclick="evCopyCode(event,this)" style="background:#FBC02C;color:#2e2e2e;border:none;font-family:inherit;cursor:pointer">回饋</button>
+  </a>
+ </div>
 
 <!-- 📦 統一開團資料庫 (隱藏不顯示) -->
 <div id="all-gb-items" style="display: none;">
-  <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-bg="#FFF0E6" data-link="https://my1shop.com" data-desc="QA隨行水瓶，實用美觀都在線"></div>
+  <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-bg="#FFF0E6" data-link="https://theliquid.my1shop.com/n1ki5e" data-desc="QA隨行水瓶，實用美觀都在線"></div>
   <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-bg="#F0F8FF" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮Q餡飽滿、湯頭鮮美超級好吃"></div>
-  <div class="uc-card" data-name="Zip Top保鮮盒" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-package" data-bg="#E6FFE6" data-link="https://pinyan.com.tw" data-desc="美國Zip Top白金矽膠環保矽膠袋保鮮盒，可站立、好清洗，微波加熱與冰箱收納的好幫手"></div>
+  <div class="uc-card" data-name="Zip Top保鮮盒" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-package" data-bg="#E6FFE6" data-link="https://www.pinyan.com.tw/pages/shu-tiao1116" data-desc="美國Zip Top白金矽膠環保矽膠袋保鮮盒，可站立、好清洗，微波加熱與冰箱收納的好幫手"></div>
   <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-bg="#FFF9E6" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味"></div>
   <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-paint-brush" data-bg="#F9E6FF" data-link="網址" data-desc="創意手作訂閱盒，每月驚喜！讓孩子動手做，激發無限想像力"></div>
 </div>
@@ -781,33 +797,6 @@ function startOngoingTimer(name, endDateTime) {
   setInterval(updateTimer, 1000);
 }
 </script>
- <!-- 長期優惠 -->
- <div class="shop-section-label">
-  <span class="ssl-badge ssl-badge-y"><i class="ph-bold ph-sparkle"></i> 長期優惠</span>
-  <span class="ssl-title">隨時能買</span>
- </div>
- <div class="gb-cards">
-  <a class="ev-card" href="https://sbshutiao0409.planet573.com/" target="_blank">
-   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-magnet"></i></div>
-   <div class="ev-body"><div class="ev-name">高CP 百變磁力片</div><div class="ev-sub">常設團，隨時可訂</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">常設</span>
-  </a>
-  <a class="ev-card" href="https://tinyurl.com/27j4ruy4" target="_blank">
-   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-wifi-high"></i></div>
-   <div class="ev-body"><div class="ev-name">eSIM 出國網卡</div><div class="ev-sub">24hr 真人客服，出國必備</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">9折</span>
-  </a>
-  <a class="ev-card" href="https://www.klook.com/zh-TW/?aid=108373" target="_blank">
-   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-airplane"></i></div>
-   <div class="ev-body"><div class="ev-name">Klook 全站 95 折</div><div class="ev-sub">優惠碼：shutiao0409</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">95折</span>
-  </a>
-  <a class="ev-card" href="https://app.shopback.com/MhYghkNUOVb" target="_blank">
-   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-coins"></i></div>
-   <div class="ev-body"><div class="ev-name">ShopBack 回饋金</div><div class="ev-sub">邀請碼：wTVyMf，拿兩百</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">回饋</span>
-  </a>
- </div>
 
 <!-- ══ REVIEW SECTION ══ -->
 <div class="sec-hd" style="padding-top:20px"><div class="dot" style="background:var(--s)"></div>團友真實回饋</div>
@@ -823,8 +812,7 @@ function startOngoingTimer(name, endDateTime) {
   </button>
 </div>
 
-<!-- review cards – 5 per page vertical, auto-rotate -->
-<div class="rv-dots" id="rvDots"></div>
+<!-- review cards – 隨機 5 則，每 5 秒換一批 -->
 <div class="rv-list" id="rvList">
 
   <div class="rv-card">
@@ -1746,7 +1734,54 @@ function hideExpiredDeals() {
 hideExpiredDeals();
 setInterval(hideExpiredDeals, 60000);
 
-/* ── REVIEW ── */
+// ── 複製優惠碼（隨時能買區塊）──
+function evCopyCode(e, btn) {
+  e.preventDefault(); e.stopPropagation();
+  var code = btn.getAttribute('data-code');
+  function showCopied() {
+    var orig = btn.textContent;
+    btn.textContent = '已複製！';
+    btn.style.background = '#A1B191'; btn.style.color = '#fff';
+    setTimeout(function(){ btn.textContent = orig; btn.style.background = '#FBC02C'; btn.style.color = '#2e2e2e'; }, 1600);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(code).then(showCopied).catch(function(){
+      var ta = document.createElement('textarea'); ta.value = code;
+      ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta); showCopied();
+    });
+  } else {
+    var ta = document.createElement('textarea'); ta.value = code;
+    ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta); showCopied();
+  }
+}
+
+/* ── REVIEW DB（Google Sheets）── */
+// 填入你的 Apps Script 網頁應用程式 URL（部署後取得）
+var _GS_URL = 'https://script.google.com/macros/s/AKfycbxHROza4zm3QGNMYYd3BbDoXl3GUpFlNcly3TSuGMOskyuo3BjGbXa5wmviczOTVUPaVw/exec';
+
+var _allReviews = [];   // 全部回饋池
+var _latestNew = null;  // 最新提交的一筆（下次刷新前顯示在第一則）
+
+// 抓取 HTML 種子回饋資料，之後清空 DOM 交由 JS 管理
+var _seedData = [];
+(function(){
+  var list = document.getElementById('rvList');
+  if (!list) return;
+  list.querySelectorAll('.rv-card').forEach(function(card){
+    var brand = (card.querySelector('.rv-brand-tag')||{}).textContent || '跟團推薦';
+    var starsEl = (card.querySelector('.rv-stars')||{}).textContent || '';
+    var stars = starsEl.split('★').length - 1;
+    var text = (card.querySelector('.rv-text')||{}).textContent || '';
+    var name = (card.querySelector('.rv-name')||{}).textContent || '匿名媽媽';
+    if (text) _seedData.push({name:name, brand:brand, stars:stars, text:text, ts:0});
+  });
+  list.innerHTML = '';
+})();
+_allReviews = _seedData.slice();
+
+/* ── REVIEW FORM ── */
 function openReviewForm() {
   document.getElementById('rvModal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
@@ -1758,6 +1793,50 @@ function closeReviewForm() {
   document.getElementById('rvStarVal').value = '5';
   document.querySelectorAll('.rvs-star').forEach(function(s,i){ s.classList.toggle('on', i < 5); });
 }
+
+function buildRvCard(rv, isNew) {
+  var stars = Math.max(0, Math.min(5, parseInt(rv.stars) || 5));
+  var starStr = '★'.repeat(stars) + '☆'.repeat(5 - stars);
+  var el = document.createElement('div');
+  el.className = 'rv-card';
+  if (isNew) el.style.animation = 'fadeUp .4s ease both';
+  el.innerHTML = '<div class="rv-card-top"><div class="rv-brand-tag">' + rv.brand + '</div><div class="rv-stars">' + starStr + '</div></div>' +
+    '<div class="rv-text">' + rv.text + '</div>' +
+    '<div class="rv-footer"><span class="rv-name">' + rv.name + '</span></div>';
+  return el;
+}
+
+function renderRandom5() {
+  var list = document.getElementById('rvList');
+  if (!list || _allReviews.length === 0) return;
+
+  var hasNew = !!_latestNew;
+  var pool = _allReviews.slice();
+  var selected = [];
+
+  // 最新那則固定排第一
+  if (_latestNew) {
+    selected.push(_latestNew);
+    var newRef = _latestNew;
+    pool = pool.filter(function(r){ return r !== newRef; });
+    _latestNew = null;
+  }
+
+  // Fisher-Yates 洗牌剩下的，取到湊滿 5 則
+  for (var i = pool.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
+  }
+  for (var k = 0; k < (5 - selected.length) && k < pool.length; k++) {
+    selected.push(pool[k]);
+  }
+
+  list.innerHTML = '';
+  selected.forEach(function(rv, idx){
+    list.appendChild(buildRvCard(rv, hasNew && idx === 0));
+  });
+}
+
 function submitReview(e) {
   e.preventDefault();
   var name = document.getElementById('rvInputName').value.trim() || '匿名媽媽';
@@ -1765,36 +1844,28 @@ function submitReview(e) {
   var text = document.getElementById('rvInputText').value.trim();
   var stars = parseInt(document.getElementById('rvStarVal').value) || 5;
   if (!text) return;
-  var starStr = '★'.repeat(stars) + '☆'.repeat(5 - stars);
-  // Build card
-  var card = document.createElement('div');
-  card.className = 'rv-card';
-  card.style.animation = 'fadeUp .4s ease both';
-  card.innerHTML = '<div class="rv-card-top"><div class="rv-brand-tag">' + brand + '</div><div class="rv-stars">' + starStr + '</div></div>' +
-    '<div class="rv-text">' + text + '</div>' +
-    '<div class="rv-footer"><span class="rv-name">' + name + '</span></div>';
-  // Insert as new first page
-  var list = document.getElementById('rvList');
-  var dotsEl = document.getElementById('rvDots');
-  var newPg = document.createElement('div');
-  newPg.className = 'rv-page';
-  newPg.appendChild(card);
-  list.insertBefore(newPg, list.firstChild);
-  // Add dot at start
-  if (dotsEl) {
-    var nd = document.createElement('span');
-    nd.className = 'rv-dot';
-    dotsEl.insertBefore(nd, dotsEl.firstChild);
-  }
-  // Jump to page 0
-  list.scrollLeft = 0;
-  if (dotsEl) {
-    dotsEl.querySelectorAll('.rv-dot').forEach(function(d, i){ d.classList.toggle('on', i === 0); });
-  }
+
+  var rv = {name:name, brand:brand, stars:stars, text:text, ts:Date.now()};
+
   closeReviewForm();
-  // Scroll to review section
-  setTimeout(function(){ list.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 200);
+
+  // 加入池子，標記為最新，立刻顯示在第一則
+  _allReviews.unshift(rv);
+  _latestNew = rv;
+  renderRandom5();
+
+  setTimeout(function(){ document.getElementById('rvList').scrollIntoView({behavior:'smooth', block:'center'}); }, 200);
+
+  // 存到 Google Sheets
+  if (_GS_URL) {
+    fetch(_GS_URL, {
+      method:'POST',
+      body: JSON.stringify(rv),
+      headers:{'Content-Type':'text/plain'} // Apps Script 需要 text/plain 才能讀 postData.contents
+    }).catch(function(){});
+  }
 }
+
 // ── UC-CARD: click to open link directly ──
 document.querySelectorAll('.uc-card').forEach(function(card){
   var link = card.getAttribute('data-link');
@@ -1807,50 +1878,22 @@ document.querySelectorAll('.uc-card').forEach(function(card){
   }
 });
 
-// ── REVIEW CAROUSEL (5 per page, vertical cards, auto-rotate) ──
+// ── 初始渲染 + 每 5 秒刷新 ──
+renderRandom5();
+setInterval(renderRandom5, 5000);
+
+// ── 從 Google Sheets 載入評價 ──
 (function(){
-  var list = document.getElementById('rvList');
-  var dotsEl = document.getElementById('rvDots');
-  if (!list) return;
-  var cards = Array.from(list.querySelectorAll('.rv-card'));
-  var PAGE_SIZE = 5;
-  var pages = [];
-  for (var i = 0; i < cards.length; i += PAGE_SIZE) {
-    var pg = document.createElement('div');
-    pg.className = 'rv-page';
-    cards.slice(i, i + PAGE_SIZE).forEach(function(c){ pg.appendChild(c); });
-    pages.push(pg);
-  }
-  list.innerHTML = '';
-  pages.forEach(function(pg){ list.appendChild(pg); });
-  var totalPages = pages.length;
-  var startPage = Math.floor(Math.random() * totalPages);
-  if (dotsEl) {
-    pages.forEach(function(_, i){
-      var d = document.createElement('span');
-      d.className = 'rv-dot' + (i === startPage ? ' on' : '');
-      dotsEl.appendChild(d);
-    });
-  }
-  function getW(){ return list.offsetWidth || 320; }
-  function curPage(){ return Math.round(list.scrollLeft / getW()); }
-  function updateDots(){
-    if (!dotsEl) return;
-    var idx = curPage();
-    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('on', i===idx); });
-  }
-  function goTo(idx){
-    var n = Math.max(0, Math.min(idx, totalPages-1));
-    list.scrollTo({left: n * getW(), behavior:'smooth'});
-  }
-  list.scrollLeft = startPage * getW();
-  var timer = setInterval(function(){
-    var next = curPage() + 1;
-    if (next >= totalPages) next = 0;
-    goTo(next);
-  }, 4000);
-  list.addEventListener('scroll', updateDots, {passive:true});
-  list.addEventListener('touchstart', function(){ clearInterval(timer); }, {passive:true});
+  if (!_GS_URL) return;
+  fetch(_GS_URL)
+    .then(function(r){ return r.json(); })
+    .then(function(rows){
+      if (!Array.isArray(rows) || rows.length === 0) return;
+      _allReviews = rows.concat(_seedData.filter(function(s){
+        return !rows.some(function(r){ return r.text === s.text; });
+      }));
+    })
+    .catch(function(){});
 })();
 
 </script>
@@ -1883,11 +1926,11 @@ document.querySelectorAll('.uc-card').forEach(function(card){
     <form id="rvFormInner" onsubmit="submitReview(event)">
       <div class="rv-modal-field">
         <label>你的名字（暱稱也可以）</label>
-        <input id="rvInputName" type="text" placeholder="ex. 月亮、小美媽" maxlength="20">
+        <input id="rvInputName" type="text" placeholder="ex. 小羊、薯條媽" maxlength="20">
       </div>
       <div class="rv-modal-field">
         <label>這次跟的哪個團？</label>
-        <input id="rvInputBrand" type="text" placeholder="ex. QA水瓶、芒狗狗繪本" maxlength="30">
+        <input id="rvInputBrand" type="text" placeholder="ex. QA水瓶、繪本、防蚊液、寢具" maxlength="30">
       </div>
       <div class="rv-modal-field">
         <label>滿意度</label>
@@ -1919,5 +1962,6 @@ document.querySelectorAll('.uc-card').forEach(function(card){
   });
 })();
 </script>
+</div><!-- /p-shop -->
 </body>
 </html>
