@@ -13,9 +13,9 @@
 
 
 :root{
- --y:#FBC02C;--o:#FE7D2F;--s:#A1B191;--b:#73A5C0;--r:#DC383F;
+ --y:#FBC02C;--r:#DC383F;
  --c:#F8F8F6;--g:#545353;--dark:#2e2e2e;
- --ys:#FEF3D0;--os:#FEEBD8;--ss:#EAF0E4;--bs:#DFF0F7;--rs:#FDDCDC;
+ --ys:#FEF3D0;--rs:#FDDCDC;
 }
 body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif;max-width:480px;margin:0 auto;min-height:100vh;overflow-x:hidden}
 
@@ -77,7 +77,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 /* tap indicator */
 .tap-hint{
  position:absolute;bottom:-4px;right:-4px;
- background:var(--o);border-radius:100px;
+ background:#FE7D2F;border-radius:100px;
  padding:3px 8px;font-size:.58rem;font-weight:700;color:#fff;
  white-space:nowrap;pointer-events:none;
  animation:nudge 2s 1.5s ease-in-out infinite;
@@ -121,7 +121,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 
 /* LINE as text, brand orange */
 
-.cta-line-text:hover{background:var(--o);color:#fff;transform:translateY(-2px)}
+.cta-line-text:hover{background:var(--dark);color:#fff;transform:translateY(-2px)}
 .cta-line-text:active{transform:scale(.97)}
 
 .mini-soc-row{display:flex;gap:7px;justify-content:center;padding:4px 16px 14px}
@@ -198,12 +198,12 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .act-tags{display:flex;gap:5px;flex-wrap:wrap}
 .atag{font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:100px}
 .atag-age{background:var(--ys);color:#7a5c00}
-.atag-type{background:var(--bs);color:#2a5f7a}
-.atag-mat{background:var(--ss);color:#3a5a2a;font-size:.58rem}
+.atag-type{background:var(--ys);color:#7a5c00}
+.atag-mat{background:var(--c);color:var(--g);font-size:.58rem}
 .act-expand{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .act-expand.open{max-height:300px}
 .act-expand-inner{padding:8px 0 2px;border-top:1px dashed #e8e8e4;margin-top:6px;font-size:.73rem;color:var(--g);line-height:1.6}
-.act-expand-inner .adv{color:var(--o);font-weight:600;margin-top:5px}
+.act-expand-inner .adv{color:var(--dark);font-weight:600;margin-top:5px}
 
 /* ── MILESTONES ── */
 .ms-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none}
@@ -214,11 +214,11 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;font-weight:700;color:var(--g);
  cursor:pointer;transition:all .18s;
 }
-.mt-btn.on{background:var(--b);border-color:var(--b);color:#fff}
-.ms-age-label{text-align:center;padding:14px;font-family:"Noto Serif TC",serif;font-size:1.05rem;font-weight:600;color:var(--dark);background:var(--bs);border-radius:12px;margin-bottom:12px}
+.mt-btn.on{background:var(--y);border-color:var(--y);color:var(--dark)}
+.ms-age-label{text-align:center;padding:14px;font-family:"Noto Serif TC",serif;font-size:1.05rem;font-weight:600;color:var(--dark);background:var(--ys);border-radius:12px;margin-bottom:12px}
 .ms-items{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
-.ms-item{background:#fff;border-radius:12px;padding:12px;border-left:3px solid var(--b);font-size:.75rem;line-height:1.4;color:var(--dark)}
-.ms-item .ms-cat{font-size:.6rem;font-weight:700;color:var(--b);letter-spacing:.06em;margin-bottom:4px;text-transform:uppercase}
+.ms-item{background:#fff;border-radius:12px;padding:12px;border-left:3px solid var(--y);font-size:.75rem;line-height:1.4;color:var(--dark)}
+.ms-item .ms-cat{font-size:.6rem;font-weight:700;color:var(--g);letter-spacing:.06em;margin-bottom:4px;text-transform:uppercase}
 .ms-note{font-size:.7rem;color:#9a9895;text-align:center;padding:8px 0 14px;line-height:1.5}
 
 /* ── SHOP: GROUP BUY CARDS ── */
@@ -230,10 +230,10 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
  font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
  padding:4px 10px;border-radius:100px;flex-shrink:0;
 }
-.ssl-badge-o{background:var(--o);color:#fff}
-.ssl-badge-b{background:var(--b);color:#fff}
+.ssl-badge-o{background:var(--y);color:var(--dark)}
+.ssl-badge-b{background:var(--g);color:#fff}
 .ssl-badge-y{background:var(--y);color:var(--dark)}
-.ssl-badge-s{background:var(--s);color:#fff}
+.ssl-badge-s{background:var(--g);color:#fff}
 .ssl-title{font-family:"Noto Serif TC",serif;font-size:1rem;font-weight:600;color:var(--dark)}
 .ssl-sub{font-size:.7rem;color:#9a9895;margin-left:auto;flex-shrink:0}
 
@@ -266,11 +266,11 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 /* countdown bar */
 .gb-timer-wrap{
  margin:12px 14px 0;
- background:#FFF0E6;border-radius:12px;
+ background:var(--ys);border-radius:12px;
  padding:10px 12px;
  display:flex;align-items:center;gap:10px;
 }
-.gb-timer-label{font-size:.65rem;font-weight:700;color:var(--o);letter-spacing:.06em;flex-shrink:0}
+.gb-timer-label{font-size:.65rem;font-weight:700;color:var(--g);letter-spacing:.06em;flex-shrink:0}
 .gb-countdown{display:flex;gap:6px;align-items:center}
 .gb-unit{display:flex;flex-direction:column;align-items:center;gap:2px}
 .gb-num{
@@ -279,23 +279,23 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
  font-size:.9rem;font-weight:800;color:var(--dark);
  box-shadow:0 1px 4px rgba(0,0,0,.08);font-variant-numeric:tabular-nums;
 }
-.gb-ulab{font-size:.55rem;color:var(--o);font-weight:600}
-.gb-sep{font-size:.9rem;font-weight:800;color:var(--o);margin-bottom:12px}
+.gb-ulab{font-size:.55rem;color:var(--g);font-weight:600}
+.gb-sep{font-size:.9rem;font-weight:800;color:var(--g);margin-bottom:12px}
 
 .gb-card-bottom{
  padding:10px 14px 14px;
  display:flex;align-items:center;justify-content:space-between;gap:10px;
 }
 .gb-end-date{font-size:.67rem;color:#aaa}
-.gb-end-date span{color:var(--o);font-weight:700}
+.gb-end-date span{color:var(--g);font-weight:700}
 .gb-btn{
  padding:8px 18px;border-radius:100px;
  font-size:.75rem;font-weight:700;
  text-decoration:none;color:#fff;
- background:var(--o);
+ background:var(--r);
  transition:background .2s,transform .2s;flex-shrink:0;
 }
-.gb-btn:hover{background:#e06020;transform:scale(1.04)}
+.gb-btn:hover{background:#b52b31;transform:scale(1.04)}
 
 /* upcoming card */
 .uc-card{
@@ -309,16 +309,16 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .uc-date-box{
  flex-shrink:0;width:48px;
  display:flex;flex-direction:column;align-items:center;
- background:var(--bs);border-radius:12px;padding:8px 4px;
+ background:var(--ys);border-radius:12px;padding:8px 4px;
 }
-.uc-month{font-size:.58rem;font-weight:700;color:var(--b);letter-spacing:.06em;text-transform:uppercase}
+.uc-month{font-size:.58rem;font-weight:700;color:var(--dark);letter-spacing:.06em;text-transform:uppercase}
 .uc-day{font-size:1.3rem;font-weight:800;color:var(--dark);line-height:1}
 .uc-body{flex:1;min-width:0}
 .uc-name{font-size:.85rem;font-weight:600;color:var(--dark);margin-bottom:3px;white-space:normal;line-height:1.4}
 .uc-range{font-size:.67rem;color:#aaa}
 .uc-countdown{flex-shrink:0;text-align:right}
-.uc-days-num{font-size:1.1rem;font-weight:800;color:var(--b)}
-.uc-days-lab{font-size:.58rem;color:var(--b);font-weight:600}
+.uc-days-num{font-size:1.1rem;font-weight:800;color:var(--r)}
+.uc-days-lab{font-size:.58rem;color:var(--g);font-weight:600}
 
 /* evergreen card */
 .ev-card{
@@ -366,7 +366,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   cursor:pointer;transition:all .2s;
   white-space:nowrap;
 }
-.uc-bell-btn:hover{background:var(--b);border-color:var(--b);color:#fff}
+.uc-bell-btn:hover{background:var(--y);border-color:var(--y);color:var(--dark)}
 .uc-bell-btn:active{transform:scale(.93)}
 .uc-bell-btn i{font-size:.8rem}
 
@@ -378,20 +378,20 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 /* discount code row */
 .gb-code-row{
   margin:0 14px 0;
-  background:#f9f5ff;border-radius:10px;
+  background:var(--ys);border-radius:10px;
   padding:8px 12px;
   display:flex;align-items:center;justify-content:space-between;gap:8px;
 }
 .gb-code-label{font-size:.62rem;color:#888;font-weight:500}
-.gb-code-val{font-size:.85rem;font-weight:800;color:#6B21A8;letter-spacing:.06em}
+.gb-code-val{font-size:.85rem;font-weight:800;color:var(--dark);letter-spacing:.06em}
 .gb-code-copy{
   flex-shrink:0;padding:5px 12px;border-radius:100px;
-  border:none;background:#6B21A8;color:#fff;
+  border:none;background:var(--y);color:var(--dark);
   font-family:"Noto Sans TC",sans-serif;font-size:.66rem;font-weight:700;
   cursor:pointer;transition:background .15s;
 }
-.gb-code-copy:hover{background:#4c1680}
-.gb-code-copy.copied{background:#A1B191}
+.gb-code-copy:hover{background:#d4a010}
+.gb-code-copy.copied{background:var(--g);color:#fff}
 
 /* review photo */
 .rv-photo{
@@ -403,11 +403,11 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .sched-box{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:18px;border:1.5px solid #e8e8e4}
 .sched-hd{background:var(--g);padding:11px 16px;display:flex;align-items:center;gap:8px}
 .sched-hd .label{font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--y);text-transform:uppercase}
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--o);flex-shrink:0;animation:pulse 1.6s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(254,125,47,.5)}50%{box-shadow:0 0 0 5px rgba(254,125,47,0)}}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--y);flex-shrink:0;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(251,192,44,.5)}50%{box-shadow:0 0 0 5px rgba(251,192,44,0)}}
 .sched-row{display:flex;align-items:center;padding:9px 16px;border-bottom:1px solid var(--c);font-size:.76rem}
 .sched-row:last-child{border-bottom:none}
-.sched-date{color:var(--b);font-size:.66rem;font-weight:700;width:90px;flex-shrink:0}
+.sched-date{color:var(--y);font-size:.66rem;font-weight:700;width:90px;flex-shrink:0}
 .link-list{display:flex;flex-direction:column;gap:8px}
 .lc{
  display:flex;align-items:center;gap:11px;padding:12px 14px;border-radius:14px;
@@ -415,17 +415,17 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
  text-decoration:none;color:var(--dark);transition:transform .2s,box-shadow .2s,border-color .2s,background .2s;
 }
 .lc:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.07)}
-.lc-o{border-left:4px solid var(--o)}.lc-o:hover{background:var(--os);border-color:var(--o)}
+.lc-o{border-left:4px solid var(--y)}.lc-o:hover{background:var(--ys);border-color:var(--y)}
 .lc-y{border-left:4px solid var(--y)}.lc-y:hover{background:var(--ys);border-color:var(--y)}
-.lc-b{border-left:4px solid var(--b)}.lc-b:hover{background:var(--bs);border-color:var(--b)}
-.lc-s{border-left:4px solid var(--s)}.lc-s:hover{background:var(--ss);border-color:var(--s)}
+.lc-b{border-left:4px solid var(--y)}.lc-b:hover{background:var(--ys);border-color:var(--y)}
+.lc-s{border-left:4px solid var(--g)}.lc-s:hover{background:var(--ys);border-color:var(--g)}
 .ci{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
-.ci-o{background:var(--os)}.ci-y{background:var(--ys)}.ci-b{background:var(--bs)}.ci-s{background:var(--ss)}
+.ci-o{background:var(--ys)}.ci-y{background:var(--ys)}.ci-b{background:var(--ys)}.ci-s{background:var(--ys)}
 .lct{flex:1;min-width:0}
 .lct-name{font-size:.82rem;font-weight:500;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lct-sub{font-size:.67rem;color:#9a9895;margin-top:2px}
 .badge{flex-shrink:0;font-size:.58rem;font-weight:700;letter-spacing:.05em;padding:3px 8px;border-radius:100px;text-transform:uppercase}
-.b-o{background:var(--o);color:#fff}.b-b{background:var(--b);color:#fff}.b-s{background:var(--s);color:#fff}.b-y{background:var(--y);color:var(--dark)}
+.b-o{background:var(--y);color:var(--dark)}.b-b{background:var(--g);color:#fff}.b-s{background:var(--g);color:#fff}.b-y{background:var(--y);color:var(--dark)}
 .arr{color:#d0d0cc;font-size:.85rem;flex-shrink:0}
 .lc:hover .arr{color:var(--g)}
 .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -434,7 +434,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .rc-icon{font-size:1.4rem}.rc-name{font-size:.75rem;font-weight:500;line-height:1.4}.rc-cta{font-size:.65rem;font-weight:700}
 
 /* share banner */
-.share-bar{background:linear-gradient(135deg,var(--y),var(--o));border-radius:16px;padding:14px 16px;margin-bottom:6px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .2s}
+.share-bar{background:var(--y);border-radius:16px;padding:14px 16px;margin-bottom:6px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .2s}
 .share-bar:hover{transform:scale(1.01)}
 .share-bar .sb-icon{font-size:1.5rem}
 .share-bar .sb-text strong{display:block;font-size:.85rem;font-weight:700;color:var(--dark)}
@@ -477,18 +477,18 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 
 /* ── REVIEW SECTION ── */
 .rv-cta-card{
-  background:linear-gradient(130deg,#FE7D2F 0%,#FBC02C 100%);
+  background:var(--y);
   border-radius:18px;padding:18px 16px;margin-bottom:14px;
   display:flex;align-items:center;gap:12px;
 }
 .rv-cta-left{flex:1}
-.rv-cta-title{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:3px;line-height:1.35}
-.rv-cta-sub{font-size:.72rem;color:rgba(255,255,255,.85);line-height:1.45}
+.rv-cta-title{font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:3px;line-height:1.35}
+.rv-cta-sub{font-size:.72rem;color:rgba(44,44,44,.75);line-height:1.45}
 .rv-cta-btn{
   flex-shrink:0;display:flex;align-items:center;gap:5px;
-  background:#fff;border:none;border-radius:100px;
+  background:var(--dark);border:none;border-radius:100px;
   padding:9px 16px;cursor:pointer;
-  font-family:"Noto Sans TC",sans-serif;font-size:.78rem;font-weight:700;color:#FE7D2F;
+  font-family:"Noto Sans TC",sans-serif;font-size:.78rem;font-weight:700;color:#fff;
   box-shadow:0 2px 10px rgba(0,0,0,.14);transition:transform .15s;
 }
 .rv-cta-btn:active{transform:scale(.95)}
@@ -502,7 +502,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   font-family:"Noto Sans TC",sans-serif;font-size:.72rem;font-weight:500;color:var(--g);
   cursor:pointer;transition:all .18s;white-space:nowrap;
 }
-.rv-pill.on{background:var(--o);border-color:var(--o);color:#fff}
+.rv-pill.on{background:var(--y);border-color:var(--y);color:var(--dark)}
 
 /* ── REVIEW CARDS (隨機 5 則，每 5 秒換一批) ── */
 .rv-list{
@@ -521,7 +521,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .rv-stars{color:#FBC02C;font-size:.72rem;letter-spacing:1px;margin-left:auto}
 .rv-text{font-size:.78rem;color:var(--g);line-height:1.6;margin-bottom:7px;flex:1}
 .rv-footer{display:flex;align-items:center}
-.rv-name{font-size:.68rem;font-weight:600;color:var(--o);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rv-name{font-size:.68rem;font-weight:600;color:#FE7D2F;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -573,7 +573,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <div class="sb-text"><strong>免費蒙氏活動庫</strong><span>前幼師精選，按年齡篩選，立刻帶孩子玩</span></div>
   <span class="sb-arrow">›</span>
  </div>
- <div class="sec-hd"><div class="dot" style="background:var(--s)"></div>依年齡</div>
+ <div class="sec-hd"><div class="dot" style="background:var(--y)"></div>依年齡</div>
  <div class="filter-row" id="age-filters">
   <button class="fpill on" data-age="all">全部</button>
   <button class="fpill" data-age="0-1">0–1 歲</button>
@@ -600,7 +600,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <div class="sb-text"><strong>發展里程碑速查表</strong><span>媽媽群組必傳！一表搞定各月齡重點</span></div>
   <span class="sb-arrow">›</span>
  </div>
- <div class="sec-hd" style="margin-top:4px"><div class="dot" style="background:var(--b)"></div>選擇月齡</div>
+ <div class="sec-hd" style="margin-top:4px"><div class="dot" style="background:var(--y)"></div>選擇月齡</div>
  <div class="ms-tabs" id="ms-tabs">
   <button class="mt-btn on" data-ms="0">0–3個月</button>
   <button class="mt-btn" data-ms="1">4–6個月</button>
@@ -652,18 +652,18 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <a class="ev-card" href="https://www.klook.com/zh-TW/?aid=108373" target="_blank">
    <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-airplane"></i></div>
    <div class="ev-body"><div class="ev-name">Klook 全站 95 折</div><div class="ev-sub">優惠碼：shutiao0409</div></div>
-   <button class="ev-tag ev-copy-btn" data-code="shutiao0409" onclick="evCopyCode(event,this)" style="background:#FBC02C;color:#2e2e2e;border:none;font-family:inherit;cursor:pointer">95折</button>
+   <button class="ev-tag ev-copy-btn" data-code="shutiao0409" onclick="evCopyCode(event,this)" style="background:#DC383F;color:#fff;border:none;font-family:inherit;cursor:pointer">95折</button>
   </a>
   <a class="ev-card" href="https://app.shopback.com/MhYghkNUOVb" target="_blank">
    <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-coins"></i></div>
    <div class="ev-body"><div class="ev-name">ShopBack 回饋金</div><div class="ev-sub">邀請碼：wTVyMf，拿兩百</div></div>
-   <button class="ev-tag ev-copy-btn" data-code="wTVyMf" onclick="evCopyCode(event,this)" style="background:#FBC02C;color:#2e2e2e;border:none;font-family:inherit;cursor:pointer">回饋</button>
+   <button class="ev-tag ev-copy-btn" data-code="wTVyMf" onclick="evCopyCode(event,this)" style="background:#DC383F;color:#fff;border:none;font-family:inherit;cursor:pointer">回饋</button>
   </a>
  </div>
 
 <!-- 📦 統一開團資料庫 (隱藏不顯示) -->
 <div id="all-gb-items" style="display: none;">
-  <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-bg="#FFF0E6" data-link="https://theliquid.my1shop.com/n1ki5e" data-desc="QA隨行水瓶，實用美觀都在線"></div>
+  <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-bg="var(--ys)" data-link="https://theliquid.my1shop.com/n1ki5e" data-desc="QA隨行水瓶，實用美觀都在線"></div>
   <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-bg="#F0F8FF" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮Q餡飽滿、湯頭鮮美超級好吃"></div>
   <div class="uc-card" data-name="Zip Top保鮮盒" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-package" data-bg="#E6FFE6" data-link="https://www.pinyan.com.tw/pages/shu-tiao1116" data-desc="美國Zip Top白金矽膠環保矽膠袋保鮮盒，可站立、好清洗，微波加熱與冰箱收納的好幫手"></div>
   <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-bg="#FFF9E6" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味"></div>
@@ -799,7 +799,7 @@ function startOngoingTimer(name, endDateTime) {
 </script>
 
 <!-- ══ REVIEW SECTION ══ -->
-<div class="sec-hd" style="padding-top:20px"><div class="dot" style="background:var(--s)"></div>團友真實回饋</div>
+<div class="sec-hd" style="padding-top:20px"><div class="dot" style="background:var(--y)"></div>團友真實回饋</div>
 
 <!-- CTA card -->
 <div class="rv-cta-card">
@@ -1134,7 +1134,7 @@ function startOngoingTimer(name, endDateTime) {
 
 <!-- ══ PAGE: 資源 ══ -->
 <div class="page" id="p-links">
- <div class="sec-hd" style="padding-top:16px"><div class="dot" style="background:var(--s)"></div>好物分享</div>
+ <div class="sec-hd" style="padding-top:16px"><div class="dot" style="background:var(--y)"></div>好物分享</div>
  <div class="link-list">
   <a class="lc lc-s" href="https://shpe.site/shu_tiao0409" target="_blank">
    <div class="ci ci-s"><i class="ph-bold ph-shopping-bag"></i></div>
@@ -1185,7 +1185,7 @@ function showToast(msg) {
 }
 // ── AVATAR HEART ──
 function launchConfetti() {
-  var cols = ['#FBC02C','#FE7D2F','#A1B191','#DC383F','#73A5C0','#fff','#D4AF37','#C0C0C0'];
+  var cols = ['#FBC02C','#DC383F','#2e2e2e','#545353','#fff','#D4AF37','#FEF3D0','#d4a010'];
   for (var i = 0; i < 90; i++) {
     (function() {
       var el = document.createElement('div');
@@ -1196,17 +1196,20 @@ function launchConfetti() {
     })();
   }
 }
-var _hc = 0;
+var _hc = 0, _danceTimer = null;
 document.getElementById('avatarBtn').addEventListener('click', function() {
   _hc++;
+  var btn = document.getElementById('avatarBtn');
   var h = document.getElementById('heartPop');
   h.classList.remove('go'); void h.offsetWidth; h.classList.add('go');
+  // 每次點擊都抖動
+  btn.classList.remove('heart-dance'); void btn.offsetWidth; btn.classList.add('heart-dance');
+  clearTimeout(_danceTimer);
+  _danceTimer = setTimeout(function(){ btn.classList.remove('heart-dance'); }, 2600);
   if (_hc >= 3) {
     _hc = 0;
-    document.getElementById('avatarBtn').classList.add('heart-dance');
     launchConfetti();
     setTimeout(launchConfetti, 600);
-    setTimeout(function(){ document.getElementById('avatarBtn').classList.remove('heart-dance'); }, 2600);
   }
 });
 
@@ -1444,7 +1447,7 @@ function renderActs() {
   return;
  }
  grid.innerHTML = filtered.map(function(a, i) {
-  var colorMap = {'--ss':'var(--ss)','--bs':'var(--bs)','--ys':'var(--ys)','--os':'var(--os)','--rs':'var(--rs)'};
+  var colorMap = {'--ss':'var(--ys)','--bs':'var(--ys)','--ys':'var(--ys)','--os':'var(--ys)','--rs':'var(--rs)'};
     var typeColorMap = {
       '蒙氏':   'background:#FEF3D0;color:#7a5800',
       '五感':   'background:#FEEBD8;color:#8a3a00',
@@ -1452,7 +1455,7 @@ function renderActs() {
       '科學':   'background:#DFF0F7;color:#1e5070',
       '大小肌肉':'background:#EAF0E4;color:#3a5025',
     };
-  var bg = colorMap[a.col] || 'var(--ss)';
+  var bg = colorMap[a.col] || 'var(--ys)';
   var advHtml = a.adv ? '<div class="adv">'+a.adv+'</div>' : '';
   return '<div class="act-card" data-idx="'+i+'" style="animation:fadeUp .4s '+(i*0.05)+'s ease both;opacity:0">'+
    '<div class="act-icon" style="background:'+bg+'; font-size:1.3rem; display:flex; align-items:center; justify-content:center;">'+a.ic+'</div>'+
@@ -1683,7 +1686,7 @@ function checkUpcoming() {
       el.style.animation = 'fadeUp .5s ease both';
       el.innerHTML =
         '<div class="gb-card-top">' +
-          '<div class="gb-card-icon" style="background:#FFF0E6"><i class="ph-bold ' + icon + '"></i></div>' +
+          '<div class="gb-card-icon" style="background:var(--ys)"><i class="ph-bold ' + icon + '"></i></div>' +
           '<div class="gb-card-info">' +
             '<div class="gb-brand">限時開團</div>' +
             '<div class="gb-name">' + name + '</div>' +
@@ -1741,8 +1744,8 @@ function evCopyCode(e, btn) {
   function showCopied() {
     var orig = btn.textContent;
     btn.textContent = '已複製！';
-    btn.style.background = '#A1B191'; btn.style.color = '#fff';
-    setTimeout(function(){ btn.textContent = orig; btn.style.background = '#FBC02C'; btn.style.color = '#2e2e2e'; }, 1600);
+    btn.style.background = '#545353'; btn.style.color = '#fff';
+    setTimeout(function(){ btn.textContent = orig; btn.style.background = '#DC383F'; btn.style.color = '#fff'; }, 1600);
   }
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(code).then(showCopied).catch(function(){
@@ -1909,12 +1912,12 @@ setInterval(renderRandom5, 5000);
 .rv-modal-field{margin-bottom:14px}
 .rv-modal-field label{display:block;font-size:.75rem;font-weight:600;color:#666;margin-bottom:5px}
 .rv-modal-field input,.rv-modal-field textarea{width:100%;box-sizing:border-box;border:1.5px solid #e8e8e4;border-radius:10px;padding:10px 12px;font-size:.85rem;font-family:inherit;outline:none;color:#2e2e2e;background:#fafafa;transition:border .2s}
-.rv-modal-field input:focus,.rv-modal-field textarea:focus{border-color:var(--o);background:#fff}
+.rv-modal-field input:focus,.rv-modal-field textarea:focus{border-color:var(--y);background:#fff}
 .rv-modal-field textarea{min-height:90px;resize:vertical}
 .rv-star-row{display:flex;gap:6px;margin:4px 0 2px}
 .rvs-star{font-size:1.6rem;cursor:pointer;color:#e0e0dc;transition:color .15s;line-height:1;user-select:none}
 .rvs-star.on{color:#FBC02C}
-.rv-modal-submit{width:100%;padding:13px;border-radius:12px;border:none;background:var(--o);color:#fff;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:4px;font-family:inherit;transition:opacity .2s}
+.rv-modal-submit{width:100%;padding:13px;border-radius:12px;border:none;background:var(--y);color:var(--dark);font-size:.95rem;font-weight:700;cursor:pointer;margin-top:4px;font-family:inherit;transition:opacity .2s}
 .rv-modal-submit:active{opacity:.8}
 </style>
 <div id="rvModal" onclick="if(event.target===this)closeReviewForm()">
@@ -1925,12 +1928,12 @@ setInterval(renderRandom5, 5000);
     </div>
     <form id="rvFormInner" onsubmit="submitReview(event)">
       <div class="rv-modal-field">
-        <label>你的名字（暱稱也可以）</label>
+        <label>你的名字（暱稱就可以）</label>
         <input id="rvInputName" type="text" placeholder="ex. 小羊、薯條媽" maxlength="20">
       </div>
       <div class="rv-modal-field">
         <label>這次跟的哪個團？</label>
-        <input id="rvInputBrand" type="text" placeholder="ex. QA水瓶、繪本、防蚊液、寢具" maxlength="30">
+        <input id="rvInputBrand" type="text" placeholder="ex. QA水瓶、雪松、寢具" maxlength="30">
       </div>
       <div class="rv-modal-field">
         <label>滿意度</label>
@@ -1945,7 +1948,7 @@ setInterval(renderRandom5, 5000);
       </div>
       <div class="rv-modal-field">
         <label>你想說的話 *</label>
-        <textarea id="rvInputText" placeholder="分享使用後的感受，對其他媽媽很有幫助！" required maxlength="200"></textarea>
+        <textarea id="rvInputText" placeholder="分享使用感受，對其他媽媽很有幫助！" required maxlength="200"></textarea>
       </div>
       <button type="submit" class="rv-modal-submit">送出回饋 💛</button>
     </form>
