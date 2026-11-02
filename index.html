@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
 <title>小羊的育兒基地</title>
-<meta name="description" content="幼師小羊的育兒工具箱：活動庫發展里程碑精選團購"/>
+<meta name="description" content="前幼師小羊的育兒工具箱：蒙氏活動庫發展里程碑精選團購"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
@@ -314,7 +314,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .uc-month{font-size:.58rem;font-weight:700;color:var(--b);letter-spacing:.06em;text-transform:uppercase}
 .uc-day{font-size:1.3rem;font-weight:800;color:var(--dark);line-height:1}
 .uc-body{flex:1;min-width:0}
-.uc-name{font-size:.85rem;font-weight:600;color:var(--dark);margin-bottom:3px}
+.uc-name{font-size:.85rem;font-weight:600;color:var(--dark);margin-bottom:3px;white-space:normal;line-height:1.4}
 .uc-range{font-size:.67rem;color:#aaa}
 .uc-countdown{flex-shrink:0;text-align:right}
 .uc-days-num{font-size:1.1rem;font-weight:800;color:var(--b)}
@@ -366,9 +366,38 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   cursor:pointer;transition:all .2s;
   white-space:nowrap;
 }
-.uc-bell-btn:hover{background:var(--y);border-color:var(--y);color:var(--dark)}
+.uc-bell-btn:hover{background:var(--b);border-color:var(--b);color:#fff}
 .uc-bell-btn:active{transform:scale(.93)}
 .uc-bell-btn i{font-size:.8rem}
+
+/* gb-card image banner */
+.gb-card-img{
+  width:100%;height:160px;object-fit:cover;
+  display:block;border-radius:14px 14px 0 0;
+}
+/* discount code row */
+.gb-code-row{
+  margin:0 14px 0;
+  background:#f9f5ff;border-radius:10px;
+  padding:8px 12px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.gb-code-label{font-size:.62rem;color:#888;font-weight:500}
+.gb-code-val{font-size:.85rem;font-weight:800;color:#6B21A8;letter-spacing:.06em}
+.gb-code-copy{
+  flex-shrink:0;padding:5px 12px;border-radius:100px;
+  border:none;background:#6B21A8;color:#fff;
+  font-family:"Noto Sans TC",sans-serif;font-size:.66rem;font-weight:700;
+  cursor:pointer;transition:background .15s;
+}
+.gb-code-copy:hover{background:#4c1680}
+.gb-code-copy.copied{background:#A1B191}
+
+/* review photo */
+.rv-photo{
+  width:100%;border-radius:10px;object-fit:cover;margin-bottom:10px;
+  max-height:180px;display:block;
+}
 
 /* ── LINK CARDS ── */
 .sched-box{background:#fff;border-radius:16px;overflow:hidden;margin-bottom:18px;border:1.5px solid #e8e8e4}
@@ -412,99 +441,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .share-bar .sb-text span{font-size:.7rem;color:rgba(46,46,46,.7)}
 .share-bar .sb-arrow{margin-left:auto;font-size:1.1rem;color:rgba(46,46,46,.45)}
 
-/* ── FORTUNE FAB ── */
-.fab{
- position:fixed;bottom:72px;right:18px;z-index:95;
- width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
- background:linear-gradient(135deg,var(--y),var(--o));
- box-shadow:0 4px 18px rgba(254,125,47,.45);
- display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
- transition:transform .25s,box-shadow .25s;
- animation:popIn .5s 1s cubic-bezier(.34,1.56,.64,1) both;
-}
-.fab:hover{transform:scale(1.12);box-shadow:0 8px 26px rgba(254,125,47,.55)}
-.fab:active{transform:scale(.93)}
-.fab .fi{font-size:1.3rem;line-height:1}
-.fab .fl{font-size:.48rem;font-weight:700;color:#fff;letter-spacing:.04em}
 @keyframes popIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
-
-/* ── FORTUNE MODAL ── */
-.ov{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);align-items:flex-end;justify-content:center}
-.ov.open{display:flex;animation:fadein .2s ease both}
-@keyframes fadein{from{opacity:0}to{opacity:1}}
-.modal{background:#fff;width:100%;max-width:480px;border-radius:28px 28px 0 0;padding:24px 22px 48px;animation:sup .35s cubic-bezier(.16,1,.3,1) both;position:relative}
-@keyframes sup{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.m-handle{width:36px;height:4px;border-radius:2px;background:#e0e0da;margin:0 auto 18px}
-.m-title{text-align:center;font-family:"Noto Serif TC",serif;font-size:1.15rem;font-weight:600;margin-bottom:3px}
-.m-sub{text-align:center;font-size:.73rem;color:#9a9895;margin-bottom:20px}
-.crystal-wrap{display:flex;justify-content:center;margin-bottom:20px}
-.crystal{
- width:100px;height:100px;border-radius:50%;border:none;cursor:pointer;
- background:linear-gradient(135deg,var(--ys),var(--y));
- box-shadow:0 4px 22px rgba(251,192,44,.4),inset 0 2px 6px rgba(255,255,255,.7);
- display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
- transition:transform .2s;font-size:2rem;
-}
-.crystal:hover{transform:scale(1.06)}.crystal:active{transform:scale(.93)}
-.crystal .cl{font-size:.62rem;font-weight:700;color:var(--dark);letter-spacing:.04em}
-.crystal.spin{animation:cspin .6s ease both}
-@keyframes cspin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(.8)}100%{transform:rotate(360deg) scale(1)}}
-.result{display:none;border-radius:18px;padding:18px;text-align:center;animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both}
-.result.show{display:block}
-/* rare glow animation */
-.flash-overlay{display:block;
- position:fixed;inset:0;background:#fff;z-index:500;
- pointer-events:none;opacity:0;
-}
-.flash-overlay.go{animation:flashAnim .7s ease forwards}
-@keyframes flashAnim{
- 0%{opacity:.95}20%{opacity:.6}100%{opacity:0}
-}
-@keyframes rareGlow {
- 0%,100%{ box-shadow: 0 0 0 3px var(--rare-c), 0 0 18px var(--rare-c); }
- 50%  { box-shadow: 0 0 0 4px var(--rare-c), 0 0 36px var(--rare-c), 0 0 60px var(--rare-c)44; }
-}
-.result.rare-gold {
- --rare-c: #D4AF37;
- border: 3px solid #D4AF37 !important;
- animation: rareGlow 1.1s ease-in-out infinite;
- box-shadow:0 0 0 4px #D4AF37,0 0 28px #D4AF3799,0 0 56px #D4AF3755!important;
-}
-.result.rare-silver {
- --rare-c: #90a8b8;
- border: 3px solid #90a8b8 !important;
- animation: rareGlow 1.1s ease-in-out infinite;
- box-shadow:0 0 0 4px #90a8b8,0 0 28px #90a8b899,0 0 56px #90a8b855!important;
-}
-@keyframes rareGlow {
- 0%,100%{ box-shadow:0 0 0 3px var(--rare-c),0 0 16px var(--rare-c),0 0 40px var(--rare-c)99; }
- 50%  { box-shadow:0 0 0 5px var(--rare-c),0 0 32px var(--rare-c),0 0 80px var(--rare-c),inset 0 0 24px var(--rare-c)33; }
-}
-.rare-label {
- display:inline-block;font-size:.65rem;font-weight:800;
- letter-spacing:.1em;text-transform:uppercase;
- padding:3px 10px;border-radius:100px;
- margin-bottom:10px;
-}
-.r-msg{
- font-family:"Noto Serif TC",serif;
- font-size:1rem;font-weight:600;line-height:1.6;
- color:var(--dark);margin-bottom:12px;white-space:pre-line;
-}
-.r-row{
- display:flex;align-items:flex-start;gap:10px;
- background:rgba(255,255,255,.7);border-radius:12px;
- padding:10px 12px;margin-bottom:8px;text-align:left;
-}
-.r-row-ico{font-size:1.1rem;flex-shrink:0;margin-top:1px}
-.r-row-text{font-size:.78rem;line-height:1.6;color:var(--dark);white-space:pre-line}
-.r-swatch{width:52px;height:52px;border-radius:50%;margin:0 auto 10px;border:3px solid rgba(255,255,255,.8);box-shadow:0 3px 14px rgba(0,0,0,.15)}
-.r-cname{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g);margin-bottom:6px}
-.r-quote{font-family:"Noto Serif TC",serif;font-size:.95rem;line-height:1.7;color:var(--dark);margin-bottom:8px}
-.r-emoji{font-size:1.4rem}
-.re-btn{margin-top:12px;padding:9px 22px;border-radius:100px;border:2px solid var(--o);background:transparent;color:var(--o);font-size:.78rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:"Noto Sans TC",sans-serif}
-.re-btn:hover{background:var(--o);color:#fff}
-.m-close{position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:50%;border:none;background:#f0f0ee;color:var(--g);font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .act-icon i,.ci i,.ev-icon i{font-size:1.25rem;display:flex;align-items:center;justify-content:center}
 .tab-btn .ti i{font-size:1.3rem;display:block}
 .ssl-badge i{font-size:.75rem;vertical-align:middle;margin-right:2px}
@@ -537,6 +474,64 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 @keyframes toastPop{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 @keyframes toastFade{from{opacity:1}to{opacity:0}}
 .footer{text-align:center;padding:8px 0 0;font-size:.65rem;color:#c0c0bc}
+
+/* ── REVIEW SECTION ── */
+.rv-cta-card{
+  background:linear-gradient(130deg,#FE7D2F 0%,#FBC02C 100%);
+  border-radius:18px;padding:18px 16px;margin-bottom:14px;
+  display:flex;align-items:center;gap:12px;
+}
+.rv-cta-left{flex:1}
+.rv-cta-title{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:3px;line-height:1.35}
+.rv-cta-sub{font-size:.72rem;color:rgba(255,255,255,.85);line-height:1.45}
+.rv-cta-btn{
+  flex-shrink:0;display:flex;align-items:center;gap:5px;
+  background:#fff;border:none;border-radius:100px;
+  padding:9px 16px;cursor:pointer;
+  font-family:"Noto Sans TC",sans-serif;font-size:.78rem;font-weight:700;color:#FE7D2F;
+  box-shadow:0 2px 10px rgba(0,0,0,.14);transition:transform .15s;
+}
+.rv-cta-btn:active{transform:scale(.95)}
+.rv-cta-btn i{font-size:.9rem}
+
+.rv-filter{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px;scrollbar-width:none}
+.rv-filter::-webkit-scrollbar{display:none}
+.rv-pill{
+  flex-shrink:0;padding:6px 13px;border-radius:100px;
+  border:1.5px solid #e0e0dc;background:#fff;
+  font-family:"Noto Sans TC",sans-serif;font-size:.72rem;font-weight:500;color:var(--g);
+  cursor:pointer;transition:all .18s;white-space:nowrap;
+}
+.rv-pill.on{background:var(--o);border-color:var(--o);color:#fff}
+
+/* ── REVIEW CAROUSEL (vertical pages, auto-rotate) ── */
+.rv-list{
+  display:flex;flex-direction:row;overflow-x:hidden;
+  scroll-snap-type:x mandatory;scrollbar-width:none;margin-bottom:4px;
+}
+.rv-page{
+  display:flex;flex-direction:column;gap:8px;
+  flex:0 0 100%;width:100%;
+  scroll-snap-align:start;box-sizing:border-box;flex-shrink:0;
+}
+.rv-card{
+  background:#fff;border-radius:14px;border:1.5px solid #e8e8e4;
+  padding:13px 14px;display:flex;flex-direction:column;overflow:hidden;
+}
+.rv-card.hidden{display:none}
+.rv-dots{display:flex;justify-content:center;gap:6px;margin:8px 0 16px}
+.rv-dot{width:6px;height:6px;border-radius:50%;background:#e0e0dc;transition:background .2s,width .2s}
+.rv-dot.on{background:var(--o);width:18px;border-radius:3px}
+.rv-card-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.rv-brand-tag{
+  font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:100px;
+  background:var(--ys);color:#7a5c00;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;max-width:60%;
+}
+.rv-stars{color:#FBC02C;font-size:.72rem;letter-spacing:1px;margin-left:auto}
+.rv-text{font-size:.78rem;color:var(--g);line-height:1.6;margin-bottom:7px;flex:1}
+.rv-footer{display:flex;align-items:center}
+.rv-name{font-size:.68rem;font-weight:600;color:var(--o);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -582,10 +577,10 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 
 
 <!-- ══ PAGE: 玩什麼 ══ -->
-<div class="page active" id="p-play">
- <div class="share-bar" onclick="if(navigator.share)navigator.share({title:'小羊的育兒基地',text:'幼師整理的活動庫，免費看！',url:location.href})">
+<div class="page" id="p-play">
+ <div class="share-bar" onclick="if(navigator.share)navigator.share({title:'小羊的育兒基地',text:'前幼師整理的蒙氏活動庫，免費看！',url:location.href})">
   <span class="sb-icon"><i class="ph-bold ph-game-controller"></i></span>
-  <div class="sb-text"><strong>免費活動庫</strong><span>幼師精選，按年齡篩選，立刻帶孩子玩</span></div>
+  <div class="sb-text"><strong>免費蒙氏活動庫</strong><span>前幼師精選，按年齡篩選，立刻帶孩子玩</span></div>
   <span class="sb-arrow">›</span>
  </div>
  <div class="sec-hd"><div class="dot" style="background:var(--s)"></div>依年齡</div>
@@ -605,14 +600,14 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
     <button class="fpill" data-type="大小肌肉"><i class="ph-bold ph-person-simple-run"></i> 大小肌肉</button>
   </div>
  <div class="act-grid" id="act-grid"></div>
- <div class="footer" style="margin-top:12px">持續新增中 · 歡迎分享給需要的朋友 </div>
+ <div class="footer" style="margin-top:12px">持續新增中 · 歡迎分享給需要的媽媽朋友 </div>
 </div>
 
 <!-- ══ PAGE: 里程碑 ══ -->
 <div class="page" id="p-milestone">
  <div class="share-bar" onclick="if(navigator.share)navigator.share({title:'寶寶發展里程碑速查',text:'小羊整理的育兒里程碑表！',url:location.href})">
   <span class="sb-icon"><i class="ph-bold ph-chart-bar-horizontal"></i></span>
-  <div class="sb-text"><strong>發展里程碑速查表</strong><span>一表搞定各月齡重點</span></div>
+  <div class="sb-text"><strong>發展里程碑速查表</strong><span>媽媽群組必傳！一表搞定各月齡重點</span></div>
   <span class="sb-arrow">›</span>
  </div>
  <div class="sec-hd" style="margin-top:4px"><div class="dot" style="background:var(--b)"></div>選擇月齡</div>
@@ -630,7 +625,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 </div>
 
 <!-- ══ PAGE: 開團中 ══ -->
-<div class="page" id="p-shop">
+<div class="page active" id="p-shop">
 
  <!-- 現正開團 -->
  <div class="shop-section-label">
@@ -638,72 +633,440 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <span class="ssl-title">搶購中</span>
   <span class="ssl-sub">截止就沒了</span>
  </div>
- <div class="gb-cards"></div>
+ <div class="gb-cards">
+  <div class="gb-card" data-deal-end="2026-11-08">
+   <div class="gb-card-top">
+    <div class="gb-card-icon" style="background:#FFF0E6"><i class="ph-bold ph-drop"></i></div>
+    <div class="gb-card-info">
+     <div class="gb-brand">限時開團</div>
+     <div class="gb-name">QA水瓶</div>
+     <div class="gb-desc">QA隨行水瓶，實用美觀都在線</div>
+    </div>
+   </div>
+   <div class="gb-timer-wrap">
+    <span class="gb-timer-label"><i class="ph-bold ph-timer"></i> 倒數</span>
+    <div class="gb-countdown">
+     <div class="gb-unit"><div class="gb-num" id="promo-d-QA水瓶">--</div><div class="gb-ulab">天</div></div>
+     <span class="gb-sep">:</span>
+     <div class="gb-unit"><div class="gb-num" id="promo-h-QA水瓶">--</div><div class="gb-ulab">時</div></div>
+     <span class="gb-sep">:</span>
+     <div class="gb-unit"><div class="gb-num" id="promo-m-QA水瓶">--</div><div class="gb-ulab">分</div></div>
+     <span class="gb-sep">:</span>
+     <div class="gb-unit"><div class="gb-num" id="promo-s-QA水瓶">--</div><div class="gb-ulab">秒</div></div>
+    </div>
+   </div>
+   <div class="gb-card-bottom">
+    <div class="gb-end-date">截止 <span>11/08</span></div>
+    <a class="gb-btn" href="https://theliquid.my1shop.com/n1ki5e" target="_blank">立刻搶購 →</a>
+   </div>
+  </div>
+ </div>
 
  <!-- 即將開團 -->
  <div class="shop-section-label">
   <span class="ssl-badge ssl-badge-b"><i class="ph-bold ph-calendar-dots"></i> 即將開團</span>
   <span class="ssl-title">開啟通知</span>
   <span class="ssl-sub">按鈴自動加行事曆</span>
-</div>
- <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-link="https://theliquid.my1shop.com/n1ki5e" data-desc="QA隨行水瓶，實用美觀都在線">
+ </div>
+ <div class="gb-cards">
+  <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-link="https://theliquid.my1shop.com/n1ki5e" data-desc="QA隨行水瓶，實用美觀都在線">
    <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">02</div></div>
    <div class="uc-body"><div class="uc-name">QA水瓶</div><div class="uc-range">11/02 – 11/08</div></div>
    <div class="uc-countdown"><div class="uc-days-num" id="uc-20261102">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="toggleBell(this,'QA水瓶','2026-11-02')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
-</div>
- <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮Q餡飽滿、湯頭鮮美超級好吃">
+   <button class="uc-bell-btn" onclick="addToCalendar('QA水瓶','2026-11-02','2026-11-08')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
+  </div>
+  <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮Q餡飽滿、湯頭鮮美超級好吃">
    <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">09</div></div>
    <div class="uc-body"><div class="uc-name">食光弄堂上海大餛飩</div><div class="uc-range">11/09 – 11/15</div></div>
    <div class="uc-countdown"><div class="uc-days-num" id="uc-20261109">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="toggleBell(this,'食光弄堂上海大餛飩','2026-11-09')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
-</div>
- <div class="uc-card" data-name="Zip Top保鮮盒" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-package" data-link="https://www.pinyan.com.tw/pages/shu-tiao1116" data-desc="美國Zip Top白金矽膠環保矽膠袋保鮮盒，可站立、好清洗，微波加熱與冰箱收納的好幫手">
+   <button class="uc-bell-btn" onclick="addToCalendar('食光弄堂上海大餛飩','2026-11-09','2026-11-15')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
+  </div>
+  <div class="uc-card" data-name="Zip Top保鮮盒" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-package" data-link="https://www.pinyan.com.tw/pages/shu-tiao1116" data-desc="美國Zip Top白金矽膠環保矽膠袋保鮮盒，可站立、好清洗，微波加熱與冰箱收納的好幫手">
    <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">16</div></div>
    <div class="uc-body"><div class="uc-name">Zip Top保鮮盒</div><div class="uc-range">11/16 – 11/22</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261116">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="toggleBell(this,'Zip Top保鮮盒','2026-11-16')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
-</div>
- <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味">
+   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261116a">--</div><div class="uc-days-lab">天後開團</div></div>
+   <button class="uc-bell-btn" onclick="addToCalendar('Zip Top保鮮盒','2026-11-16','2026-11-22')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
+  </div>
+  <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味">
    <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">16</div></div>
    <div class="uc-body"><div class="uc-name">沐甄豆豆漿饅頭</div><div class="uc-range">11/16 – 11/22</div></div>
-   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261116">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="toggleBell(this,'沐甄豆豆漿饅頭','2026-11-16')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
-</div>
- <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-cookie" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味">
+   <div class="uc-countdown"><div class="uc-days-num" id="uc-20261116b">--</div><div class="uc-days-lab">天後開團</div></div>
+   <button class="uc-bell-btn" onclick="addToCalendar('沐甄豆豆漿饅頭','2026-11-16','2026-11-22')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
+  </div>
+  <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-paint-brush" data-link="網址" data-desc="創意手作訂閱盒，每月驚喜！讓孩子動手做，激發無限想像力">
    <div class="uc-date-box"><div class="uc-month">NOV</div><div class="uc-day">23</div></div>
    <div class="uc-body"><div class="uc-name">My Creative Box</div><div class="uc-range">11/23 – 11/29</div></div>
    <div class="uc-countdown"><div class="uc-days-num" id="uc-20261123">--</div><div class="uc-days-lab">天後開團</div></div>
-   <button class="uc-bell-btn" onclick="toggleBell(this,'My Creative Box','2026-11-23')" title="開啟通知"><i class="ph-bold ph-bell"></i></button>
-</div>
+   <button class="uc-bell-btn" onclick="addToCalendar('My Creative Box','2026-11-23','2026-11-29')" title="加入行事曆"><i class="ph-bold ph-calendar-plus"></i></button>
+  </div>
+ </div>
 
  <!-- 長期優惠 -->
  <div class="shop-section-label">
   <span class="ssl-badge ssl-badge-y"><i class="ph-bold ph-sparkle"></i> 長期優惠</span>
-  <span class="ssl-title">隨時都能買</span>
+  <span class="ssl-title">隨時能買</span>
  </div>
  <div class="gb-cards">
   <a class="ev-card" href="https://sbshutiao0409.planet573.com/" target="_blank">
    <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-magnet"></i></div>
-   <div class="ev-body"><div class="ev-name">高CP的百變磁力片</div><div class="ev-sub">片數不夠隨時補充</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">9折優惠</span>
+   <div class="ev-body"><div class="ev-name">高CP 百變磁力片</div><div class="ev-sub">常設團，隨時可訂</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">常設</span>
   </a>
-  <a class="ev-card" href="https://esimconnect.com.tw/#/access/esimbuy?referencecode=shutiao" target="_blank">
+  <a class="ev-card" href="https://tinyurl.com/27j4ruy4" target="_blank">
    <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-wifi-high"></i></div>
-   <div class="ev-body"><div class="ev-name">eSIM 出國網卡</div><div class="ev-sub">出國必備24hr真人客服，網速穩穩穩</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">9折優惠</span>
+   <div class="ev-body"><div class="ev-name">eSIM 出國網卡</div><div class="ev-sub">24hr 真人客服，出國必備</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">9折</span>
   </a>
   <a class="ev-card" href="https://www.klook.com/zh-TW/?aid=108373" target="_blank">
    <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-airplane"></i></div>
    <div class="ev-body"><div class="ev-name">Klook 全站 95 折</div><div class="ev-sub">優惠碼：shutiao0409</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">95折優惠</span>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">95折</span>
+  </a>
+  <a class="ev-card" href="https://www.sylstarled.com.tw/hidden/shu" target="_blank">
+   <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-sun"></i></div>
+   <div class="ev-body"><div class="ev-name">喜光 LED 燈</div><div class="ev-sub">折扣碼：star100，結帳現折 100</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">折100</span>
   </a>
   <a class="ev-card" href="https://app.shopback.com/MhYghkNUOVb" target="_blank">
    <div class="ev-icon" style="background:#FEF3D0"><i class="ph-bold ph-coins"></i></div>
-   <div class="ev-body"><div class="ev-name">ShopBack 回饋金</div><div class="ev-sub">邀請碼：wTVyMf</div></div>
-   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">領回饋金200元</span>
+   <div class="ev-body"><div class="ev-name">ShopBack 回饋金</div><div class="ev-sub">邀請碼：wTVyMf，拿兩百</div></div>
+   <span class="ev-tag" style="background:#FBC02C;color:#2e2e2e">回饋</span>
   </a>
  </div>
+
+<!-- ══ REVIEW SECTION ══ -->
+<div class="sec-hd" style="padding-top:20px"><div class="dot" style="background:var(--s)"></div>團友真實回饋</div>
+
+<!-- CTA card -->
+<div class="rv-cta-card">
+  <div class="rv-cta-left">
+    <div class="rv-cta-title">跟過團的朋友，留下你的感受吧</div>
+    <div class="rv-cta-sub">文字或照片都行，小羊感謝每一個回饋</div>
+  </div>
+  <button class="rv-cta-btn" onclick="openReviewForm()">
+    <i class="ph-bold ph-pencil-line"></i>填寫
+  </button>
+</div>
+
+<!-- review cards – 5 per page vertical, auto-rotate -->
+<div class="rv-dots" id="rvDots"></div>
+<div class="rv-list" id="rvList">
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">QA水瓶</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">今天拿到水壺，很美！小孩超喜歡！一拿到就不停說要喝水。謝謝薯媽開團 💕</div>
+    <div class="rv-footer"><span class="rv-name">海豹</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">QA水瓶</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我家兒子也是對愛 QA 的水壺，眾多水壺唯一指定款 😂😂 最愛</div>
+    <div class="rv-footer"><span class="rv-name">Rainbow</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">沐甄豆饅頭</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">饅頭好吃😊 之前在元榆門市購買豆漿芝麻小饅頭，女兒超愛，為自己也很喜歡它不甜又QQ的</div>
+    <div class="rv-footer"><span class="rv-name">星球</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">沐甄豆饅頭</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我其實兩三年前就吃過沐甄豆的米鬆餅，這次可以開團真是太開心！我的勁甲排名：🥇米鬆餅 🥈草莓銀絲卷 🥉起司乳酪豆漿饅頭</div>
+    <div class="rv-footer"><span class="rv-name">蜜蜂</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">沐甄豆饅頭</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">饅頭真的好Q好好吃，當早餐小孩超喜歡 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">沐甄豆饅頭</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">草莓饅頭紮實又好吃，之前跟別人一起合購過，真的超好吃！！這次趕緊吃吃看不同的口味 😋</div>
+    <div class="rv-footer"><span class="rv-name">企鵝</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">沐甄豆饅頭</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">女鵝最喜歡草莓米鬆餅，我自己都吃抹茶和可可口味，超好吃！</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">斯巴達清潔劑</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">清潔力十足，簡直媽媽福音！一個月再整理一次也可以🤣✨ 廚房去油不能沒有😍</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">斯巴達清潔劑</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">小羊你真的沒有誇張，水垢乳超厲害！我娘家20多年的陳年水垢真的刷掉了，我媽直接把我的那罐徵收了😄</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">斯巴達清潔劑</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我要告白！拔油太強了，洗完不會有一層黏膩沖不乾淨的感覺，油垢跟你的限動說的一樣，真的不用刷就乾淨✨</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">斯巴達清潔劑</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">磁磚縫隙的黴菌困擾好久，斯巴達噴上去剛好遇到小孩哭了，處理完回來黴菌都不見了😆</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">斯巴達清潔劑</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">幼兒園碗不用辛苦用食用油擦拭，斯巴達按油噴一噴一擦，輕輕鬆鬆去除，根本神力歐！</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">跟團一陣子了，也是被ig吸引自行加入的，覺得小羊很佛心，都是不藏私的分享，重點是買完都沒有後悔過～</div>
+    <div class="rv-footer"><span class="rv-name">Rainbow</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">商品實測非常用心，不管是優點還是缺點都有最真實的評價，讓做為消費者的我們購買起來很安心 🙏</div>
+    <div class="rv-footer"><span class="rv-name">小檸檬媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">大家的留言幾乎都會回覆！！！能優惠的都回饋給我們了，產品優缺都不藏🤣謝謝小羊的用心分享😍</div>
+    <div class="rv-footer"><span class="rv-name">YC</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">很用心在經營群組，商品的優缺點都講出來～（真的非常實在😆）每次的分享文章，都能感受到你的用心 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">Fish 🐟</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">超喜歡跟你的團，售後服務一級棒👍 反正你都會幫我們把關好，無腦跟就對了😂</div>
+    <div class="rv-footer"><span class="rv-name">Mia</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">用心在經營群組，商品的優缺點都講出來，真的非常實在！每次的分享文章都讓我們買得超放心 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">小檸檬媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">第一次是買過防曬棒、防蚊液，薯媽介紹超詳細，防曬棒用起來涼涼的很好塗；另廠商出貨有誤，薯媽超快幫忙解決，跟小羊的團很放心 👍</div>
+    <div class="rv-footer"><span class="rv-name">Ni</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過雨傘、Lassig背包 兩個都是觀望很久的產品，看了小羊的實測、實用分享，就決定下單，果然都很實用 👍，完全沒有智商稅的問題 😂</div>
+    <div class="rv-footer"><span class="rv-name">Harn</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">小羊的群組好可怕，總是因為小羊用心的介紹跟分享而買了原本不在計畫的東西🤣🤣🤣 但真的買了沒有後悔的，還會得到家人的肯定🤗 也很感謝小羊貼心幫湊團，讓戰力普普的我也能讓寶寶家人玩到吃到用到好東西 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">ML</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">薯條媽真的超級用心❤️ 每次很糾結的時候就會忍不住發問，三言兩語就可以突破我的盲腸🤣🤣 育兒路上的好夥伴 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">草莓</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">很喜歡看你真心分享，還有很多沒注意的細節，你都一併無私分享，真的很棒～一開始追也因為我的孩和薯條年紀相仿，也大概3Y，看著薯條成長，同時也看著我自己的孩成長，雲端阿姨也祝薯條健健康康、快快樂樂長大喔</div>
+    <div class="rv-footer"><span class="rv-name">Peary</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過果乾、被子、書本 書本超讚，太陽都很買單，而且內容也都不錯👍 果乾，真的很刷嘴，一口接一口 被子，買來很適合南部天氣，都不會怕熱 電風扇，使用率超高，每天晚上搭配被子，超級涼🤣</div>
+    <div class="rv-footer"><span class="rv-name">Ching</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過雨傘 寶寶泳裝森林麵 商品影片都很用心，就會不知不覺拿出魔法小卡下單啦🤣</div>
+    <div class="rv-footer"><span class="rv-name">薑</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">第一次買過冰冰被👍 女兒很滿意，終於會蓋被子了💕 後來一直問薯媽還能不能訂床單，超開心開團讓我加～ 睡覺時真的超舒服的，有冰冰被、床單又冰涼～全家整夜都好眠！</div>
+    <div class="rv-footer"><span class="rv-name">黑糖</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過冰冰被 真的超涼又舒服超好用 小孩睡得不流汗還很喜歡 都不能給她拿走</div>
+    <div class="rv-footer"><span class="rv-name">靈芝</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過冰冰被、床包 冰冰被蓋起來超涼超舒服，兒子喜歡到不分給家人蓋 床包吸水力很好，兒子不小心打翻水彈簧床一點都沒濕</div>
+    <div class="rv-footer"><span class="rv-name">小檸檬媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過冰冰被還有保潔墊！冰冰被超舒服，兒子一直搶去蓋🤣</div>
+    <div class="rv-footer"><span class="rv-name">LoLooooo</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過冰冰被，孕期體溫高，擁抱棉被好幸福🥰 材質真的很棒，摸起來柔軟，蓋起來很舒服不悶熱</div>
+    <div class="rv-footer"><span class="rv-name">琦琦</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">LÄSSIG</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過LÄSSIG泳裝，花色款式超多元，一到貨馬上去海邊沙灘玩！斗篷浴巾也好用，泳課上完馬上包起來不怕著涼～</div>
+    <div class="rv-footer"><span class="rv-name">Chen</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">LÄSSIG</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過Lassig寶寶泳褲和斗篷，喜歡小羊中肯推薦，收到實物也很喜歡 ❤️ 雖然還沒帶寶寶去泳池、但隔天寶寶洗完澡立刻抓來試穿了哈哈哈😆</div>
+    <div class="rv-footer"><span class="rv-name">ML</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">LÄSSIG</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過LÄSSIG泳裝，泳褲自帶尿布真的蠻方便，且不需買整套可以自由搭配，非常百搭👍</div>
+    <div class="rv-footer"><span class="rv-name">ww</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">Mycell電扇</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過Mycell電扇，比價一輪這裡最便宜，後來還揪團大買一波👍😆 真的很實用也很牢固，出門必帶</div>
+    <div class="rv-footer"><span class="rv-name">捲捲</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">Mycell電扇</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">跟團買過Mycell的電風扇，好用到買兩台來輪替著，外出家裡都好用👍 當媽媽後很愛比價小羊的團購價還比蝦皮便宜🤣🤣</div>
+    <div class="rv-footer"><span class="rv-name">Yunlin</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芝麻粉</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過芝麻粉～真的超細 跟奶粉一樣細 每開團必補貨～</div>
+    <div class="rv-footer"><span class="rv-name">蘇瓏瓏</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">啵貝寶寶霜</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">跟團買過啵貝寶寶霜 我與小孩都有冬季癢的問題，用過多牌乳液（效果一般般），看小孩抓的到處傷痕纍纍（心疼不已）看薯媽/小羊用心介紹🥰 決定買來試試～～ 而且商品組合超讚！！有小瓶裝就是方便🥰</div>
+    <div class="rv-footer"><span class="rv-name">宙家</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">屁屁噴</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我最愛的是屁屁噴～一直都愛用，偶然看到薯媽的價格真的好優惠，已經跟了第二次 ❤️ 感謝薯媽開團</div>
+    <div class="rv-footer"><span class="rv-name">新竹-Zoe</span></div>
+  </div>
+
+  <!-- 芒狗狗繪本 ×6 -->
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">目前因為寶寶還小，芒狗狗的繪本還沒讓他自己閱讀，但是有試著共讀過幾次，他已經聽得懂「芒狗狗」了，只要我說「芒狗狗呢」他就會手指著書櫃 🤣</div>
+    <div class="rv-footer"><span class="rv-name">匿名媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">還有還有～芒狗勾可愛的繪本，兒子也超喜歡！！每晚一定要找至少一本書聽完才要去睡覺 😴</div>
+    <div class="rv-footer"><span class="rv-name">月亮</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">芒狗狗買 5 本，我有再去圖書館借 2 本，幾乎每天要唸一輪</div>
+    <div class="rv-footer"><span class="rv-name">月亮</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">女兒在學校也很喜歡芒狗狗的書，本來想說不要跟學校重複買，但看到理財的系列很心動還是買了！說故事時間都要指定芒狗狗，還因為上學魔法那本說想去幼兒園（本來都說不要），謝謝小羊開團 🧡</div>
+    <div class="rv-footer"><span class="rv-name">鉛筆</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我也是被芒狗狗圈粉，自己揪朋友共買 10 本 😂😂😂 小孩真的還小～但媽媽好愛 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">月亮</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">分享一下昨天我終於見到芒狗狗 😆😆，兒子立馬去拿他的存錢筒學狗狗存錢</div>
+    <div class="rv-footer"><span class="rv-name">海豹</span></div>
+  </div>
+
+  <!-- 蘋果洋蔥水 ×7 -->
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">蘋果洋蔥水也是沒之前就要補貨，每次生病都靠這個取代睡前奶小孩才不會爆炸 😆</div>
+    <div class="rv-footer"><span class="rv-name">匿名媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">🍎🧅水 小朋友看到包裝就知道有好喝的，就會開始狗腿瘋狂說謝謝 😂 小孩喜愛度 ⭐⭐⭐⭐⭐</div>
+    <div class="rv-footer"><span class="rv-name">匿名媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">洋蔥蘋果水根本就是媽咪孩子的救星，成分單純份量很足，孩子們有感冒症狀時就每天給一包，感冒症狀真的差很多，好的也比較快，激推</div>
+    <div class="rv-footer"><span class="rv-name">匿名媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我蘋果洋蔥水馬上取貨試喝了！第一次試喝就是蘋果味，洋蔥是那種煮過剩淡淡的甜味，我兒子一歲多可以接受，不排斥的喝光了～</div>
+    <div class="rv-footer"><span class="rv-name">棕櫚樹</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">今天兒子試喝完畢接受度還不錯，一開始淺淺喝一口，後來就自己一直拿起來喝。我自己喜歡熱熱喝，蘋果味重一點，味道比較平衡</div>
+    <div class="rv-footer"><span class="rv-name">ww</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">而且我剛剛才知道原來愛X容量這麼少耶 🤣 難怪我兒子每次喝完都說怎麼只有一點點</div>
+    <div class="rv-footer"><span class="rv-name">嫻</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">今天試喝蘋果洋蔥飲，兩個孩子一開始有點排斥，結果兩人嚐了一小口之後竟然立刻秒喝完 😂 重點成分很單純，沒有其他添加物，媽媽可以偷懶不用煮 🤣</div>
+    <div class="rv-footer"><span class="rv-name">Hsuan</span></div>
+  </div>
+
+  <!-- 韋恩寢具 ×3 -->
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">謝謝小羊推薦，棉花糖被真的好蓬鬆，我家妹妹好喜歡</div>
+    <div class="rv-footer"><span class="rv-name">皮卡丘媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">天絲床包真的好划算，找了好幾家價格都要 2.3 倍，棉花糖被真的質感好好</div>
+    <div class="rv-footer"><span class="rv-name">長頸鹿媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">今天竟然就收到了！摸起來很滿意超舒服～價錢是我找其他家的快一半，太開心了 🐣 我家的寢具也是認識這家後全都換成他們家的，有夠舒服 😌</div>
+    <div class="rv-footer"><span class="rv-name">月亮</span></div>
+  </div>
+
+</div>
 </div>
 
 <!-- ══ PAGE: 資源 ══ -->
@@ -744,52 +1107,12 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 <!-- ── TAB BAR ── -->
 <div class="tab-bar" id="tab-bar">
  <div class="tab-ind" id="tab-ind"></div>
- <!-- 1. 已將 active 從「玩什麼」移除 -->
  <button class="tab-btn" data-tab="play"><span class="ti"><i class="ph-bold ph-game-controller"></i></span><span class="tl">玩什麼</span></button>
  <button class="tab-btn" data-tab="milestone"><span class="ti"><i class="ph-bold ph-chart-bar-horizontal"></i></span><span class="tl">里程碑</span></button>
- <!-- 2. 已將 active 加到「開團中」 -->
  <button class="tab-btn active" data-tab="shop"><span class="ti"><i class="ph-bold ph-shopping-bag"></i></span><span class="tl">開團中</span></button>
  <button class="tab-btn" data-tab="links"><span class="ti"><i class="ph-bold ph-link-simple"></i></span><span class="tl">育兒資源</span></button>
 </div>
 
-<!-- 3. 新增這段修正檔：網頁一打開，自動模擬點擊「開團中」按鈕，確保內容頁面同步切換 -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var shopBtn = document.querySelector('.tab-btn[data-tab="shop"]');
-    if (shopBtn) { shopBtn.click(); }
-  });
-</script>
-
-<!-- ── FORTUNE FAB ── -->
-<button class="fab" onclick="openFortune()"><span class="fi"></span><span class="fl">幸運色</span></button>
-
-<!-- ── FORTUNE MODAL ── -->
-<div class="ov" id="ov" onclick="closeOv(event)">
- <div class="modal">
-  <button class="m-close" onclick="closeOv(null,true)"></button>
-  <div class="m-handle"></div>
-  <div class="m-title"> 今日育兒幸運色</div>
-  <div class="m-sub">轉動色輪，抽出今天的幸運色與育兒能量 </div>
-  <div class="crystal-wrap">
-   <button class="crystal" id="crystal" onclick="drawFortune()">
-    <span id="cicon" style="font-size:2rem"><i class="ph-bold ph-palette"></i></span><span class="cl">點我抽幸運色</span>
-   </button>
-  </div>
-  <div class="result" id="result">
-   <div class="r-swatch" id="r-swatch"></div>
-   <div class="r-msg" id="r-msg"></div>
-   <div class="r-row" id="r-child">
-    <div class="r-row-ico"><i class="ph-bold ph-baby"></i></div>
-    <div class="r-row-text"><div style="font-size:.65rem;font-weight:800;color:var(--s);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px">和孩子</div><div id="r-child-text"></div></div>
-   </div>
-   <div class="r-row" id="r-mom">
-    <div class="r-row-ico"><i class="ph-bold ph-flower-lotus"></i></div>
-    <div class="r-row-text"><div style="font-size:.65rem;font-weight:800;color:var(--o);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px">愛自己</div><div id="r-mom-text"></div></div>
-   </div>
-   <button class="re-btn" onclick="resetFortune()">再抽一次 </button>
-  </div>
- </div>
-</div>
 
 <script>
 function showToast(msg) {
@@ -1196,29 +1519,41 @@ tabs.forEach(function(btn) {
 setTimeout(updateInd, 50);
 window.addEventListener('resize', updateInd);
 
-// ── ADD TO CALENDAR ──
-function addToCalendar(name, dateStr, url) {
-  var start = new Date(dateStr + 'T09:00:00');
-  var end   = new Date(dateStr + 'T10:00:00');
-  function fmt(d){ return d.toISOString().replace(/[-:.]/g,'').slice(0,15)+'Z'; }
-  var msg = '薯條的成長日誌「'+name+'」開團囉，快去看看！';
-  var ics = [
-    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//薯條的成長日誌//TW',
-    'BEGIN:VEVENT',
-    'DTSTART:'+fmt(start),
-    'DTEND:'+fmt(end),
-    'SUMMARY:'+msg,
-    'DESCRIPTION:'+msg+'\n'+url,
-    'URL:'+url,
-    'BEGIN:VALARM','TRIGGER:-PT0M','ACTION:DISPLAY','DESCRIPTION:'+msg,'END:VALARM',
-    'END:VEVENT','END:VCALENDAR'
-  ].join('\r\n');
-  var blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
-  var a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = name+'.ics';
-  document.body.appendChild(a); a.click();
-  document.body.removeChild(a);
+// ── ADD TO CALENDAR (Google Calendar) ──
+function addToCalendar(name, startStr, endStr) {
+  function fmtGcal(d) {
+    return d.getFullYear() +
+      String(d.getMonth()+1).padStart(2,'0') +
+      String(d.getDate()).padStart(2,'0');
+  }
+  var s = new Date(startStr); s.setHours(0,0,0,0);
+  var e = new Date(endStr);   e.setDate(e.getDate()+1); e.setHours(0,0,0,0); // all-day end = next day
+  var title  = encodeURIComponent('【薯條團購】' + name);
+  var dates  = fmtGcal(s) + '/' + fmtGcal(e);
+  var detail = encodeURIComponent('薯條的成長日誌精選團購開跑！記得把握時間下單 🛒');
+  var url = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+title+'&dates='+dates+'&details='+detail;
+  window.open(url, '_blank');
+}
+
+// ── COPY DISCOUNT CODE ──
+function copyCode(code, btn) {
+  navigator.clipboard.writeText(code).then(function() {
+    var orig = btn.textContent;
+    btn.textContent = '已複製';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  }).catch(function() {
+    // fallback for older browsers
+    var ta = document.createElement('textarea');
+    ta.value = code; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var orig = btn.textContent;
+    btn.textContent = '已複製';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
 }
 
 // ── COUNTDOWN TIMERS ──
@@ -1248,15 +1583,15 @@ function updateUpcoming(startDate, elId){
  if(diff <= 0){ el.textContent = '開團中'; return; }
  el.textContent = Math.ceil(diff/86400000);
 }
-var DEALS = [];
+var DEALS = [
+  {end:new Date('2026-11-08T23:59:59'), d:'promo-d-QA水瓶', h:'promo-h-QA水瓶', m:'promo-m-QA水瓶', s:'promo-s-QA水瓶'}
+];
 var UPCOMING = [
-  {start:new Date('2026-06-22'),id:'uc-2026062222'},
-  {start:new Date('2026-06-29'),id:'uc-2026062929'},
-  {start:new Date('2026-07-01'),id:'uc-202607011'},
-  {start:new Date('2026-07-06'),id:'uc-202607066'},
-  {start:new Date('2026-07-13'),id:'uc-2026071313'},
-  {start:new Date('2026-07-20'),id:'uc-2026072020'},
-  {start:new Date('2026-07-27'),id:'uc-2026072727'},
+  {start:new Date('2026-11-02'),id:'uc-20261102'},
+  {start:new Date('2026-11-09'),id:'uc-20261109'},
+  {start:new Date('2026-11-16'),id:'uc-20261116a'},
+  {start:new Date('2026-11-16'),id:'uc-20261116b'},
+  {start:new Date('2026-11-23'),id:'uc-20261123'},
 ];
 function tickAll(){
  DEALS.forEach(function(d){ updateCountdown(d.end,d.d,d.h,d.m,d.s); });
@@ -1269,22 +1604,13 @@ setInterval(tickAll, 1000);
 function checkUpcoming() {
   var today = new Date(); today.setHours(0,0,0,0);
   var activeContainer = document.querySelector('.gb-cards');
-  var now   = new Date();
-  
   document.querySelectorAll('.uc-card[data-start]').forEach(function(card) {
-    // 統一處理日期格式（相容 - 或 /）
-    var startStr = card.dataset.start.replace(/-/g, '/');
-    var endStr = card.dataset.end.replace(/-/g, '/');
-    var start = new Date(startStr); start.setHours(0,0,0,0);
-    var end   = new Date(endStr);   end.setHours(23,59,59,0);
-    
+    var start = new Date(card.dataset.start); start.setHours(0,0,0,0);
+    var end   = new Date(card.dataset.end);   end.setHours(23,59,59,0);
+    var now   = new Date();
     if (start <= today && now <= end) {
       var name = card.dataset.name;
       var icon = card.dataset.icon || 'ph-tag';
-      
-      // 【修改重點 1】讀取 HTML 上的 data-desc，如果沒寫，就用原本的預設文字
-      var desc = card.dataset.desc || '小羊精選，快把握開團期間！'; 
-      
       var endLabel = card.dataset.end.slice(5).replace('-','/');
       var uid = 'promo-' + name.replace(/\s/g,'');
       if (document.getElementById('promo-d-'+uid)) return; // already added
@@ -1298,8 +1624,7 @@ function checkUpcoming() {
           '<div class="gb-card-info">' +
             '<div class="gb-brand">限時開團</div>' +
             '<div class="gb-name">' + name + '</div>' +
-            // 【修改重點 2】將原本寫死的字串，替換成剛剛取得的變數 desc
-            '<div class="gb-desc">' + desc + '</div>' + 
+            '<div class="gb-desc">' + (card.dataset.desc || '薯條精選，快把握開團期間！') + '</div>' +
           '</div>' +
         '</div>' +
         '<div class="gb-timer-wrap">' +
@@ -1316,7 +1641,7 @@ function checkUpcoming() {
         '</div>' +
         '<div class="gb-card-bottom">' +
           '<div class="gb-end-date">截止 <span>' + endLabel + '</span></div>' +
-          '<a class="gb-btn" href="' + (card.dataset.link || 'https://linkgoods.com') + '" target="_blank">立刻搶購 →</a>' +
+          '<a class="gb-btn" href="' + (card.dataset.link || 'https://linkgoods.com/shutiao0409') + '" target="_blank">立刻搶購 →</a>' +
         '</div>';
       activeContainer.appendChild(el);
       DEALS.push({
@@ -1326,30 +1651,17 @@ function checkUpcoming() {
       card.style.display = 'none'; // hide from upcoming
     } else if (now > end) {
       card.style.display = 'none'; // past, hide
-    } else {
-      // 🌟【全新修正：處理未開團卡片的倒數】🌟
-      var numEl = card.querySelector('.uc-days-num');
-      if (numEl) {
-        var diffTime = start.getTime() - today.getTime();
-        var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        if (diffDays > 0) {
-          numEl.textContent = diffDays;
-        } else {
-          numEl.textContent = '0';
-        }
-      }
-      card.style.display = ''; // 確保未開團卡片正常顯示
     }
   });
 }
 checkUpcoming();
- 
+
 // Auto-hide expired deals (runs on load + every minute)
 function hideExpiredDeals() {
   var now = new Date();
   // Hide cards with data-deal-end attribute
   document.querySelectorAll('.gb-card[data-deal-end]').forEach(function(card) {
-    var end = new Date(card.getAttribute('data-deal-end').replace(/-/g, '/'));
+    var end = new Date(card.getAttribute('data-deal-end'));
     end.setHours(23,59,59,0);
     if (now > end) { card.style.display = 'none'; }
   });
@@ -1359,126 +1671,178 @@ function hideExpiredDeals() {
 hideExpiredDeals();
 setInterval(hideExpiredDeals, 60000);
 
-// ── FORTUNE: 今日育兒幸運物 ──
-// Normal items (weight 3 each), Gold/Silver (weight 1 each)
-// 8 normal × 4 = 32, gold × 3, silver × 3 = 38 → each rare ~8%, combined ~16%
-var FORT_BASE = [
-  {color:"#DC383F", rareType:"",
-   msg:"今天是充滿熱情的一天\n把愛大聲說出口吧！",
-   child:"跟孩子來一個火熱抱抱並說我好愛你\n感受那個小身體回抱你的力道",
-   mom:"別忘了擦上口紅，你值得美美的\n孩子眼中的你最閃亮",
-   rare:false,border:""},
-  {color:"#FE7D2F", rareType:"",
-   msg:"活力滿滿的一天！\n今天的你，能量充足",
-   child:"帶孩子去戶外跑跳\n跑累了一起躺在草地上看看天空",
-   mom:"舞動身體吧邊洗碗邊唱歌\n快樂是自己給的",
-   rare:false,border:""},
-  {color:"#FBC02C", rareType:"",
-   msg:"今天的你像陽光一樣溫暖\n照亮身邊的每一個人",
-   child:"找一個陽光灑進來的角落\n和孩子一起唱一首兒歌",
-   mom:"今天打個電話給久沒聯絡的好友\n回到青春的少女時代",
-   rare:false,border:""},
-  {color:"#A1B191", rareType:"",
-   msg:"慢下來\n跟著孩子的節奏走就好",
-   child:"帶孩子去撿一片葉子摸摸土聞聞花香\n讓大自然治癒你們",
-   mom:"躺著發呆吧！\n休息放空就是對自己最好的犒賞",
-   rare:false,border:""},
-  {color:"#73A5C0", rareType:"",
-   msg:"今天適合靜靜的\n用眼神和孩子說話就夠了",
-   child:"睡前唸一本孩子喜歡的繪本\n讓故事帶你們一起去旅行",
-   mom:"窩進沙發追一集一直想看的劇\n讓自己休息一下",
-   rare:false,border:""},
-  {color:"#9B59B6", rareType:"",
-   msg:"孩子的魔法\n會讓你看見世界有多美妙",
-   child:"和孩子一起做小點心\n廚房就是最好的感統教室\n結果好不好吃不重要",
-   mom:"拍一張自己的照片\n努力的你就是最美的",
-   rare:false,border:""},
-  {color:"#2C2C2C", rareType:"",
-   msg:"沉穩的你\n就是孩子最安全的港灣",
-   child:"讓孩子當主角\n陪著他辦家家酒真可愛",
-   mom:"靜靜地讀一本書\n大腦需要不同頻道的滋養",
-   rare:false,border:""},
-  {color:"#F0EDE8", rareType:"",
-   msg:"清爽的一天\n輕盈的前進",
-   child:"和孩子一起整理家裡一個小角落\n讓空間和心情都保持清爽",
-   mom:"穿上讓你感覺自信的那件衣服\n好看的是你整個人的狀態",
-   rare:false,border:"#d0ccc8"},
-  {color:"#D4AF37", rareType:"gold",
-   msg:"恭喜！金色隱藏\n你今天特別幸運！",
-   child:"帶孩子做一件平常不太做的事\n創造獨一無二的回憶",
-   mom:"購物車挑一件你看好久的商品結帳\n你值得",
-   rare:true,border:"#c9a227"},
-  {color:"#C0C0C0", rareType:"silver",
-   msg:"銀色幸運降臨\n驚喜正在路上",
-   child:"和孩子一起抬頭看看天空\n陪著他天馬行空",
-   mom:"有什麼一直想做但沒做的事嗎？\n今天就去做吧！",
-   rare:true,border:"#a0aab0"}
-];
-var FORT = [];
-FORT_BASE.forEach(function(f){ var w = f.rare ? 3 : 4; for(var i=0;i<w;i++) FORT.push(f); });
-
-// ── FORTUNE ──
-var drawn = false;
-function openFortune() {
- document.getElementById('ov').classList.add('open');
- document.body.style.overflow = 'hidden';
+/* ── REVIEW ── */
+function openReviewForm() {
+  document.getElementById('rvModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
 }
-function closeOv(e, force) {
- if (force || (e && e.target === e.currentTarget)) {
-  document.getElementById('ov').classList.remove('open');
+function closeReviewForm() {
+  document.getElementById('rvModal').style.display = 'none';
   document.body.style.overflow = '';
- }
+  document.getElementById('rvFormInner').reset();
+  document.getElementById('rvStarVal').value = '5';
+  document.querySelectorAll('.rvs-star').forEach(function(s,i){ s.classList.toggle('on', i < 5); });
 }
-function drawFortune() {
-  if (drawn) return;
-  drawn = true;
-  var c = document.getElementById('crystal');
-  c.classList.add('spin');
-  document.getElementById('cicon').innerHTML = '<i class="ph-bold ph-sparkle"></i>';
-  setTimeout(function() {
-    var f = FORT[Math.floor(Math.random() * FORT.length)];
-    var r = document.getElementById('result');
-    r.classList.remove('show','rare-gold','rare-silver');
-    r.style.boxShadow = '';
-    document.getElementById('r-swatch').style.background = f.color;
-    document.getElementById('r-swatch').style.border = '3px solid ' + (f.border || 'rgba(255,255,255,.8)');
-    document.getElementById('r-msg').textContent = f.msg;
-    document.getElementById('r-child-text').textContent = f.child;
-    document.getElementById('r-mom-text').textContent = f.mom;
-    r.style.background = f.rare ? f.color + '33' : f.color + '18';
-    r.style.border = '2px solid ' + (f.border || f.color);
-    r.classList.add('show');
-    if (f.rareType === 'gold' || f.rareType === 'silver') {
-      var fl = document.getElementById('flashOverlay');
-      if (fl) {
-        fl.style.display = 'block';
-        fl.style.opacity = '0.9';
-        fl.style.transition = 'opacity 0.7s ease';
-        setTimeout(function() {
-          fl.style.opacity = '0';
-          setTimeout(function() { fl.style.display = 'none'; }, 700);
-        }, 50);
-      }
-      if (f.rareType === 'gold') r.classList.add('rare-gold');
-      else r.classList.add('rare-silver');
-      setTimeout(function() { launchConfetti(); }, 300);
-      setTimeout(function() { launchConfetti(); }, 850);
-    }
-    c.style.opacity = '.4';
-    c.style.pointerEvents = 'none';
-  }, 650);
+function submitReview(e) {
+  e.preventDefault();
+  var name = document.getElementById('rvInputName').value.trim() || '匿名媽媽';
+  var brand = document.getElementById('rvInputBrand').value.trim() || '跟團推薦';
+  var text = document.getElementById('rvInputText').value.trim();
+  var stars = parseInt(document.getElementById('rvStarVal').value) || 5;
+  if (!text) return;
+  var starStr = '★'.repeat(stars) + '☆'.repeat(5 - stars);
+  // Build card
+  var card = document.createElement('div');
+  card.className = 'rv-card';
+  card.style.animation = 'fadeUp .4s ease both';
+  card.innerHTML = '<div class="rv-card-top"><div class="rv-brand-tag">' + brand + '</div><div class="rv-stars">' + starStr + '</div></div>' +
+    '<div class="rv-text">' + text + '</div>' +
+    '<div class="rv-footer"><span class="rv-name">' + name + '</span></div>';
+  // Insert as new first page
+  var list = document.getElementById('rvList');
+  var dotsEl = document.getElementById('rvDots');
+  var newPg = document.createElement('div');
+  newPg.className = 'rv-page';
+  newPg.appendChild(card);
+  list.insertBefore(newPg, list.firstChild);
+  // Add dot at start
+  if (dotsEl) {
+    var nd = document.createElement('span');
+    nd.className = 'rv-dot';
+    dotsEl.insertBefore(nd, dotsEl.firstChild);
+  }
+  // Jump to page 0
+  list.scrollLeft = 0;
+  if (dotsEl) {
+    dotsEl.querySelectorAll('.rv-dot').forEach(function(d, i){ d.classList.toggle('on', i === 0); });
+  }
+  closeReviewForm();
+  // Scroll to review section
+  setTimeout(function(){ list.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 200);
 }
-function resetFortune() {
- drawn = false;
- var c = document.getElementById('crystal');
- c.classList.remove('spin');
- document.getElementById('cicon').innerHTML = '<i class="ph-bold ph-palette"></i>';
- c.style.opacity = '1';
- c.style.pointerEvents = 'auto';
- var r = document.getElementById('result');
- r.classList.remove('show','rare-gold','rare-silver');
- r.style.boxShadow = '';
-}
+// ── UC-CARD: click to open link directly ──
+document.querySelectorAll('.uc-card').forEach(function(card){
+  var link = card.getAttribute('data-link');
+  if (link && link !== '網址' && link.startsWith('http')) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e){
+      if (e.target.closest('.uc-bell-btn')) return;
+      window.open(link, '_blank');
+    });
+  }
+});
+
+// ── REVIEW CAROUSEL (5 per page, vertical cards, auto-rotate) ──
+(function(){
+  var list = document.getElementById('rvList');
+  var dotsEl = document.getElementById('rvDots');
+  if (!list) return;
+  var cards = Array.from(list.querySelectorAll('.rv-card'));
+  var PAGE_SIZE = 5;
+  var pages = [];
+  for (var i = 0; i < cards.length; i += PAGE_SIZE) {
+    var pg = document.createElement('div');
+    pg.className = 'rv-page';
+    cards.slice(i, i + PAGE_SIZE).forEach(function(c){ pg.appendChild(c); });
+    pages.push(pg);
+  }
+  list.innerHTML = '';
+  pages.forEach(function(pg){ list.appendChild(pg); });
+  var totalPages = pages.length;
+  var startPage = Math.floor(Math.random() * totalPages);
+  if (dotsEl) {
+    pages.forEach(function(_, i){
+      var d = document.createElement('span');
+      d.className = 'rv-dot' + (i === startPage ? ' on' : '');
+      dotsEl.appendChild(d);
+    });
+  }
+  function getW(){ return list.offsetWidth || 320; }
+  function curPage(){ return Math.round(list.scrollLeft / getW()); }
+  function updateDots(){
+    if (!dotsEl) return;
+    var idx = curPage();
+    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('on', i===idx); });
+  }
+  function goTo(idx){
+    var n = Math.max(0, Math.min(idx, totalPages-1));
+    list.scrollTo({left: n * getW(), behavior:'smooth'});
+  }
+  list.scrollLeft = startPage * getW();
+  var timer = setInterval(function(){
+    var next = curPage() + 1;
+    if (next >= totalPages) next = 0;
+    goTo(next);
+  }, 4000);
+  list.addEventListener('scroll', updateDots, {passive:true});
+  list.addEventListener('touchstart', function(){ clearInterval(timer); }, {passive:true});
+})();
+
+</script>
+
+<!-- ── REVIEW MODAL ── -->
+<style>
+#rvModal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.45);align-items:flex-end;justify-content:center}
+.rv-modal-sheet{background:#fff;border-radius:22px 22px 0 0;width:100%;max-width:480px;padding:24px 20px 36px;box-sizing:border-box;animation:slideUp .3s ease both}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.rv-modal-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.rv-modal-title{font-size:1.05rem;font-weight:700;color:#2e2e2e}
+.rv-modal-close{background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;line-height:1;padding:4px}
+.rv-modal-field{margin-bottom:14px}
+.rv-modal-field label{display:block;font-size:.75rem;font-weight:600;color:#666;margin-bottom:5px}
+.rv-modal-field input,.rv-modal-field textarea{width:100%;box-sizing:border-box;border:1.5px solid #e8e8e4;border-radius:10px;padding:10px 12px;font-size:.85rem;font-family:inherit;outline:none;color:#2e2e2e;background:#fafafa;transition:border .2s}
+.rv-modal-field input:focus,.rv-modal-field textarea:focus{border-color:var(--o);background:#fff}
+.rv-modal-field textarea{min-height:90px;resize:vertical}
+.rv-star-row{display:flex;gap:6px;margin:4px 0 2px}
+.rvs-star{font-size:1.6rem;cursor:pointer;color:#e0e0dc;transition:color .15s;line-height:1;user-select:none}
+.rvs-star.on{color:#FBC02C}
+.rv-modal-submit{width:100%;padding:13px;border-radius:12px;border:none;background:var(--o);color:#fff;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:4px;font-family:inherit;transition:opacity .2s}
+.rv-modal-submit:active{opacity:.8}
+</style>
+<div id="rvModal" onclick="if(event.target===this)closeReviewForm()">
+  <div class="rv-modal-sheet">
+    <div class="rv-modal-hd">
+      <div class="rv-modal-title">✍️ 留下你的回饋</div>
+      <button class="rv-modal-close" onclick="closeReviewForm()">✕</button>
+    </div>
+    <form id="rvFormInner" onsubmit="submitReview(event)">
+      <div class="rv-modal-field">
+        <label>你的名字（暱稱也可以）</label>
+        <input id="rvInputName" type="text" placeholder="ex. 月亮、小美媽" maxlength="20">
+      </div>
+      <div class="rv-modal-field">
+        <label>這次跟的哪個團？</label>
+        <input id="rvInputBrand" type="text" placeholder="ex. QA水瓶、芒狗狗繪本" maxlength="30">
+      </div>
+      <div class="rv-modal-field">
+        <label>滿意度</label>
+        <div class="rv-star-row" id="rvStarRow">
+          <span class="rvs-star on">★</span>
+          <span class="rvs-star on">★</span>
+          <span class="rvs-star on">★</span>
+          <span class="rvs-star on">★</span>
+          <span class="rvs-star on">★</span>
+        </div>
+        <input type="hidden" id="rvStarVal" value="5">
+      </div>
+      <div class="rv-modal-field">
+        <label>你想說的話 *</label>
+        <textarea id="rvInputText" placeholder="分享使用後的感受，對其他媽媽很有幫助！" required maxlength="200"></textarea>
+      </div>
+      <button type="submit" class="rv-modal-submit">送出回饋 💛</button>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var stars = document.querySelectorAll('.rvs-star');
+  stars.forEach(function(s, idx){
+    s.addEventListener('click', function(){
+      document.getElementById('rvStarVal').value = idx + 1;
+      stars.forEach(function(st, i){ st.classList.toggle('on', i <= idx); });
+    });
+  });
+})();
 </script>
 </body>
 </html>
