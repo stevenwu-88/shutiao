@@ -642,6 +642,7 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   <span class="ssl-sub">按鈴自動加行事曆</span>
  </div>
  <div class="gb-cards" id="upcoming-group-container"></div>
+
 </div>
 
 <!-- 📦 統一開團資料庫 (隱藏不顯示) -->
@@ -822,10 +823,10 @@ function startOngoingTimer(name, endDateTime) {
   </button>
 </div>
 
-<!-- 控制分頁與輪播的容器 -->
+<!-- review cards – 5 per page vertical, auto-rotate -->
 <div class="rv-dots" id="rvDots"></div>
 <div class="rv-list" id="rvList">
-  <!-- 這裡放你原本的所有歷史留言卡片 -->
+
   <div class="rv-card">
     <div class="rv-card-top"><div class="rv-brand-tag">QA水瓶</div><div class="rv-stars">★★★★★</div></div>
     <div class="rv-text">今天拿到水壺，很美！小孩超喜歡！一拿到就不停說要喝水。謝謝薯媽開團 💕</div>
@@ -870,7 +871,7 @@ function startOngoingTimer(name, endDateTime) {
 
   <div class="rv-card">
     <div class="rv-card-top"><div class="rv-brand-tag">斯巴達清潔劑</div><div class="rv-stars">★★★★★</div></div>
-    <div class="rv-text">清潔力十足，簡真媽媽福音！一個月再整理一次也可以🤣✨ 廚房去油不能沒有😍</div>
+    <div class="rv-text">清潔力十足，簡直媽媽福音！一個月再整理一次也可以🤣✨ 廚房去油不能沒有😍</div>
     <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
   </div>
 
@@ -887,141 +888,259 @@ function startOngoingTimer(name, endDateTime) {
   </div>
 
   <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">斯巴達清潔劑</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">磁磚縫隙的黴菌困擾好久，斯巴達噴上去剛好遇到小孩哭了，處理完回來黴菌都不見了😆</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">斯巴達清潔劑</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">幼兒園碗不用辛苦用食用油擦拭，斯巴達按油噴一噴一擦，輕輕鬆鬆去除，根本神力！</div>
+    <div class="rv-footer"><span class="rv-name">花</span></div>
+  </div>
+
+  <div class="rv-card">
     <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
     <div class="rv-text">跟團一陣子了，也是被ig吸引自行加入的，覺得小羊很佛心，都是不藏私的分享，重點是買完都沒有後悔過～</div>
     <div class="rv-footer"><span class="rv-name">Rainbow</span></div>
   </div>
-</div>
 
-<!-- 📋 彈出式填寫表單視窗 (預設隱藏) -->
-<div id="reviewModal" class="rv-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
-  <div class="rv-modal-content" style="background:#fff; padding:25px; border-radius:16px; width:90%; max-width:450px; box-sizing:border-radius; position:relative;">
-    <h3 style="margin-top:0; margin-bottom:15px;">留下你的跟團回饋</h3>
-    <form id="reviewForm" onsubmit="submitReview(event)">
-      <div style="margin-bottom:12px;">
-        <label style="display:block; font-size:14px; margin-bottom:4px;">跟團項目</label>
-        <select id="formTag" required style="width:100%; padding:8px; border:1px solid #ccc; border-radius:6px;">
-          <option value="QA水瓶">QA水瓶</option>
-          <option value="沐甄豆饅頭">沐甄豆饅頭</option>
-          <option value="斯巴達清潔劑">斯巴達清潔劑</option>
-          <option value="My Creative Box">My Creative Box</option>
-          <option value="跟團推薦">跟團推薦</option>
-        </select>
-      </div>
-      <div style="margin-bottom:12px;">
-        <label style="display:block; font-size:14px; margin-bottom:4px;">暱稱</label>
-        <input type="text" id="formName" required placeholder="例如：漂亮媽媽" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;">
-      </div>
-      <div style="margin-bottom:15px;">
-        <label style="display:block; font-size:14px; margin-bottom:4px;">真心回饋內容</label>
-        <textarea id="formText" required rows="4" placeholder="寫下你的真實使用心得..." style="width:100%; padding:8px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box; resize:none;"></textarea>
-      </div>
-      <div style="display:flex; gap:10px; justify-content:flex-end;">
-        <button type="button" onclick="closeReviewForm()" style="padding:8px 16px; border:1px solid #ccc; background:#fff; border-radius:6px; cursor:pointer;">取消</button>
-        <button type="submit" style="padding:8px 16px; background:#ff6b6b; color:#fff; border:none; border-radius:6px; cursor:pointer;">送出回饋</button>
-      </div>
-    </form>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">商品實測非常用心，不管是優點還是缺點都有最真實的評價，讓做為消費者的我們購買起來很安心 🙏</div>
+    <div class="rv-footer"><span class="rv-name">小檸檬媽媽</span></div>
   </div>
-</div>
 
-<script>
-let currentPage = 0;
-const itemsPerPage = 5;
-let rotationInterval;
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">大家的留言幾乎都會回覆！！！能優惠的都回饋給我們了，產品優缺都不藏🤣謝謝小羊的用心分享😍</div>
+    <div class="rv-footer"><span class="rv-name">YC</span></div>
+  </div>
 
-// 1. 打開與關閉表單
-function openReviewForm() {
-  document.getElementById("reviewModal").style.display = "flex";
-}
-function closeReviewForm() {
-  document.getElementById("reviewModal").style.display = "none";
-  document.getElementById("reviewForm").reset();
-}
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">很用心在經營群組，商品的優缺點都講出來～（真的非常實在😆）每次的分享文章，都能感受到你的用心 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">Fish 🐟</span></div>
+  </div>
 
-// 2. 當使用者提交留言時觸發
-function submitReview(event) {
-  event.preventDefault(); // 阻止網頁刷新
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">超喜歡跟你的團，售後服務一級棒👍 反正你都會幫我們把關好，無腦跟就對了😂</div>
+    <div class="rv-footer"><span class="rv-name">Mia</span></div>
+  </div>
 
-  const tag = document.getElementById("formTag").value;
-  const name = document.getElementById("formName").value;
-  const text = document.getElementById("formText").value;
-  const listContainer = document.getElementById("rvList");
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">用心在經營群組，商品的優缺點都講出來，真的非常實在！每次的分享文章都讓我們買得超放心 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">小檸檬媽媽</span></div>
+  </div>
 
-  // 建立新留言的 HTML 卡片
-  const newCard = document.createElement("div");
-  newCard.className = "rv-card";
-  newCard.style.border = "2px solid #ff6b6b"; // 給新留言一個亮色邊框凸顯它
-  newCard.innerHTML = `
-    <div class="rv-card-top"><div class="rv-brand-tag">${tag}</div><div class="rv-stars">★★★★★</div></div>
-    <div class="rv-text">${text}</div>
-    <div class="rv-footer"><span class="rv-name">${name}</span></div>
-  `;
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">第一次是買過防曬棒、防蚊液，薯媽介紹超詳細，防曬棒用起來涼涼的很好塗；另廠商出貨有誤，薯媽超快幫忙解決，跟小羊的團很放心 👍</div>
+    <div class="rv-footer"><span class="rv-name">Ni</span></div>
+  </div>
 
-  // 🚀 關鍵核心：將新卡片插入到清單的最前面（頂部）
-  listContainer.insertBefore(newCard, listContainer.firstChild);
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過雨傘、Lassig背包 兩個都是觀望很久的產品，看了小羊的實測、實用分享，就決定下單，果然都很實用 👍，完全沒有智商稅的問題 😂</div>
+    <div class="rv-footer"><span class="rv-name">Harn</span></div>
+  </div>
 
-  // 關閉表單，切換到第 0 頁（最新一頁），並重新計算分頁與重啟輪播
-  closeReviewForm();
-  currentPage = 0;
-  updateReviewPagination();
-  startAutoRotation();
-  
-  // 輕輕滾動到回饋區頂端讓使用者看到成果
-  newCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">小羊的群組好可怕，總是因為小羊用心的介紹跟分享而買了原本不在計畫的東西🤣🤣🤣 但真的買了沒有後悔的，還會得到家人的肯定🤗 也很感謝小羊貼心幫湊團，讓戰力普普的我也能讓寶寶家人玩到吃到用到好東西 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">ML</span></div>
+  </div>
 
-// 3. 處理「每頁5個」與分頁點控制的渲染
-function updateReviewPagination() {
-  const cards = document.querySelectorAll("#rvList .rv-card");
-  const dotsContainer = document.getElementById("rvDots");
-  const totalPages = Math.ceil(cards.length / itemsPerPage);
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">薯條媽真的超級用心❤️ 每次很糾結的時候就會忍不住發問，三言兩語就可以突破我的盲腸🤣🤣 育兒路上的好夥伴 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">草莓</span></div>
+  </div>
 
-  // 隱藏所有卡片，只顯示當前頁面的 5 個
-  cards.forEach((card, index) => {
-    const startIdx = currentPage * itemsPerPage;
-    const endIdx = startIdx + itemsPerPage;
-    if (index >= startIdx && index < endIdx) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">很喜歡看你真心分享，還有很多沒注意的細節，你都一併無私分享，真的很棒～一開始追也因為我的孩和薯條年紀相仿，也大概3Y，看著薯條成長，同時也看著我自己的孩成長，雲端阿姨也祝薯條健健康康、快快樂樂長大喔</div>
+    <div class="rv-footer"><span class="rv-name">Peary</span></div>
+  </div>
 
-  // 重新繪製分頁小圓點
-  dotsContainer.innerHTML = "";
-  for (let i = 0; i < totalPages; i++) {
-    const dot = document.createElement("div");
-    dot.className = `rv-dot ${i === currentPage ? "active" : ""}`;
-    // 若原 CSS 有對 .rv-dot 做樣式，此處可直接生效。以下補強點擊事件：
-    dot.style.cursor = "pointer";
-    dot.addEventListener("click", () => {
-      currentPage = i;
-      updateReviewPagination();
-      startAutoRotation(); // 點擊後重新計時輪播
-    });
-    dotsContainer.appendChild(dot);
-  }
-}
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過果乾、被子、書本 書本超讚，太陽都很買單，而且內容也都不錯👍 果乾，真的很刷嘴，一口接一口 被子，買來很適合南部天氣，都不會怕熱 電風扇，使用率超高，每天晚上搭配被子，超級涼🤣</div>
+    <div class="rv-footer"><span class="rv-name">Ching</span></div>
+  </div>
 
-// 4. 自動定時輪播功能
-function startAutoRotation() {
-  clearInterval(rotationInterval);
-  rotationInterval = setInterval(() => {
-    const cards = document.querySelectorAll("#rvList .rv-card");
-    const totalPages = Math.ceil(cards.length / itemsPerPage);
-    if (totalPages <= 1) return;
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">跟團推薦</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過雨傘 寶寶泳裝森林麵 商品影片都很用心，就會不知不覺拿出魔法小卡下單啦🤣</div>
+    <div class="rv-footer"><span class="rv-name">薑</span></div>
+  </div>
 
-    currentPage = (currentPage + 1) % totalPages;
-    updateReviewPagination();
-  }, 4000); // 每 4 秒自動切換下一頁
-}
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">第一次買過冰冰被👍 女兒很滿意，終於會蓋被子了💕 後來一直問薯媽還能不能訂床單，超開心開團讓我加～ 睡覺時真的超舒服的，有冰冰被、床單又冰涼～全家整夜都好眠！</div>
+    <div class="rv-footer"><span class="rv-name">黑糖</span></div>
+  </div>
 
-// 頁面初始化載入
-document.addEventListener("DOMContentLoaded", () => {
-  updateReviewPagination();
-  startAutoRotation();
-});
-</script>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過冰冰被 真的超涼又舒服超好用 小孩睡得不流汗還很喜歡 都不能給她拿走</div>
+    <div class="rv-footer"><span class="rv-name">靈芝</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過冰冰被、床包 冰冰被蓋起來超涼超舒服，兒子喜歡到不分給家人蓋 床包吸水力很好，兒子不小心打翻水彈簧床一點都沒濕</div>
+    <div class="rv-footer"><span class="rv-name">小檸檬媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過冰冰被還有保潔墊！冰冰被超舒服，兒子一直搶去蓋🤣</div>
+    <div class="rv-footer"><span class="rv-name">LoLooooo</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過冰冰被，孕期體溫高，擁抱棉被好幸福🥰 材質真的很棒，摸起來柔軟，蓋起來很舒服不悶熱</div>
+    <div class="rv-footer"><span class="rv-name">琦琦</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">LÄSSIG</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過LÄSSIG泳裝，花色款式超多元，一到貨馬上去海邊沙灘玩！斗篷浴巾也好用，泳課上完馬上包起來不怕著涼～</div>
+    <div class="rv-footer"><span class="rv-name">Chen</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">LÄSSIG</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過Lassig寶寶泳褲和斗篷，喜歡小羊中肯推薦，收到實物也很喜歡 ❤️ 雖然還沒帶寶寶去泳池、但隔天寶寶洗完澡立刻抓來試穿了哈哈哈😆</div>
+    <div class="rv-footer"><span class="rv-name">ML</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">LÄSSIG</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過LÄSSIG泳裝，泳褲自帶尿布真的蠻方便，且不需買整套可以自由搭配，非常百搭👍</div>
+    <div class="rv-footer"><span class="rv-name">ww</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">Mycell電扇</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過Mycell電扇，比價一輪這裡最便宜，後來還揪團大買一波👍😆 真的很實用也很牢固，出門必帶</div>
+    <div class="rv-footer"><span class="rv-name">捲捲</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">Mycell電扇</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">跟團買過Mycell的電風扇，好用到買兩台來輪替著，外出家裡都好用👍 當媽媽後很愛比價小羊的團購價還比蝦皮便宜🤣🤣</div>
+    <div class="rv-footer"><span class="rv-name">Yunlin</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芝麻粉</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">買過芝麻粉～真的超細 跟奶粉一樣細 每開團必補貨～</div>
+    <div class="rv-footer"><span class="rv-name">蘇瓏瓏</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">啵貝寶寶霜</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">跟團買過啵貝寶寶霜 我與小孩都有冬季癢的問題，用過多牌乳液（效果一般般），看小孩抓的到處傷痕纍纍（心疼不已）看薯媽/小羊用心介紹🥰 決定買來試試～～ 而且商品組合超讚！！有小瓶裝就是方便🥰</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">屁屁噴</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我最愛的是屁屁噴～一直都愛用，偶然看到薯媽的價格真的好優惠，已經跟了第二次 ❤️ 感謝薯媽開團</div>
+    <div class="rv-footer"><span class="rv-name">新竹-Zoe</span></div>
+  </div>
+
+  <!-- 芒狗狗繪本 ×6 -->
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">目前因為寶寶還小，芒狗狗的繪本還沒讓他自己閱讀，但是有試著共讀過幾次，他已經聽得懂「芒狗狗」了，只要我說「芒狗狗呢」他就會手指著書櫃 🤣</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">還有還有～芒狗勾可愛的繪本，兒子也超喜歡！！每晚一定要找至少一本書聽完才要去睡覺 😴</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">芒狗狗買 5 本，我有再去圖書館借 2 本，幾乎每天要唸一輪</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">女兒在學校也很喜歡芒狗狗的書，本來想說不要跟學校重複買，但看到理財的系列很心動還是買了！說故事時間都要指定芒狗狗，還因為上學魔法那本說想去幼兒園（本來都說不要），謝謝小羊開團 🧡</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我也是被芒狗狗圈粉，自己揪朋友共買 10 本 😂😂😂 小孩真的還小～但媽媽好愛 ❤️</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">芒狗狗繪本</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">分享一下昨天我終於見到芒狗狗 😆😆，兒子立馬去拿他的存錢筒學狗狗存錢</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+
+  <!-- 蘋果洋蔥水 ×7 -->
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">蘋果洋蔥水也是沒之前就要補貨，每次生病都靠這個取代睡前奶小孩才不會爆炸 😆</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">🍎🧅水 小朋友看到包裝就知道有好喝的，就會開始狗腿瘋狂說謝謝 😂 小孩喜愛度 ⭐⭐⭐⭐⭐</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">洋蔥蘋果水根本就是媽咪孩子的救星，成分單純份量很足，孩子們有感冒症狀時就每天給一包，感冒症狀真的差很多，好的也比較快，激推</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">我蘋果洋蔥水馬上取貨試喝了！第一次試喝就是蘋果味，洋蔥是那種煮過剩淡淡的甜味，我兒子一歲多可以接受，不排斥的喝光了～</div>
+    <div class="rv-footer"><span class="rv-name">社群媽媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">今天兒子試喝完畢接受度還不錯，一開始淺淺喝一口，後來就自己一直拿起來喝。我自己喜歡熱熱喝，蘋果味重一點，味道比較平衡</div>
+    <div class="rv-footer"><span class="rv-name">ww</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">而且我剛剛才知道原來愛X容量這麼少耶 🤣 難怪我兒子每次喝完都說怎麼只有一點點</div>
+    <div class="rv-footer"><span class="rv-name">嫻</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">蘋果洋蔥水</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">今天試喝蘋果洋蔥飲，兩個孩子一開始有點排斥，結果兩人嚐了一小口之後竟然立刻秒喝完 😂 重點成分很單純，沒有其他添加物，媽媽可以偷懶不用煮 🤣</div>
+    <div class="rv-footer"><span class="rv-name">Hsuan</span></div>
+  </div>
+
+  <!-- 韋恩寢具 ×3 -->
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">謝謝小羊推薦，棉花糖被真的好蓬鬆，我家妹妹好喜歡</div>
+    <div class="rv-footer"><span class="rv-name">皮媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">天絲床包真的好划算，找了好幾家價格都要 2.3 倍，棉花糖被真的質感好好</div>
+    <div class="rv-footer"><span class="rv-name">鹿媽</span></div>
+  </div>
+  <div class="rv-card">
+    <div class="rv-card-top"><div class="rv-brand-tag">韋恩寢具</div><div class="rv-stars">★★★★★</div></div>
+    <div class="rv-text">今天竟然就收到了！摸起來很滿意超舒服～價錢是我找其他家的快一半，太開心了 🐣 我家的寢具也是認識這家後全都換成他們家的，有夠舒服 😌</div>
+    <div class="rv-footer"><span class="rv-name">希希媽</span></div>
+  </div>
+
 </div>
 </div>
 
