@@ -237,17 +237,20 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .ssl-title{font-family:"Noto Serif TC",serif;font-size:1rem;font-weight:600;color:var(--dark)}
 .ssl-sub{font-size:.7rem;color:#9a9895;margin-left:auto;flex-shrink:0}
 
-.gb-cards{display:flex;flex-direction:column;gap:12px;margin-bottom:6px}
+.gb-cards{display:flex;flex-direction:column;gap:12px;margin-bottom:6px;padding:4px 2px}
 
 /* live deal card */
 .gb-card{
- background:#fff;border-radius:20px;
+ background:rgba(255,255,255,.72);
+ backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+ border-radius:20px;
  overflow:hidden;
- box-shadow:0 2px 14px rgba(0,0,0,.07);
- border:1.5px solid #eee;
- transition:transform .22s,box-shadow .22s;
+ box-shadow:0 4px 20px rgba(0,0,0,.09);
+ border:1.5px solid rgba(255,255,255,.85);
+ transition:transform .28s cubic-bezier(.34,1.56,.64,1),box-shadow .28s;
+ cursor:pointer;
 }
-.gb-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.gb-card:hover,.gb-card:active{transform:scale(1.028) translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.15)}
 
 .gb-card-top{
  padding:14px 14px 0;
@@ -288,14 +291,24 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 }
 .gb-end-date{font-size:.67rem;color:#aaa}
 .gb-end-date span{color:var(--g);font-weight:700}
+@keyframes btn-shake{
+ 0%{transform:scale(1.08) rotate(0deg)}
+ 20%{transform:scale(1.1) rotate(-4deg)}
+ 40%{transform:scale(1.1) rotate(4deg)}
+ 60%{transform:scale(1.1) rotate(-3deg)}
+ 80%{transform:scale(1.1) rotate(2deg)}
+ 100%{transform:scale(1.08) rotate(0deg)}
+}
 .gb-btn{
  padding:8px 18px;border-radius:100px;
  font-size:.75rem;font-weight:700;
  text-decoration:none;color:#fff;
  background:var(--r);
- transition:background .2s,transform .2s;flex-shrink:0;
+ transition:background .2s,transform .15s;flex-shrink:0;
+ display:inline-block;
 }
-.gb-btn:hover{background:#b52b31;transform:scale(1.04)}
+.gb-btn:hover,.gb-btn:active{background:#b52b31;animation:none}
+.gb-btn:hover{animation:btn-shake .5s cubic-bezier(.36,.07,.19,.97) both}
 
 /* upcoming card */
 .uc-card{
@@ -414,18 +427,18 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
  background:#fff;border:1.5px solid #e8e8e4;
  text-decoration:none;color:var(--dark);transition:transform .2s,box-shadow .2s,border-color .2s,background .2s;
 }
-.lc:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,.07)}
+.lc:hover,.lc:active{transform:translateY(-2px) scale(1.012);box-shadow:0 5px 18px rgba(0,0,0,.09)}
 .lc-o{border-left:4px solid var(--y)}.lc-o:hover{background:var(--ys);border-color:var(--y)}
 .lc-y{border-left:4px solid var(--y)}.lc-y:hover{background:var(--ys);border-color:var(--y)}
 .lc-b{border-left:4px solid var(--y)}.lc-b:hover{background:var(--ys);border-color:var(--y)}
-.lc-s{border-left:4px solid var(--g)}.lc-s:hover{background:var(--ys);border-color:var(--g)}
+.lc-s{border-left:4px solid var(--g)}.lc-s:hover,.lc-s:active{background:#f0f0ee;border-color:var(--g)}
 .ci{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
 .ci-o{background:var(--ys)}.ci-y{background:var(--ys)}.ci-b{background:var(--ys)}.ci-s{background:var(--ys)}
 .lct{flex:1;min-width:0}
 .lct-name{font-size:.82rem;font-weight:500;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lct-sub{font-size:.67rem;color:#9a9895;margin-top:2px}
-.badge{flex-shrink:0;font-size:.58rem;font-weight:700;letter-spacing:.05em;padding:3px 8px;border-radius:100px;text-transform:uppercase}
-.b-o{background:var(--y);color:var(--dark)}.b-b{background:var(--g);color:#fff}.b-s{background:var(--g);color:#fff}.b-y{background:var(--y);color:var(--dark)}
+.badge{flex-shrink:0;font-size:.6rem;font-weight:800;letter-spacing:.05em;padding:4px 10px;border-radius:100px;text-transform:uppercase}
+.b-o{background:var(--y);color:var(--dark)}.b-b{background:var(--g);color:#fff}.b-s{background:var(--r)!important;color:#fff!important;transition:transform .2s,box-shadow .2s}.b-s:hover,.b-s:active{transform:scale(1.08);box-shadow:0 4px 12px rgba(220,56,63,.35)}.b-y{background:var(--y);color:var(--dark)}
 .arr{color:#d0d0cc;font-size:.85rem;flex-shrink:0}
 .lc:hover .arr{color:var(--g)}
 .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -664,10 +677,10 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 <!-- 📦 統一開團資料庫 (隱藏不顯示) -->
 <div id="all-gb-items" style="display: none;">
   <div class="uc-card" data-name="QA水瓶" data-start="2026-11-02" data-end="2026-11-08" data-icon="ph-drop" data-bg="var(--ys)" data-link="https://theliquid.my1shop.com/n1ki5e" data-desc="QA隨行水瓶，實用美觀都在線"></div>
-  <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-bg="#F0F8FF" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮Q餡飽滿、湯頭鮮美超級好吃"></div>
+  <div class="uc-card" data-name="食光弄堂上海大餛飩" data-start="2026-11-09" data-end="2026-11-15" data-icon="ph-bowl-food" data-bg="#F0F8FF" data-link="網址" data-desc="食光弄堂經典上海大餛飩，皮薄餡飽滿超級好吃"></div>
   <div class="uc-card" data-name="Zip Top保鮮盒" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-package" data-bg="#E6FFE6" data-link="https://www.pinyan.com.tw/pages/shu-tiao1116" data-desc="美國Zip Top白金矽膠環保矽膠袋保鮮盒，可站立、好清洗，微波加熱與冰箱收納的好幫手"></div>
   <div class="uc-card" data-name="沐甄豆豆漿饅頭" data-start="2026-11-16" data-end="2026-11-22" data-icon="ph-cookie" data-bg="#FFF9E6" data-link="網址" data-desc="不加一滴水優質濃豆漿製作，口感扎實Q彈、豆香濃郁，真材實料的健康美味"></div>
-  <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-paint-brush" data-bg="#F9E6FF" data-link="網址" data-desc="創意手作訂閱盒，每月驚喜！讓孩子動手做，激發無限想像力"></div>
+  <div class="uc-card" data-name="My Creative Box" data-start="2026-11-23" data-end="2026-11-29" data-icon="ph-paint-brush" data-bg="#F9E6FF" data-link="網址" data-desc="一盒什麼都有，不用擔心湊素材~創意手作寶盒！讓孩子動手做，激發無限想像力"></div>
 </div>
 <script>
 (function() {
@@ -1144,7 +1157,7 @@ function startOngoingTimer(name, endDateTime) {
   <a class="lc lc-s" href="https://line.me/ti/g2/64mkpVAvibHi1Ya-jQI7-lsA2s4Co7du4wMyTQ" target="_blank">
    <div class="ci ci-s"><i class="ph-bold ph-hands-clapping"></i></div>
    <div class="lct"><div class="lct-name">蕃薯丸選物｜LINE 社群</div><div class="lct-sub">跟著幼師聊育兒選好物</div></div>
-   <span class="badge b-s">加入</span><span class="arr">›</span>
+   <span style="flex-shrink:0;font-size:.6rem;font-weight:800;padding:5px 12px;border-radius:100px;background:#DC383F;color:#fff;letter-spacing:.05em">加入</span><span class="arr">›</span>
   </a>
   <a class="lc lc-s" href="https://www.pixnet.net/pcard/bella800924" target="_blank">
    <div class="ci ci-s"><i class="ph-bold ph-pencil-line"></i></div>
@@ -1197,6 +1210,18 @@ function launchConfetti() {
   }
 }
 var _hc = 0, _danceTimer = null;
+// Touch support for gb-cards
+document.querySelectorAll('.gb-card').forEach(function(card){
+  card.addEventListener('touchstart', function(){
+    this.style.transform='scale(1.028) translateY(-2px)';
+    this.style.boxShadow='0 12px 32px rgba(0,0,0,.15)';
+  }, {passive:true});
+  card.addEventListener('touchend', function(){
+    var el = this;
+    setTimeout(function(){ el.style.transform=''; el.style.boxShadow=''; }, 300);
+  }, {passive:true});
+});
+
 document.getElementById('avatarBtn').addEventListener('click', function() {
   _hc++;
   var btn = document.getElementById('avatarBtn');
@@ -1579,7 +1604,17 @@ tabs.forEach(function(btn) {
   btn.classList.add('active');
   document.getElementById('p-' + btn.dataset.tab).classList.add('active');
   updateInd();
-  window.scrollTo(0, 0);
+  if (btn.dataset.tab === 'shop') {
+    window.scrollTo(0, 0);
+    setTimeout(function(){
+      var cg = document.getElementById('current-group-container');
+      if (cg && cg.children.length > 0) {
+        cg.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    }, 80);
+  } else {
+    window.scrollTo(0, 0);
+  }
  });
 });
 setTimeout(updateInd, 50);
@@ -1932,7 +1967,7 @@ setInterval(renderRandom5, 5000);
         <input id="rvInputName" type="text" placeholder="ex. 小羊、薯條媽" maxlength="20">
       </div>
       <div class="rv-modal-field">
-        <label>這次跟的哪個團？</label>
+        <label>這次跟哪個團？</label>
         <input id="rvInputBrand" type="text" placeholder="ex. QA水瓶、雪松、寢具" maxlength="30">
       </div>
       <div class="rv-modal-field">
