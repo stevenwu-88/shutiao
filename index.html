@@ -609,6 +609,64 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
 .gb-btn.gb-btn-lastday {animation:gb-lastday-bounce 2.4s ease-in-out infinite!important;box-shadow:0 3px 12px rgba(220,56,63,.3)}
 .gb-btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.gb-btn.gb-btn-lastday{animation:none!important}}
+
+/* 好物推薦：緊湊三欄版 */
+.picks-grid {
+  gap: 7px;
+  align-items: start;
+}
+
+.picks-grid .pk-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.picks-grid .pk-body {
+  padding: 8px 7px 9px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.picks-grid .pk-tag {
+  align-self: flex-start;
+  white-space: nowrap;
+  font-size: .55rem;
+  letter-spacing: -.035em;
+  padding: 2px 5px;
+  max-width: 100%;
+}
+
+.picks-grid .pk-name {
+  font-size: .78rem;
+  line-height: 1.3;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.picks-grid .pk-desc {
+  font-size: .66rem;
+  line-height: 1.35;
+  margin-bottom: 7px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.picks-grid .pk-btn {
+  margin-top: auto;
+  padding: 7px 4px;
+  font-size: .68rem;
+}
+
 </style>
 </head>
 <body>
