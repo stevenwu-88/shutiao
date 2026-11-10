@@ -749,31 +749,6 @@ body{background:var(--c);color:var(--dark);font-family:"Noto Sans TC",sans-serif
   // 防止重複載入防護鎖
   if (window.hasGbInitialized) return;
   window.hasGbInitialized = true;
-// carousel logic
-function initCarousels() {
-  document.querySelectorAll('.gb-car-dot').forEach(function(dot) {
-    dot.addEventListener('click', function() {
-      var carId = this.getAttribute('data-car');
-      var idx = parseInt(this.getAttribute('data-i'));
-      var car = document.getElementById(carId);
-      if (!car) return;
-      car.querySelectorAll('.gb-car-img').forEach(function(img,i){ img.classList.toggle('active', i===idx); });
-      car.querySelectorAll('.gb-car-dot').forEach(function(d,i){ d.classList.toggle('on', i===idx); });
-    });
-  });
-  // auto-advance
-  document.querySelectorAll('.gb-carousel').forEach(function(car) {
-    var idx = 0;
-    setInterval(function() {
-      var imgs = car.querySelectorAll('.gb-car-img');
-      var dots = car.querySelectorAll('.gb-car-dot');
-      if (imgs.length === 0) return;
-      idx = (idx + 1) % imgs.length;
-      imgs.forEach(function(img,i){ img.classList.toggle('active', i===idx); });
-      dots.forEach(function(d,i){ d.classList.toggle('on', i===idx); });
-    }, 2500);
-  });
-}
 // 輪播交由唯一團購渲染器初始化
 
 
@@ -848,7 +823,7 @@ function initCarousels() {
           const remaining=Math.max(0,endTimestamp(end)-Date.now());
           const values=[Math.floor(remaining/86400000),Math.floor(remaining%86400000/3600000),Math.floor(remaining%3600000/60000),Math.floor(remaining%60000/1000)];
           values.forEach((v,i)=>nums[i].textContent=String(v).padStart(2,'0'));
-          if(remaining===0) renderDeals(true);
+          if(remaining===0 && todayTW() !== today) renderDeals();
         };
         update();
         timers.push(setInterval(update,1000));
